@@ -1,0 +1,60 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <base href="http://localhost:1100/">
+    <title>000.gator-show</title>
+
+    <link type="text/css" rel="stylesheet" href="./css/goldenlayout-base.css" />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/goldenlayout-light-theme.css"
+    />
+
+    <link href="./css/990.surface.css" rel="stylesheet" />
+    <link href="./css/spectre.min.css" rel="stylesheet" />
+
+    <style>
+      div {
+        opacity: 1;
+        transition: opacity 5s;
+        -webkit-transition: opacity 5s;
+      }
+      div.fade {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body id="body" style="background-color: white">
+    <div id="container" class="container"></div>
+
+    <script type="text/javascript" src="./jsx/jquery-1.11.1.min.js">
+    </script>
+
+<script>
+  
+  try {
+    if ( require != null ){
+    window.$ = window.jquery = require("jquery");
+  }
+  }catch(e){
+    console.log('no req ')
+  }
+  
+</script>
+
+
+    <script src="./jsx/goldenlayout.min.js"></script>
+
+     <script src="./800.hypertext.js"></script>
+     <script src="./820.canvas.js"></script>
+     <script src="./825.hexmap.js"></script>
+     <script src="./840.window.js"></script>
+     <script src="./900.browser.js"></script>
+     <script src="./995.womb.js"></script>
+     
+  </body>
+</html>

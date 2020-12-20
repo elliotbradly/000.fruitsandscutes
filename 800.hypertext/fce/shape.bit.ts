@@ -1,0 +1,29 @@
+export default interface ShapeBit {
+  idx?: string;
+  src?: string;
+  dex?: number;
+  name?: string;
+  nom?: string;
+  type?: string;
+  beeing?: string;
+  body?: string;
+  ctrl?: string;
+  forc?: string;
+  trct?: string;
+  mass?: string;
+  mind?: string;
+  lgic?: string;
+  wits?: string;
+  rslv?: string;
+  memo?: string;
+  love?: string;
+  awre?: string;
+  vizn?: string;
+  post?: string;
+  styl?: string;
+  srce?: string;
+  klou?: string;
+  flow?: string;
+  grit?: string;
+  byte?: string;
+}

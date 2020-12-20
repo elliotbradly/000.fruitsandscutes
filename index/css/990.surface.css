@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "KarlaReg"; /*a name to be used later*/
+  src: url("../fnt/Karla/Karla-Regular.ttf"); /*URL to font*/
+}
+
+p {
+  font-size: 16px; /* Silence is golden; implicity 1em. */
+  line-height: 1.5;
+  font-family: "KarlaReg";
+  text-align: left;
+  text-indent: 1.5em;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+p:first-letter {
+  font-family: "KarlaReg";
+  font-size: 22px;
+  line-height: 0; /* The line-height must be adjusted to compensate for the increased font size, otherwise the leading for the overall line is disrupted. I find that any values below 0.4 work. */
+}

@@ -1,0 +1,17 @@
+000.main : 000.bee-base, 001.gator-sim, 002.gator-show, 003.birth-place, 004.art-supply
+115.hexagon : 001.gator-sim
+299.wyld : 001.gator-sim
+555.law : 001.gator-sim
+650.disk : 001.gator-sim
+670.crowd : 001.gator-sim
+700.live : 001.gator-sim
+722.see : 001.gator-sim
+733.portal : 001.gator-sim
+800.hypertext : 000.bee-base, 002.gator-show, 003.birth-place, 004.art-supply
+820.canvas : 000.bee-base, 002.gator-show, 003.birth-place, 004.art-supply
+825.hexmap : 000.bee-base, 002.gator-show, 003.birth-place, 004.art-supply
+840.window : 000.bee-base, 002.gator-show, 003.birth-place, 004.art-supply
+900.browser : 000.bee-base, 002.gator-show, 003.birth-place, 004.art-supply
+930.aero : 000.bee-base, 002.gator-show, 003.birth-place, 004.art-supply
+993.lab : 000.bee-base, 002.gator-show, 004.art-supply
+995.womb : 003.birth-place

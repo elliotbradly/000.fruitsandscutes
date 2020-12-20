@@ -1,0 +1,34 @@
+export const init{{=it.title}} = (cpy: {{=it.title}}Model, bal:{{=it.bitTitle}}, ste: State) => {
+  debugger
+  return cpy;
+};
+
+export const update{{=it.title}} = (cpy: {{=it.title}}Model, bal:{{=it.bitTitle}}, ste: State) => {
+  return cpy;
+};
+
+var query = (ste, pvt, hrk) => {
+  var val = ste.value.title[pvt].query(hrk);
+  if (val == null) return console.error("no val for " + pvt + " : " + hrk);
+  return val;
+};
+
+var patch = (ste, type, bale) => ste.dispatch({ type, bale });
+
+var pivot = (ste, pvt, hke, mth, dat?) => {
+  ste.dispatch({
+    type: ActTtl.PULL_PIVOT,
+    bale: {
+      pvt,
+      hke,
+      mth,
+      dat,
+    },
+  });
+};
+
+import { {{=it.title}}Model } from "../{{=it.nom}}.model";
+import {{=it.title}}Bit from "../fce/{{=it.nom}}.interface";
+import State from "../../00.core/state";
+import * as ActTtl from "../../00.core/title/title.action";
+

@@ -1,0 +1,347 @@
+0346_20799:24189:0791:1665_05:55:53 December 6th Sunday am 2020 ~ created-shore
+0345_12109:14177:0602:0845_05:46:10 November 27th Friday am 2020 ~ does-this-work
+0344_25912:29712:0921:1769_09:55:41 November 26th Thursday am 2020 ~ see-the-soap-box-and-bang-feet-on-chair
+0343_25906:29706:0921:1769_09:45:37 November 26th Thursday am 2020 ~ open-the-soap-box
+0342_24539:28234:0903:1638_08:57:33 November 21st Saturday am 2020 ~ let-us-get-this-party-started
+0341_24081:27768:0907:1571_06:50:46 November 18th Wednesday pm 2020 ~ moving-closer
+0340_23410:27001:0904:1482_08:05:02 November 18th Wednesday am 2020 ~ morning-advancement
+0339_23511:27102:0898:1484_07:42:42 November 17th Tuesday am 2020 ~ we-are-operational-once-more
+0338_23508:27087:0895:1484_07:06:25 November 17th Tuesday am 2020 ~ long-painful-trip
+0337_23007:26540:0893:1439_11:35:27 November 8th Sunday pm 2020 ~ colored-plans
+0336_22976:26509:0893:1439_04:53:30 November 8th Sunday pm 2020 ~ show-much-conflict
+0335_22283:25730:0889:1350_03:44:21 November 7th Saturday pm 2020 ~ backend-talking-to-the-front-end
+0334_22168:25601:0888:1341_09:10:23 November 7th Saturday am 2020 ~ layout-is-a-real-pain-in-the-butt
+0333_22110:25531:0891:1341_01:21:54 October 31st Saturday pm 2020 ~ custom-routes
+0332_22074:25498:0891:1341_11:37:35 October 31st Saturday am 2020 ~ added-new-browser
+0331_19929:23128:0852:1123_08:14:27 October 10th Saturday am 2020 ~ added-aero
+0330_18702:21678:0844:0990_06:59:53 October 9th Friday am 2020 ~ rendering-hex-map
+0329_18622:21557:0842:0990_07:49:30 October 8th Thursday am 2020 ~ feel-so-bad
+0328_18676:21624:0846:0990_06:06:21 October 8th Thursday am 2020 ~ we-have-a-grid
+0327_18676:21613:0843:0990_05:00:46 October 7th Wednesday pm 2020 ~ have-to-wait-till-tommorow
+0326_18583:21517:0843:0983_07:58:15 October 7th Wednesday am 2020 ~ well-it-throws-no-errors
+0325_17762:20575:0824:0886_07:42:37 October 5th Monday am 2020 ~ resizing-of-canvas-panels-working
+0324_17742:20541:0819:0886_07:44:45 October 4th Sunday pm 2020 ~ how-long-can-you-go
+0323_18932:21878:0872:0885_08:48:49 October 3rd Saturday am 2020 ~ major-code-clean-up
+0322_19058:21703:0789:0918_03:01:42 September 26th Saturday pm 2020 ~ added-api-copy
+0321_18575:21159:0789:0851_02:08:48 September 26th Saturday pm 2020 ~ tube-away
+0320_18130:20636:0769:0837_01:19:14 September 26th Saturday pm 2020 ~ more-fine-stuff
+0319_17965:20454:0761:0835_01:16:49 September 26th Saturday pm 2020 ~ now-line-count
+0318_17690:20132:0747:0834_01:15:30 September 26th Saturday pm 2020 ~ creates-units
+0317_17587:20029:0750:0830_10:04:18 September 26th Saturday am 2020 ~ major-code-clean-up
+0316_17589:20031:0750:0830_10:02:26 September 26th Saturday am 2020 ~ major-code-clean-up
+0315_17587:20029:0750:0830_09:58:31 September 26th Saturday am 2020 ~ major-code-clean-up
+0314_24637:27818:0847:0945_08:31:24 September 22nd Tuesday pm 2020 ~ added-new-html-process
+0313_24633:27814:0847:0944_05:16:19 September 22nd Tuesday pm 2020 ~ mirror-mirror-on-the-wall
+0312_24602:27779:0845:0944_04:24:17 September 22nd Tuesday pm 2020 ~ alligator-alligator-alligator
+0311_24560:27746:0844:0944_08:01:55 September 22nd Tuesday am 2020 ~ ready-to-add-elements
+0310_24499:27657:0844:0944_07:08:29 September 22nd Tuesday am 2020 ~ adding-some-columns
+0309_24448:27606:0844:0943_06:26:52 September 21st Monday pm 2020 ~ we-got-some-windows
+0308_24392:27548:0843:0943_05:13:52 September 21st Monday pm 2020 ~ let-us-start-a-design
+0307_23812:26916:0843:0870_04:37:08 September 21st Monday pm 2020 ~ added-design
+0306_24637:27921:0839:0908_04:12:49 September 19th Saturday pm 2020 ~ adding-pivots
+0305_26163:29715:0845:1040_01:52:21 September 19th Saturday pm 2020 ~ where-are-we-now
+0304_17448:19909:0791:0673_04:56:09 September 16th Wednesday pm 2020 ~ got-the-root
+0303_16555:18888:0764:0615_07:10:47 September 11th Friday pm 2020 ~ it-has-been-a-while-since-we-talked
+0302_16566:18949:0778:0614_05:34:40 September 11th Friday pm 2020 ~ it-has-been-a-while-since-we-talked
+0301_16459:18792:0764:0614_08:09:32 September 9th Wednesday am 2020 ~ where-to-next
+0300_16452:18772:0762:0614_08:59:25 September 8th Tuesday am 2020 ~ holiday-over
+0299_16342:18643:0757:0614_05:39:06 September 7th Monday pm 2020 ~ kina-working
+0298_16270:18652:0782:0614_10:00:36 September 7th Monday am 2020 ~ refining
+0297_20431:23214:0838:0739_09:11:59 September 7th Monday am 2020 ~ lexicon-nav-in
+0296_20191:22964:0834:0727_07:51:58 September 7th Monday am 2020 ~ so-slick
+0295_20174:22947:0833:0727_07:35:07 September 7th Monday am 2020 ~ organ-grinder-in-effect
+0294_20121:22820:0816:0727_09:29:41 September 5th Saturday pm 2020 ~ first-night-off-power
+0293_20124:22823:0816:0727_09:28:38 September 5th Saturday pm 2020
+0292_20082:22781:0816:0727_06:08:00 September 5th Saturday pm 2020 ~ now-to-concentrate-on-the-line
+0291_20065:22748:0808:0727_02:29:10 September 5th Saturday pm 2020 ~ go-billi-fae-bots-go
+0290_19784:22438:0795:0726_06:02:46 September 5th Saturday am 2020 ~ first-commit-of-the-weekend
+0289_19753:22408:0796:0726_06:56:25 September 4th Friday pm 2020 ~ let-us-build-the-neverending-story
+0288_19188:21756:0769:0708_08:45:40 September 3rd Thursday am 2020 ~ attempting-improve-nav-and-page
+0287_19103:21646:0760:0707_07:29:22 September 3rd Thursday am 2020 ~ a-little-code-clean-up
+0286_19509:22136:0766:0711_06:58:58 September 3rd Thursday am 2020
+0285_19488:22106:0763:0710_07:04:54 September 2nd Wednesday pm 2020 ~ end-at-seven
+0284_19304:21892:0757:0698_06:39:20 September 2nd Wednesday pm 2020 ~ let-us-shift-some-stuff-around
+0283_19280:21883:0760:0698_04:36:54 September 2nd Wednesday pm 2020 ~ bad-energy
+0282_19237:21837:0760:0693_07:04:36 September 2nd Wednesday am 2020 ~ time-to-make-sphere-elements
+0281_19238:21838:0760:0693_06:59:33 September 2nd Wednesday am 2020 ~ ready-to-make-shapes-or-an-axis
+0280_18353:20869:0735:0654_06:53:27 August 30th Sunday pm 2020 ~ fine-work-this-weekend
+0279_18355:20871:0735:0654_06:50:37 August 30th Sunday pm 2020
+0278_18334:20850:0735:0654_06:18:20 August 30th Sunday pm 2020 ~ axis-in
+0277_18305:20827:0735:0654_05:35:17 August 30th Sunday pm 2020 ~ need-a-ready-check
+0276_17617:20050:0731:0575_03:17:50 August 30th Sunday pm 2020 ~ added-a-hymn-bit
+0275_17034:19409:0719:0558_09:07:45 August 30th Sunday am 2020 ~ recall-in-after-a-long-drive
+0274_17033:19408:0719:0558_09:03:32 August 30th Sunday am 2020
+0273_17026:19397:0719:0556_08:18:58 August 30th Sunday am 2020 ~ alright-let-us-get-started
+0272_17022:19393:0719:0556_08:16:43 August 30th Sunday am 2020 ~ alright-let-us-get-started
+0271_17008:19377:0719:0556_04:57:55 August 29th Saturday pm 2020 ~ that-took-entirely-too-long
+0270_16692:19008:0711:0536_11:31:29 August 29th Saturday am 2020 ~ can-create-units-with-better-wiring
+0269_16276:18534:0692:0512_05:39:44 August 28th Friday pm 2020 ~ ready-for-world-world
+0268_16088:18329:0688:0500_07:32:00 August 28th Friday am 2020 ~ we-have-anit-rainbow-grey
+0267_16060:18301:0688:0500_07:27:49 August 27th Thursday pm 2020 ~ color-busted-but-close
+0266_15839:18080:0688:0498_06:46:30 August 27th Thursday am 2020 ~ you-can-only-hit-one-at-a-time
+0265_15821:18062:0688:0498_05:51:13 August 27th Thursday am 2020 ~ ready-to-update-the-card
+0264_15804:18045:0688:0498_06:59:00 August 26th Wednesday pm 2020 ~ ready-to-update-the-card
+0263_15697:17935:0687:0496_05:02:08 August 26th Wednesday pm 2020 ~ rolling-through-the-timecode
+0262_15664:17902:0687:0495_08:03:45 August 26th Wednesday am 2020 ~ init-time
+0261_15665:17903:0687:0495_08:02:36 August 26th Wednesday am 2020
+0260_15635:17873:0687:0494_07:32:57 August 26th Wednesday am 2020 ~ not-working-as-intended
+0259_15634:17872:0687:0494_07:24:40 August 26th Wednesday am 2020 ~ multiple-avas-in
+0258_15603:17841:0687:0494_06:13:20 August 26th Wednesday am 2020 ~ pattern-first-look
+0257_15535:17771:0687:0493_07:00:14 August 25th Tuesday pm 2020 ~ color-card-in-effect
+0256_15432:17666:0686:0491_07:12:35 August 25th Tuesday am 2020 ~ first-ava-is-live
+0255_15408:17642:0686:0491_06:37:51 August 25th Tuesday am 2020 ~ ready-to-open-live
+0254_15147:17375:0684:0490_07:27:02 August 23rd Sunday pm 2020 ~ loaded-in-shape-map
+0253_15106:17343:0687:0489_07:04:39 August 23rd Sunday pm 2020 ~ added-new-shape-unit
+0252_15105:17342:0687:0489_07:03:01 August 23rd Sunday pm 2020 ~ added-new-shape-unit
+0251_14890:17109:0684:0479_03:53:48 August 23rd Sunday pm 2020 ~ i-just-want-to-quit
+0250_14788:17007:0684:0478_08:04:48 August 23rd Sunday am 2020 ~ ready-to-add-a-pattern
+0249_14786:17005:0684:0478_08:02:07 August 23rd Sunday am 2020 ~ ready-to-add-a-pattern
+0248_14782:17001:0684:0478_07:47:57 August 23rd Sunday am 2020 ~ init-live-action-show
+0247_14554:16760:0680:0465_06:02:51 August 22nd Saturday pm 2020 ~ battle-container-in
+0246_14525:16731:0680:0465_05:39:57 August 22nd Saturday pm 2020 ~ start-the-beginnin
+0245_14453:16663:0680:0463_04:23:48 August 22nd Saturday pm 2020 ~ the-battle-begins
+0244_14328:16491:0671:0451_11:05:52 August 22nd Saturday am 2020 ~ added-show-body
+0243_13202:15231:0648:0405_11:39:12 August 19th Wednesday am 2020 ~ moved-out-the-glopratchet
+0242_17958:20428:0675:0458_06:21:09 August 16th Sunday pm 2020 ~ calculating-average-color-roll
+0241_17829:20284:0672:0455_03:52:54 August 16th Sunday pm 2020 ~ color-picker-rolling
+0240_17803:20258:0672:0455_01:40:10 August 16th Sunday pm 2020 ~ making-a-color-mix
+0239_17746:20195:0670:0453_10:46:35 August 16th Sunday am 2020 ~ added-a-color-picker
+0238_17679:20126:0669:0452_10:00:51 August 16th Sunday am 2020 ~ type-commit-message-here
+0237_17679:20131:0670:0452_09:58:45 August 16th Sunday am 2020 : type-commit-message-here
+0236_17679:20126:0669:0452_09:55:43 August 16th Sunday am 2020 : type-commit-message-here
+0235_17682:20150:0671:0452_09:19:56 August 16th Sunday am 2020
+0234_17686:20154:0671:0452_09:17:51 August 16th Sunday am 2020
+0233_17682:20150:0671:0452_09:15:13 August 16th Sunday am 2020
+0232_17679:20147:0671:0452_09:08:10 August 16th Sunday am 2020
+0231_17682:20150:0671:0452_09:06:43 August 16th Sunday am 2020
+0230_17441:19864:0664:0439_09:39:24 August 14th Friday pm 2020
+0229_17271:19694:0664:0435_07:15:12 August 14th Friday am 2020
+0228_17266:19689:0664:0435_07:08:46 August 14th Friday am 2020
+0227_17240:19663:0664:0435_07:51:15 August 13th Thursday pm 2020
+0226_17101:19462:0661:0435_05:34:17 August 13th Thursday pm 2020
+0225_16207:18451:0653:0411_07:04:44 August 9th Sunday pm 2020
+0224_16159:18401:0651:0411_02:21:38 August 9th Sunday pm 2020
+0223_14243:16340:0665:0373_09:55:36 August 8th Saturday am 2020
+0222_14219:16316:0665:0372_09:20:19 August 8th Saturday am 2020
+0221_14156:16205:0659:0369_08:50:40 August 8th Saturday am 2020
+0220_14152:16201:0659:0369_08:47:47 August 8th Saturday am 2020
+0219_14063:16095:0655:0369_07:29:48 August 8th Saturday am 2020
+0218_18421:21269:0799:0595_07:55:28 July 30th Thursday pm 2020
+0217_18195:20884:0761:0589_07:07:46 July 30th Thursday am 2020
+0216_18049:20724:0757:0588_02:15:52 July 29th Wednesday pm 2020
+0215_18049:20700:0752:0588_02:04:32 July 29th Wednesday pm 2020
+0214_17948:20591:0750:0586_08:45:33 July 29th Wednesday am 2020
+0213_17850:20484:0745:0585_06:59:15 July 28th Tuesday pm 2020
+0212_17770:20403:0746:0580_10:32:32 July 28th Tuesday am 2020
+0211_17713:20331:0736:0579_01:12:35 July 24th Friday pm 2020
+0210_17637:20264:0735:0579_11:02:39 July 24th Friday am 2020
+0209_17531:20140:0736:0579_01:10:24 July 24th Friday am 2020
+0208_17519:20128:0736:0579_12:35:44 July 24th Friday am 2020
+0207_17479:20083:0733:0579_06:55:04 July 20th Monday pm 2020
+0206_17461:20065:0733:0578_06:36:03 July 20th Monday pm 2020
+0205_17428:20032:0733:0578_06:04:56 July 20th Monday pm 2020
+0204_17376:19943:0724:0578_05:20:16 July 18th Saturday pm 2020
+0203_17290:19853:0722:0579_08:50:51 July 18th Saturday am 2020
+0202_17252:19859:0731:0579_08:35:49 July 18th Saturday am 2020
+0201_17101:19634:0718:0569_08:05:43 July 14th Tuesday am 2020
+0200_17059:19592:0718:0569_06:40:53 July 13th Monday pm 2020
+0199_16971:19504:0718:0569_05:40:42 July 13th Monday pm 2020
+0198_16935:19462:0717:0569_09:48:54 July 13th Monday am 2020
+0197_16917:19444:0717:0568_08:11:47 July 13th Monday am 2020
+0196_16883:19410:0716:0568_07:28:31 July 12th Sunday pm 2020
+0195_16861:19388:0716:0568_06:39:39 July 12th Sunday pm 2020
+0194_16840:19367:0716:0568_05:16:25 July 12th Sunday pm 2020
+0193_16698:19215:0713:0568_08:57:43 July 12th Sunday am 2020
+0192_15787:18204:0700:0563_05:34:36 July 7th Tuesday pm 2020
+0191_15638:18045:0697:0551_04:39:20 July 7th Tuesday pm 2020
+0190_15626:18033:0697:0550_04:25:05 July 7th Tuesday pm 2020
+0189_15610:18007:0695:0550_11:33:04 July 7th Tuesday am 2020
+0188_15579:17976:0695:0550_10:09:56 July 7th Tuesday am 2020
+0187_15577:17974:0695:0550_10:05:34 July 7th Tuesday am 2020
+0186_15508:17892:0695:0548_04:07:37 July 6th Monday pm 2020
+0185_15510:17894:0695:0548_04:06:14 July 6th Monday pm 2020
+0184_15508:17892:0695:0548_04:05:25 July 6th Monday pm 2020
+0183_15505:17889:0695:0548_04:03:20 July 6th Monday pm 2020
+0182_15505:17899:0698:0548_04:02:21 July 6th Monday pm 2020
+0181_14846:17175:0684:0536_12:35:10 July 5th Sunday am 2020
+0180_14842:17171:0684:0536_12:32:29 July 5th Sunday am 2020
+0179_14838:17167:0684:0536_12:18:42 July 5th Sunday am 2020
+0178_14174:16331:0647:0506_06:19:59 July 3rd Friday pm 2020
+0177_14173:16326:0644:0506_06:18:06 July 3rd Friday pm 2020
+0176_12071:14039:0619:0491_09:21:04 June 18th Thursday am 2020
+0175_11997:13948:0612:0488_08:25:40 June 18th Thursday am 2020
+0174_11994:13933:0609:0488_07:43:20 June 18th Thursday am 2020
+0173_11950:13866:0601:0488_05:05:28 June 17th Wednesday pm 2020
+0172_09758:11421:0537:0415_08:15:40 June 14th Sunday am 2020 : all-of-my-flaws-make-me-perfection
+0171_09760:11423:0537:0415_08:11:24 June 14th Sunday am 2020 : surface-init
+0170_06767:08014:0433:0293_04:36:41 June 13th Saturday pm 2020 : start-this-show
+0169_06798:08050:0436:0293_12:02:51 June 13th Saturday pm 2020 : do-you-do-anything
+0168_07140:08452:0444:0309_11:41:44 June 13th Saturday am 2020 : route-time
+0167_06280:07587:0480:0262_01:57:38 June 6th Saturday pm 2020 : route-time
+0166_0008979:0010366:00393_02:29:15 April 15th Wednesday pm 2020 : working-on-the-container
+0165_0008979:0010370:00393_01:46:22 April 15th Wednesday pm 2020 : working-on-the-container
+0164_0010695:0012505:00443_11:52:35 April 15th Wednesday am 2020 : can-copy-from-main-core-lib
+0163_0010692:0012502:00443_11:50:13 April 15th Wednesday am 2020 : let-us-go-again
+0162_0010690:0012500:00443_11:47:00 April 15th Wednesday am 2020 : let-us-go-again
+0161_0010686:0012496:00443_11:38:57 April 15th Wednesday am 2020 : can-copy-from-main-core-lib
+0160_0010851:0012689:00444_11:03:09 April 15th Wednesday am 2020 : can-copy-from-main-core-lib
+0159_0010630:0012462:00444_10:15:56 April 13th Monday am 2020 : animation-working
+0158_0010622:0012454:00444_10:11:38 April 13th Monday am 2020 : got-a-fella-in-but-no-lights
+0157_0010660:0012524:00450_08:20:17 April 12th Sunday pm 2020 : wanting-to-get-a-mesh-in-need-more-virtue
+0156_0010598:0012446:00446_05:27:35 April 12th Sunday pm 2020 : added-mesh
+0155_0010456:0012288:00443_04:45:19 April 12th Sunday pm 2020 : new-process
+0154_0010347:0012188:00460_09:13:44 April 11th Saturday am 2020 : i-like-effect-more-than-support
+0153_0010349:0012190:00460_08:58:46 April 11th Saturday am 2020 : refactor-seems-to-work
+0152_0010184:0011977:00460_08:04:21 April 11th Saturday am 2020 : title-movement
+0151_0010573:0012425:00460_08:03:20 April 11th Saturday am 2020 : birthday-change
+0150_0010215:0012001:00460_06:53:52 April 11th Saturday am 2020 : moved-effect-out-to-import
+0149_0010209:0011995:00460_06:45:35 April 11th Saturday am 2020 : moved-model-out-of-core
+0148_0010191:0011977:00460_06:38:34 April 11th Saturday am 2020 : major-revision-of-core-library
+0147_0010192:0011978:00460_05:45:14 April 10th Friday pm 2020 : short-cut-keys-a-coming
+0146_0010144:0011930:00460_05:04:23 April 10th Friday pm 2020 : it-is-time-to-toggle
+0145_0010114:0011900:00459_03:57:36 April 10th Friday pm 2020 : cleaning-up-start-up
+0144_0009978:0011689:00444_12:52:56 April 10th Friday pm 2020 : improvment-with-terminal-system
+0143_0009935:0011674:00453_10:31:40 April 10th Friday am 2020 : pass-iframe-value-on-open
+0142_0009916:0011660:00453_09:21:01 April 10th Friday am 2020 : pixi-seems-to-be-working
+0141_0009810:0011544:00452_07:57:48 April 10th Friday am 2020 : attempting-to-get-the-hexagon-rolling
+0140_0005925:0006927:00314_08:53:26 April 8th Wednesday pm 2020 : you-tube-downloader-working
+0139_0005823:0006825:00314_08:28:37 April 8th Wednesday pm 2020 : please-jesus-let-that-be-the-last-time-i-cuss
+0138_0005715:0006705:00305_05:22:48 April 8th Wednesday pm 2020 : lighting-system-start
+0137_0005455:0006442:00311_11:19:05 April 8th Wednesday am 2020 : a-variety-of-basic-shapes
+0136_0005425:0006416:00311_09:16:51 April 8th Wednesday am 2020 : added-camera-unit
+0135_0005284:0006259:00308_08:46:08 April 8th Wednesday am 2020 : different-texture-types
+0134_0005261:0006236:00308_07:46:51 April 8th Wednesday am 2020 : fps-is-working
+0133_0005221:0006190:00306_06:28:16 April 7th Tuesday pm 2020 : wanna-get-an-fps-a-going
+0132_0005205:0006174:00306_06:03:46 April 7th Tuesday pm 2020 : we-have-textures
+0131_0005174:0006143:00306_03:59:40 April 7th Tuesday pm 2020 : attempting-to-add-materials
+0130_0004852:0005803:00303_01:08:20 April 7th Tuesday pm 2020 : give-me-more-code
+0129_0001832:0002298:00247_12:49:33 April 7th Tuesday pm 2020 : done
+0128_0001834:0002300:00247_12:47:57 April 7th Tuesday pm 2020 : goooot
+0127_0001835:0002301:00247_12:45:51 April 7th Tuesday pm 2020 : gooooo
+0126_0001832:0002298:00247_12:41:51 April 7th Tuesday pm 2020 : will-you-work
+0125_0003361:0004055:00272_12:37:04 April 7th Tuesday pm 2020 : testing
+0124_0003352:0004046:00272_12:19:07 April 7th Tuesday pm 2020 : can-i-see-a-twitter-screenshot
+0123_0003352:0004052:00275_12:15:48 April 7th Tuesday pm 2020 : screen-shot-twitter-perhaps
+0122_0003337:0004041:00281_11:59:43 April 7th Tuesday am 2020 : screen-shot
+0121_0003335:0004028:00271_11:20:37 April 7th Tuesday am 2020 : cough-cough
+0120_0003334:0004027:00271_11:08:03 April 7th Tuesday am 2020 : can-we-take-a-screenshot
+0119_0003328:0004021:00271_10:54:39 April 7th Tuesday am 2020 : 3d-test-complete
+0118_0003324:0004017:00271_08:44:42 April 7th Tuesday am 2020 : saving-scene-to-model
+0117_0004766:0005707:00294_03:40:24 April 6th Monday pm 2020 : wanta-get-a-scene-going
+0116_0004669:0005588:00281_01:53:42 April 6th Monday pm 2020 : engine-unit-in
+0115_0004535:0005442:00278_10:37:38 April 6th Monday am 2020 : abstracting-out-the-babylon
+0114_0004539:0005495:00296_10:22:53 April 6th Monday am 2020 : going-three-d
+0113_0004369:0005311:00281_08:55:23 April 6th Monday am 2020 : added-polygon
+0112_0003364:0004113:00281_08:34:00 April 6th Monday am 2020 : wanting-to-enable-que-of-command
+0111_0003341:0004088:00281_07:19:40 April 5th Sunday pm 2020 : wanting-command-list
+0110_0003398:0004159:00286_02:52:32 April 5th Sunday pm 2020 : new-load-verb
+0109_0003311:0004072:00286_02:10:10 April 5th Sunday pm 2020 : can
+0108_0003298:0004053:00282_01:04:30 April 5th Sunday pm 2020 : reverse
+0107_0003296:0004044:00281_12:58:52 April 5th Sunday pm 2020 : should-display-some-lines
+0106_0003289:0004037:00281_12:51:29 April 5th Sunday pm 2020 : reply
+0105_0003287:0004040:00281_12:45:44 April 5th Sunday pm 2020 : reply
+0104_0003283:0004031:00281_12:32:29 April 5th Sunday pm 2020 : believe
+0103_0003278:0004026:00281_12:22:13 April 5th Sunday pm 2020 : follow
+0102_0003278:0004020:00281_12:20:02 April 5th Sunday pm 2020 : exteme
+0101_0003278:0004008:00278_10:23:22 April 5th Sunday am 2020 : sender
+0100_0003274:0003990:00275_10:17:50 April 5th Sunday am 2020 : hello
+0099_0003272:0003988:00275_10:11:48 April 5th Sunday am 2020 : restart-mech
+0098_0003272:0003965:00268_12:03:48 April 4th Saturday pm 2020 : wanting-a-warm-restart
+0097_0003110:0003741:00256_09:34:49 April 4th Saturday am 2020 : update-something
+0096_0003058:0003679:00252_07:49:11 April 4th Saturday am 2020 : sup
+0095_0003057:0003678:00252_07:44:21 April 4th Saturday am 2020 : work
+0094_0003055:0003676:00252_07:34:37 April 4th Saturday am 2020 : work
+0093_0003058:0003679:00252_07:26:00 April 4th Saturday am 2020 : goooo
+0092_0003062:0003664:00244_07:23:08 April 4th Saturday am 2020 : alligatro
+0091_0003060:0003662:00244_07:21:32 April 4th Saturday am 2020 : another-response
+0090_0003056:0003658:00244_07:18:08 April 4th Saturday am 2020 : response
+0089_0003048:0003650:00244_05:47:04 April 4th Saturday am 2020 : looking-for-a-sender
+0088_0002903:0003500:00241_04:39:43 April 3rd Friday pm 2020 : response-added
+0087_0002874:0003478:00246_03:41:11 April 3rd Friday pm 2020 : remove-the-zero
+0086_0002872:0003476:00246_12:30:48 April 3rd Friday pm 2020 : more-focused
+0085_0002911:0003515:00246_12:18:16 April 3rd Friday pm 2020 : major-structure-shift
+0084_0002917:0003521:00246_11:54:54 April 3rd Friday am 2020 : big-change
+0083_0002924:0003528:00246_09:57:28 April 3rd Friday am 2020 : clean-up-commitee
+0082_0008151:0009833:00499_09:30:16 April 3rd Friday am 2020 : cleaning-up
+0081_0008431:0010144:00498_08:54:41 April 3rd Friday am 2020 : added-write-class
+0080_0008422:0010135:00498_08:28:43 April 3rd Friday am 2020 : i-frame-journey
+0079_0008419:0010141:00499_07:17:55 April 3rd Friday am 2020 : big-alligator
+0078_0008413:0010135:00499_07:01:40 April 3rd Friday am 2020 :  do something good
+0077_0008384:0010106:00499_04:30:06 April 2nd Thursday pm 2020 :  do something good
+0076_0008772:0010533:00509_03:22:19 April 2nd Thursday pm 2020 :  do something good
+0075_0008770:0010531:00509_03:17:44 April 2nd Thursday pm 2020 :  do something good
+0074_0008770:0010548:00509_03:14:43 April 2nd Thursday pm 2020
+0073_0007130:0008647:00502_03:09:36 April 2nd Thursday pm 2020
+0072_0007099:0008607:00501_12:05:17 April 2nd Thursday pm 2020
+0071_0007094:0008602:00501_12:01:03 April 2nd Thursday pm 2020
+0070_0001864:0002294:00249_11:53:45 April 2nd Thursday am 2020
+0069_0008106:0026512:01305_11:15:35 March 27th Friday am 2020 : feel-a-major-change-coming
+0068_0008010:0026241:01292_09:43:44 March 27th Friday am 2020 : attempting-to-get-the-hex-loading-going
+0067_0008029:0026300:01290_06:29:09 March 26th Thursday pm 2020 : attempting-to-get-the-hex-loading-going
+0066_0007988:0026106:01287_01:43:40 March 26th Thursday pm 2020 : it-looks-like-it-is-turning
+0065_0007978:0026134:01292_01:18:20 March 26th Thursday pm 2020 : converted-think-to-deem
+0064_0007981:0026135:01292_01:08:32 March 26th Thursday pm 2020 : harks-in-place
+0063_0007969:0026103:01288_12:40:55 March 26th Thursday pm 2020 : change-select-to-hark
+0062_0007955:0026041:01284_12:07:08 March 26th Thursday pm 2020 : attempting-to-render-a-focus
+0061_0007857:0025672:01275_05:37:55 March 25th Wednesday pm 2020 : gotta-get-the-update-going
+0060_0007837:0025523:01270_12:28:32 March 25th Wednesday pm 2020 : converted-focus-update-over
+0059_0007361:0023774:01223_11:19:36 March 25th Wednesday am 2020 : added-focus-unit
+0058_0007210:0023261:01214_11:13:34 March 25th Wednesday am 2020 : land-data-going
+0057_0007207:0023321:01223_12:17:30 March 23rd Monday pm 2020 : can-publish-hex-grids
+0056_0007052:0022781:01206_04:41:39 March 20th Friday pm 2020 : land-processing-soon
+0055_0006463:0021081:01131_03:06:40 March 20th Friday pm 2020 : gearing-up-for-land-data
+0054_0006406:0020904:01116_02:15:29 March 20th Friday pm 2020 : cleared-out-some-unneeded-lines
+0053_0006438:0021160:01116_02:13:05 March 20th Friday pm 2020 : got-an-outline-for-hex-scrolls
+0052_0006418:0021062:01112_01:38:08 March 20th Friday pm 2020 : can-roll-through-hexes-once-again
+0051_0006358:0020689:01110_07:52:21 March 19th Thursday am 2020 : can-scroll-through-hexes-once-again
+0050_0006367:0020713:01110_04:10:45 March 18th Wednesday pm 2020 : can-download-youtube
+0049_0006296:0020510:01082_01:40:21 March 18th Wednesday pm 2020 : attempting-to-create-a-hightlight-hex-item
+0048_0006226:0020250:01074_11:48:47 March 18th Wednesday am 2020 : can-scroll-through-hex-items
+0047_0006212:0020187:01072_11:13:44 March 18th Wednesday am 2020 : mouse-handlers-present-to-adjust-hexes
+0046_0006208:0020142:01070_11:01:51 March 18th Wednesday am 2020 : scroll-through-hex-items
+0045_0006232:0020110:01074_07:35:51 March 17th Tuesday pm 2020 : twitter-working
+0044_0006233:0020116:01076_07:27:55 March 17th Tuesday pm 2020 : looking-for-any-errors
+0043_0006232:0020112:01074_07:24:59 March 17th Tuesday pm 2020 : looking-for-any-errors
+0042_0006231:0020107:01074_07:23:37 March 17th Tuesday pm 2020 : looking-for-any-error
+0041_0006229:0020102:01074_07:20:54 March 17th Tuesday pm 2020 : mouse-wheel-action
+0040_0006212:0020040:01065_06:56:16 March 17th Tuesday pm 2020 : mouse-wheel-action
+0039_0006190:0019961:01058_04:31:19 March 17th Tuesday pm 2020 : slow-going
+0038_0006190:0019984:01058_02:54:40 March 17th Tuesday pm 2020 : closing-in-on-cycling-between-hexes
+0037_0006143:0019750:01055_01:42:10 March 17th Tuesday pm 2020 : about-cycle-through-the-hexes
+0036_0006103:0019600:01053_12:00:18 March 17th Tuesday pm 2020 : moving-closer-to-centering-grid-item
+0035_0005943:0018971:01028_08:37:39 March 17th Tuesday am 2020 : count-hex-grids
+0034_0005937:0018955:01030_08:17:30 March 17th Tuesday am 2020 : rendering-out-a-grid
+0033_0005931:0018922:01028_07:14:12 March 17th Tuesday am 2020 : wanting-to-render-a-hex
+0032_0005919:0018895:01028_05:38:48 March 16th Monday pm 2020 : maybe-the-render-will-work-tommorow
+0031_0005913:0018781:01018_07:43:42 March 16th Monday am 2020 : begin-the-hex-test
+0030_0006010:0019067:01018_07:39:32 March 16th Monday am 2020 : new-work-week
+0029_0006027:0019215:01017_04:40:01 March 15th Sunday pm 2020 : added-img-attribute
+0028_0005884:0018653:01015_04:24:43 March 15th Sunday pm 2020 : getting-ready-to-render-hex
+0027_0005664:0017943:00962_04:02:05 March 15th Sunday pm 2020 : continuing-hex-challenge
+0026_0005603:0017722:00944_03:26:05 March 15th Sunday pm 2020 : added-hex-unit
+0025_0005458:0017263:00938_01:17:30 March 15th Sunday pm 2020 : three-building-blocks-in
+0024_0005379:0016898:00917_07:51:09 March 15th Sunday am 2020 : simplfy-creation-off-assets
+0023_0005431:0016962:00923_06:57:52 March 15th Sunday am 2020 : add-and-remove-text
+0022_0005417:0016910:00920_06:18:42 March 15th Sunday am 2020 : good-morning-star-shine
+0021_0005420:0016911:00920_11:32:38 March 14th Saturday am 2020 : trouble-with-game-pad
+0020_0005392:0016875:00917_10:23:01 March 14th Saturday am 2020 : trouble-with-delete
+0019_0005378:0016863:00916_08:55:41 March 14th Saturday am 2020 : attempting-add-remove-text
+0018_0005365:0016713:00925_06:11:01 March 14th Saturday am 2020 : good-morning
+0017_0005364:0016712:00925_07:46:07 March 13th Friday pm 2020 : begining-close-functions
+0016_0005338:0016593:00926_07:36:19 March 13th Friday pm 2020 : implementing-close-action
+0015_0005286:0016362:00917_01:33:28 March 13th Friday pm 2020 : cam-update-the-container
+0014_0005253:0016255:00913_01:19:21 March 13th Friday pm 2020 : better-count-message
+0013_0005252:0016252:00913_01:17:40 March 13th Friday pm 2020 : check-in-on-count
+0012_0005247:0016232:00914_01:10:42 March 13th Friday pm 2020 : can-upate-text
+0011_0005205:0016070:00905_12:49:55 March 13th Friday pm 2020 : can-upate-graphics
+0010_0005114:0015801:00891_11:28:12 March 13th Friday am 2020 : graphics
+0009_0005035:0015517:00872_10:03:36 March 13th Friday am 2020
+0008_0004965:0015235:00858_09:48:10 March 13th Friday am 2020
+0007_0004470:0013531:00800_09:34:59 March 13th Friday am 2020
+0006_0004293:0012917:00781_08:06:54 March 13th Friday am 2020
+0005_0004278:0012789:00777_04:14:43 March 12th Thursday pm 2020
+0004_0004161:0012462:00763_03:17:22 March 12th Thursday pm 2020
+0003_0004012:0011956:00752_03:11:48 March 12th Thursday pm 2020
+0002_0004009:0011947:00751_03:10:17 March 12th Thursday pm 2020
+0001_0004009:0011916:00753_02:15:00 March 12th Thursday pm 2020
+0000_0004228:0012675:00783_08:31:18 March 12th Thursday am 2020
