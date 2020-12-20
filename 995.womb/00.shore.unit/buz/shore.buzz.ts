@@ -1,4 +1,5 @@
 export const initShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  //last time
   return cpy;
 };
 
