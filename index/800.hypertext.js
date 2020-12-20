@@ -707,11 +707,12 @@ exports.Dispatcher = Dispatcher;
 
 },{"rxjs":301}],25:[function(require,module,exports){
 "use strict";
+/*
+api goes here
+
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
-const B = require("./00.core/constant/BASIC");
 var EventEmitter = require("events").EventEmitter;
-const HrkScn = require("./01.screen.unit/screen.hark");
-const HikeBdy = require("./02.body.unit/body.hike");
 var sim = {
     wake: null,
     bee: null,
@@ -719,9 +720,6 @@ var sim = {
 };
 sim.wake = (bee) => {
     sim.bee = bee;
-    var testing;
-    var form;
-    var twitter;
     return;
     //go a head and create main elements
     bee.hike(HikeBdy.INDEX, B.INIT);
@@ -731,6 +729,9 @@ sim.wake = (bee) => {
         console.log("you got a root");
     });
 };
+const B = require("./00.core/constant/BASIC");
+const HrkScn = require("./01.screen.unit/screen.hark");
+const HikeBdy = require("./02.body.unit/body.hike");
 module.exports = sim;
 
 },{"./00.core/constant/BASIC":8,"./01.screen.unit/screen.hark":31,"./02.body.unit/body.hike":39,"events":60}],26:[function(require,module,exports){
@@ -777,6 +778,8 @@ class IndexScreenArc extends arc_form_1.default {
         super(state);
         this.state = state;
         this.awake = (dat) => this.path.move(this.state, Act.AWAKE_PIVOT, dat);
+        this.update = (dat) => this.path.move(this.state, Act.UPDATE_HTML, dat);
+        this.delete = (dat) => this.path.move(this.state, Act.DELETE_HTML, dat);
     }
 }
 __decorate([

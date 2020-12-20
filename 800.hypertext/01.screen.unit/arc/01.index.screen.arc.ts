@@ -15,4 +15,8 @@ export default class IndexScreenArc extends Arc {
   }
 
   awake = (dat: PivotBit) => this.path.move(this.state, Act.AWAKE_PIVOT, dat);
+
+  update = (dat: PivotBit) => this.path.move(this.state, Act.UPDATE_HTML, dat);
+
+  delete = (dat: PivotBit) => this.path.move(this.state, Act.DELETE_HTML, dat);
 }

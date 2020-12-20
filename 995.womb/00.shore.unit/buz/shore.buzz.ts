@@ -1,5 +1,9 @@
 export const initShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
-  //last time
+  pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, {
+    idx: "body",
+    src: HTML.page,
+  });
+
   return cpy;
 };
 
@@ -26,6 +30,13 @@ var pivot = (ste, pvt, hke, mth, dat?) => {
     },
   });
 };
+
+import * as B from "../../00.core/constant/BASIC";
+import * as PVT from "../../val/pivot";
+import * as HTML from "../../val/html";
+
+import * as HkeScn from "../../hke/screen.hike";
+import * as HrkScn from "../../hrk/screen.hark";
 
 import { ShoreModel } from "../shore.model";
 import ShoreBit from "../fce/shore.interface";
