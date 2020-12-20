@@ -1,4 +1,6 @@
 export const initShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  console.log("can you create a pull request");
+
   return cpy;
 };
 
