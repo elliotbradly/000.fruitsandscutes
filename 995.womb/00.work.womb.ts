@@ -1,16 +1,4 @@
-import Beeing from "./00.core/beeing";
-import * as B from "./00.core/constant/BASIC";
-import * as PIVOT from "./val/pivot";
-
 var EventEmitter = require("events").EventEmitter;
-
-import * as ActTtl from "./00.core/title/title.action";
-import * as HkeTtl from "./00.core/title/title.hike";
-import * as HrkTtl from "./00.core/title/title.hark";
-
-import * as ActShr from "./00.shore.unit/shore.action";
-import * as HkeShr from "./00.shore.unit/shore.hike";
-import * as HrkShr from "./00.shore.unit/shore.hark";
 
 var sim = {
   wake: null,
@@ -43,7 +31,33 @@ sim.wake = (bee: Beeing, hyp: any, can: any, win: any, hex: any) => {
 
   setTimeout(() => {
     bee.hike(HkeShr.INDEX, B.INIT);
+
+    var width =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+
+    var height =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body.clientHeight;
+
+    bee.hike(HkeShr.INDEX, B.RESIZE, { x: width, y: height });
   }, 555);
+
+  window.addEventListener("resize", () => {
+    var width =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+
+    var height =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body.clientHeight;
+
+    bee.dispatch({ type: ActShr.RESIZE_SHORE, bale: { x: width, y: height } });
+  });
 
   //bee.hike(HikeBdy.INDEX, B.INIT);
 
@@ -54,5 +68,17 @@ sim.wake = (bee: Beeing, hyp: any, can: any, win: any, hex: any) => {
   //  console.log("you got a root");
   //});
 };
+
+import Beeing from "./00.core/beeing";
+import * as B from "./00.core/constant/BASIC";
+import * as PIVOT from "./val/pivot";
+
+import * as ActTtl from "./00.core/title/title.action";
+import * as HkeTtl from "./00.core/title/title.hike";
+import * as HrkTtl from "./00.core/title/title.hark";
+
+import * as ActShr from "./00.shore.unit/shore.action";
+import * as HkeShr from "./00.shore.unit/shore.hike";
+import * as HrkShr from "./00.shore.unit/shore.hark";
 
 module.exports = sim;

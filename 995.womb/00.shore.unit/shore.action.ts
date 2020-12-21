@@ -1,18 +1,24 @@
 import { Action } from "../00.core/interface/action.interface";
-import  ShoreBit  from "./fce/shore.bit";
+import ShoreBit from "./fce/shore.bit";
 
 // Shore actions
 
 export const INIT_SHORE = "[Shore action] Init Shore";
 export class InitShore implements Action {
- readonly type = INIT_SHORE;
- constructor(public bale: ShoreBit) {}
+  readonly type = INIT_SHORE;
+  constructor(public bale: ShoreBit) {}
 }
 
 export const UPDATE_SHORE = "[Shore action] Update Shore";
 export class UpdateShore implements Action {
- readonly type = UPDATE_SHORE;
- constructor(public bale: ShoreBit) {}
+  readonly type = UPDATE_SHORE;
+  constructor(public bale: ShoreBit) {}
 }
 
-export type Actions = | InitShore | UpdateShore ;
+export const RESIZE_SHORE = "[Shore action] Resize Shore";
+export class ResizeShore implements Action {
+  readonly type = RESIZE_SHORE;
+  constructor(public bale: ShoreBit) {}
+}
+
+export type Actions = InitShore | UpdateShore | ResizeShore;

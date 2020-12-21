@@ -1,5 +1,8 @@
 export const test: string = require("../../../995.womb/see/000.testCase.html");
+
 export const page: string = require("../../../995.womb/see/001.page.html");
+export const startUp: string = require("../../../995.womb/see/007.start-up.html");
+
 export const navBar: string = require("../../../995.womb/see/002.navBar.html");
 
 export const navBtn0: string = require("../../../995.womb/see/003.nav-btn-0.html");
