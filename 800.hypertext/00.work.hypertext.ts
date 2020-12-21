@@ -7,6 +7,7 @@ var EventEmitter = require("events").EventEmitter;
 
 var sim = {
   wake: null,
+  push: null,
   bee: null,
   event: new EventEmitter(),
 };
@@ -24,6 +25,13 @@ sim.wake = (bee: Beeing) => {
   });
 };
 
+sim.push = (idx: string, datIDX: any) => {
+  sim.bee.dispatch({
+    type: ActTtl.PUSH_PIVOT,
+    bale: { idx, datIDX },
+  });
+};
+
 import Beeing from "./00.core/beeing";
 import * as B from "./00.core/constant/BASIC";
 
@@ -38,6 +46,10 @@ import * as ActBdy from "./02.body.unit/body.action";
 import * as ActIdx from "./03.index.unit/index.action";
 import * as HkeIdx from "./03.index.unit/index.hike";
 import * as HrkIdx from "./03.index.unit/index.hark";
+
+import * as ActTtl from "./00.core/title/title.action";
+import * as HkeTtl from "./00.core/title/title.hike";
+import * as HrkTtl from "./00.core/title/title.hark";
 
 import * as HrkLve from "./hrk/live.hark";
 

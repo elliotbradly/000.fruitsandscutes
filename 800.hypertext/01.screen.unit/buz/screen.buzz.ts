@@ -1,23 +1,3 @@
-import { ScreenModel } from "../screen.model";
-import Screen from "../fce/screen.interface";
-import State from "../../00.core/state";
-import ScreenBit from "../fce/screen.bit";
-import PivotBit from "../fce/pivot.bit";
-import NavBit from "../fce/nav.bit";
-import * as Act from "../screen.action";
-import * as HTML from "../../val/html";
-
-import * as doT from "dot";
-
-var navActiveLarge: string = "btn  active btn-lg bg-success bubbly-button ";
-var navUnactiveLarge: string = "btn  btn-lg bg-error";
-
-var navActive: string = "btn  active bg-success";
-var navUnactive: string = "btn bg-error";
-
-var navActiveSmall: string = "btn active btn-sm";
-var navUnactiveSmall: string = "btn btn-sm";
-
 export const deleteHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
   var old_element = document.getElementById(bal.idx);
   if (old_element == null) return cpy;
@@ -29,6 +9,7 @@ export const deleteHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
 //import * as ActV from "../../01.view.unit/view.action";
 export const updateHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
   var current = bal.src;
+  if (current == null) current = cpy.compile;
   if (bal.val == null) bal.val = 0;
   var content = document.getElementById(bal.idx);
   if (content == null) return;
@@ -40,7 +21,10 @@ export const updateHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
 
 export const pushCompile = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
   var gel = bal.dat;
+  if (bal.src == null) return console.warn("no source for compile push");
+
   var lst = bal.src.split("\n");
+
   var out = [];
 
   lst.forEach((a) => {
@@ -58,24 +42,14 @@ export const makeNav = (cpy: ScreenModel, bal: NavBit, ste: State) => {
   ste.dispatch({ type: Act.UPDATE_HTML, bale: { idx: bal.idx, src: "" } });
 
   //i think we need to bring the template in here
-  if (bal.src == null) bal.src = HTML.navBar;
-  if (bal.val != null) {
-    switch (bal.val) {
-      case 0:
-        bal.shw = navUnactive;
-        bal.hde = navActive;
-        break;
-      case 1:
-        bal.shw = navUnactiveLarge;
-        bal.hde = navActiveLarge;
-        break;
-      case 2:
-        bal.shw = navUnactiveSmall;
-        bal.hde = navActiveSmall;
-    }
-  }
+  if (bal.src == null) console.error("no nav source");
+
+  bal.shw = navUnactive;
+  bal.hde = navActive;
 
   var output = [];
+
+  if (bal.btn == null) return console.warn("no btn for nav bar");
 
   bal.lst.forEach((a, b) => {
     var idx = bal.nom + String(a).padStart(3, "0");
@@ -104,6 +78,9 @@ export const makeNav = (cpy: ScreenModel, bal: NavBit, ste: State) => {
   bal.lst.forEach((a, b) => {
     var btnIDX = bal.nom + String(a).padStart(3, "0");
     document.getElementById(btnIDX).addEventListener("mouseup", () => {
+      debugger;
+
+      if (bal.mod == null) return console.warn("no model on nav");
       if (bal.mod["navDex"] != null) bal.mod["navDex"] = b;
       ste.dispatch({ type: bal.act });
     });
@@ -121,3 +98,22 @@ export const awakePivot = (cpy: ScreenModel, bal: PivotBit, ste: State) => {
 
   return cpy;
 };
+
+import { ScreenModel } from "../screen.model";
+import Screen from "../fce/screen.interface";
+import State from "../../00.core/state";
+import ScreenBit from "../fce/screen.bit";
+import PivotBit from "../fce/pivot.bit";
+import NavBit from "../fce/nav.bit";
+import * as Act from "../screen.action";
+
+import * as doT from "dot";
+
+var navActiveLarge: string = "btn  active btn-lg bg-success bubbly-button ";
+var navUnactiveLarge: string = "btn  btn-lg bg-error";
+
+var navActive: string = "btn  active bg-success";
+var navUnactive: string = "btn bg-error";
+
+var navActiveSmall: string = "btn active btn-sm";
+var navUnactiveSmall: string = "btn btn-sm";

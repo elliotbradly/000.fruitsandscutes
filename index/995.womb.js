@@ -775,11 +775,26 @@ exports.default = IndexShoreArc;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initShore = (cpy, bal, ste) => {
-    pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, {
-        idx: "body",
+    //give the hypertext your womb pivot
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
         src: HTML.startUp,
+        dat: { navIDX: "nav0", pageIDX: "pge0" },
     });
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: "body" });
     pivot(ste, PVT.CVS, HkeSfc.INDEX, B.CREATE, { idx: "fce00", clr: "FF00FF" });
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
+        idx: "nav0",
+        val: 0,
+        dex: 0,
+        src: HTML.navBar,
+        btn: HTML.navBtn0,
+        lst: ["view", "make"],
+        mod: cpy,
+        shw: "btn active bg-success",
+        hde: "btn bg-error",
+        act: Act.UPDATE_SHORE,
+        pvt: "shore",
+    });
     return cpy;
 };
 exports.updateShore = (cpy, bal, ste) => {
@@ -814,11 +829,12 @@ var pivot = (ste, pvt, hke, mth, dat) => {
 const B = require("../../00.core/constant/BASIC");
 const PVT = require("../../val/pivot");
 const HTML = require("../../val/html");
+const Act = require("../shore.action");
 const HkeSfc = require("../../hke/surface.hike");
 const HkeScn = require("../../hke/screen.hike");
 const ActTtl = require("../../00.core/title/title.action");
 
-},{"../../00.core/constant/BASIC":12,"../../00.core/title/title.action":22,"../../hke/screen.hike":40,"../../hke/surface.hike":41,"../../val/html":42,"../../val/pivot":43}],32:[function(require,module,exports){
+},{"../../00.core/constant/BASIC":12,"../../00.core/title/title.action":22,"../../hke/screen.hike":40,"../../hke/surface.hike":41,"../../val/html":42,"../../val/pivot":43,"../shore.action":32}],32:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // Shore actions
@@ -866,6 +882,12 @@ exports.INDEX = "shore/index";
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class ShoreModel {
+    constructor() {
+        //idx:string;
+        //shoreBitList: ShoreBit[] = [];
+        //shoreBits: any = {};
+        this.navDex = 0;
+    }
 }
 exports.ShoreModel = ShoreModel;
 
@@ -929,6 +951,7 @@ var sim = {
 };
 sim.wake = (bee, hyp, can, win, hex) => {
     sim.bee = bee;
+    hyp.push("womb", sim);
     bee.dispatch({
         type: ActTtl.PUSH_PIVOT,
         bale: { idx: PIVOT.HYP, datIDX: hyp },
@@ -1036,6 +1059,7 @@ exports.HEX = "hexmap";
 exports.WIN = "window";
 exports.BRS = "browser";
 exports.AER = "aero";
+exports.WMB = "womb";
 
 },{}],44:[function(require,module,exports){
 'use strict'

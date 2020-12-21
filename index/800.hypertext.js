@@ -715,6 +715,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var EventEmitter = require("events").EventEmitter;
 var sim = {
     wake: null,
+    push: null,
     bee: null,
     event: new EventEmitter(),
 };
@@ -729,12 +730,19 @@ sim.wake = (bee) => {
         console.log("you got a root");
     });
 };
+sim.push = (idx, datIDX) => {
+    sim.bee.dispatch({
+        type: ActTtl.PUSH_PIVOT,
+        bale: { idx, datIDX },
+    });
+};
 const B = require("./00.core/constant/BASIC");
 const HrkScn = require("./01.screen.unit/screen.hark");
 const HikeBdy = require("./02.body.unit/body.hike");
+const ActTtl = require("./00.core/title/title.action");
 module.exports = sim;
 
-},{"./00.core/constant/BASIC":8,"./01.screen.unit/screen.hark":31,"./02.body.unit/body.hike":39,"events":60}],26:[function(require,module,exports){
+},{"./00.core/constant/BASIC":8,"./00.core/title/title.action":18,"./01.screen.unit/screen.hark":31,"./02.body.unit/body.hike":39,"events":60}],26:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const _01_index_screen_arc_1 = require("./01.index.screen.arc");
@@ -779,6 +787,8 @@ class IndexScreenArc extends arc_form_1.default {
         this.state = state;
         this.awake = (dat) => this.path.move(this.state, Act.AWAKE_PIVOT, dat);
         this.update = (dat) => this.path.move(this.state, Act.UPDATE_HTML, dat);
+        this.push = (dat) => this.path.move(this.state, Act.PUSH_COMP, dat);
+        this.make = (dat) => this.path.move(this.state, Act.MAKE_NAV, dat);
         this.delete = (dat) => this.path.move(this.state, Act.DELETE_HTML, dat);
     }
 }
@@ -791,15 +801,6 @@ exports.default = IndexScreenArc;
 },{"../../00.core/form/arc.form":10,"../../00.core/title/prc/path.process":17,"../screen.action":29,"typescript-ioc":532}],28:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Act = require("../screen.action");
-const HTML = require("../../val/html");
-const doT = require("dot");
-var navActiveLarge = "btn  active btn-lg bg-success bubbly-button ";
-var navUnactiveLarge = "btn  btn-lg bg-error";
-var navActive = "btn  active bg-success";
-var navUnactive = "btn bg-error";
-var navActiveSmall = "btn active btn-sm";
-var navUnactiveSmall = "btn btn-sm";
 exports.deleteHTML = (cpy, bal, ste) => {
     var old_element = document.getElementById(bal.idx);
     if (old_element == null)
@@ -811,6 +812,8 @@ exports.deleteHTML = (cpy, bal, ste) => {
 //import * as ActV from "../../01.view.unit/view.action";
 exports.updateHTML = (cpy, bal, ste) => {
     var current = bal.src;
+    if (current == null)
+        current = cpy.compile;
     if (bal.val == null)
         bal.val = 0;
     var content = document.getElementById(bal.idx);
@@ -824,6 +827,8 @@ exports.updateHTML = (cpy, bal, ste) => {
 };
 exports.pushCompile = (cpy, bal, ste) => {
     var gel = bal.dat;
+    if (bal.src == null)
+        return console.warn("no source for compile push");
     var lst = bal.src.split("\n");
     var out = [];
     lst.forEach((a) => {
@@ -839,23 +844,12 @@ exports.makeNav = (cpy, bal, ste) => {
     ste.dispatch({ type: Act.UPDATE_HTML, bale: { idx: bal.idx, src: "" } });
     //i think we need to bring the template in here
     if (bal.src == null)
-        bal.src = HTML.navBar;
-    if (bal.val != null) {
-        switch (bal.val) {
-            case 0:
-                bal.shw = navUnactive;
-                bal.hde = navActive;
-                break;
-            case 1:
-                bal.shw = navUnactiveLarge;
-                bal.hde = navActiveLarge;
-                break;
-            case 2:
-                bal.shw = navUnactiveSmall;
-                bal.hde = navActiveSmall;
-        }
-    }
+        console.error("no nav source");
+    bal.shw = navUnactive;
+    bal.hde = navActive;
     var output = [];
+    if (bal.btn == null)
+        return console.warn("no btn for nav bar");
     bal.lst.forEach((a, b) => {
         var idx = bal.nom + String(a).padStart(3, "0");
         var classIDX;
@@ -880,6 +874,9 @@ exports.makeNav = (cpy, bal, ste) => {
     bal.lst.forEach((a, b) => {
         var btnIDX = bal.nom + String(a).padStart(3, "0");
         document.getElementById(btnIDX).addEventListener("mouseup", () => {
+            debugger;
+            if (bal.mod == null)
+                return console.warn("no model on nav");
             if (bal.mod["navDex"] != null)
                 bal.mod["navDex"] = b;
             ste.dispatch({ type: bal.act });
@@ -894,8 +891,16 @@ exports.awakePivot = (cpy, bal, ste) => {
     console.log("added show: " + cpy.show);
     return cpy;
 };
+const Act = require("../screen.action");
+const doT = require("dot");
+var navActiveLarge = "btn  active btn-lg bg-success bubbly-button ";
+var navUnactiveLarge = "btn  btn-lg bg-error";
+var navActive = "btn  active bg-success";
+var navUnactive = "btn bg-error";
+var navActiveSmall = "btn active btn-sm";
+var navUnactiveSmall = "btn btn-sm";
 
-},{"../../val/html":53,"../screen.action":29,"dot":59}],29:[function(require,module,exports){
+},{"../screen.action":29,"dot":59}],29:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DELETE_HTML = "[Screen action] Delete HTML";

@@ -9,6 +9,8 @@ var sim = {
 sim.wake = (bee: Beeing, hyp: any, can: any, win: any, hex: any) => {
   sim.bee = bee;
 
+  hyp.push("womb", sim);
+
   bee.dispatch({
     type: ActTtl.PUSH_PIVOT,
     bale: { idx: PIVOT.HYP, datIDX: hyp },
