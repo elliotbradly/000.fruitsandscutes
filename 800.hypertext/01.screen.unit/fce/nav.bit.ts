@@ -8,6 +8,9 @@ export default interface NavBit {
   hde?: string; //unactive class
   val?: number;
   btn?: string;
+  pvt?: string;
   act?: string;
+  mth?: string;
+  dat?: any;
   mod?: any;
 }

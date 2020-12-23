@@ -78,15 +78,32 @@ export const makeNav = (cpy: ScreenModel, bal: NavBit, ste: State) => {
   bal.lst.forEach((a, b) => {
     var btnIDX = bal.nom + String(a).padStart(3, "0");
     document.getElementById(btnIDX).addEventListener("mouseup", () => {
-      debugger;
-
+      if (bal.dat == null) bal.dat = {};
+      if (bal.dat.val == null) bal.dat.val = 0;
+      bal.dat.val = b;
       if (bal.mod == null) return console.warn("no model on nav");
       if (bal.mod["navDex"] != null) bal.mod["navDex"] = b;
-      ste.dispatch({ type: bal.act });
+      if (bal.pvt != null) {
+        pivot(ste, bal.pvt, bal.act, bal.mth, bal.dat);
+      } else if (bal.act != null) {
+        ste.dispatch({ type: bal.act });
+      }
     });
   });
 
   return cpy;
+};
+
+var pivot = (ste, pvt, hke, mth, dat?) => {
+  ste.dispatch({
+    type: ActTtl.PULL_PIVOT,
+    bale: {
+      pvt,
+      hke,
+      mth,
+      dat,
+    },
+  });
 };
 
 export const awakePivot = (cpy: ScreenModel, bal: PivotBit, ste: State) => {
@@ -106,6 +123,9 @@ import ScreenBit from "../fce/screen.bit";
 import PivotBit from "../fce/pivot.bit";
 import NavBit from "../fce/nav.bit";
 import * as Act from "../screen.action";
+
+import * as ActTtl from "../../00.core/title/title.action";
+import * as HkeTtl from "../../00.core/title/title.hike";
 
 import * as doT from "dot";
 

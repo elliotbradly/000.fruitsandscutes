@@ -874,15 +874,35 @@ exports.makeNav = (cpy, bal, ste) => {
     bal.lst.forEach((a, b) => {
         var btnIDX = bal.nom + String(a).padStart(3, "0");
         document.getElementById(btnIDX).addEventListener("mouseup", () => {
-            debugger;
+            if (bal.dat == null)
+                bal.dat = {};
+            if (bal.dat.val == null)
+                bal.dat.val = 0;
+            bal.dat.val = b;
             if (bal.mod == null)
                 return console.warn("no model on nav");
             if (bal.mod["navDex"] != null)
                 bal.mod["navDex"] = b;
-            ste.dispatch({ type: bal.act });
+            if (bal.pvt != null) {
+                pivot(ste, bal.pvt, bal.act, bal.mth, bal.dat);
+            }
+            else if (bal.act != null) {
+                ste.dispatch({ type: bal.act });
+            }
         });
     });
     return cpy;
+};
+var pivot = (ste, pvt, hke, mth, dat) => {
+    ste.dispatch({
+        type: ActTtl.PULL_PIVOT,
+        bale: {
+            pvt,
+            hke,
+            mth,
+            dat,
+        },
+    });
 };
 exports.awakePivot = (cpy, bal, ste) => {
     cpy.lore = bal.lore;
@@ -892,6 +912,7 @@ exports.awakePivot = (cpy, bal, ste) => {
     return cpy;
 };
 const Act = require("../screen.action");
+const ActTtl = require("../../00.core/title/title.action");
 const doT = require("dot");
 var navActiveLarge = "btn  active btn-lg bg-success bubbly-button ";
 var navUnactiveLarge = "btn  btn-lg bg-error";
@@ -900,7 +921,7 @@ var navUnactive = "btn bg-error";
 var navActiveSmall = "btn active btn-sm";
 var navUnactiveSmall = "btn btn-sm";
 
-},{"../screen.action":29,"dot":59}],29:[function(require,module,exports){
+},{"../../00.core/title/title.action":18,"../screen.action":29,"dot":59}],29:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DELETE_HTML = "[Screen action] Delete HTML";

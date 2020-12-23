@@ -1,32 +1,67 @@
+var showBtn = "btn active bg-success";
+var hideBtn = "btn bg-error";
+var navLst = ["see", "add"];
+var navIDX = "nav0";
+var pageIDX = "pge0";
+
 export const initShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   //give the hypertext your womb pivot
 
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
     src: HTML.startUp,
-    dat: { navIDX: "nav0", pageIDX: "pge0" },
+    dat: { navIDX, pageIDX },
   });
 
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: "body" });
   pivot(ste, PVT.CVS, HkeSfc.INDEX, B.CREATE, { idx: "fce00", clr: "FF00FF" });
 
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
-    idx: "nav0",
+    idx: navIDX,
     val: 0,
     dex: 0,
     src: HTML.navBar,
     btn: HTML.navBtn0,
-    lst: ["view", "make"],
+    lst: navLst,
     mod: cpy,
-    shw: "btn active bg-success",
-    hde: "btn bg-error",
-    act: Act.UPDATE_SHORE,
-    pvt: "shore",
+    shw: showBtn,
+    hde: hideBtn,
+    pvt: cpy.pivot,
+    act: Hke.INDEX,
+    mth: B.UPDATE,
   });
+
+  patch(ste, Act.UPDATE_SHORE, null);
 
   return cpy;
 };
 
 export const updateShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  if (bal != null) cpy.navDex = Number(bal.val);
+
+  pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
+    idx: navIDX,
+    dex: cpy.navDex,
+    src: HTML.navBar,
+    btn: HTML.navBtn0,
+    lst: navLst,
+    mod: cpy,
+    shw: showBtn,
+    hde: hideBtn,
+    pvt: cpy.pivot,
+    act: Hke.INDEX,
+    mth: B.UPDATE,
+  });
+
+  switch (cpy.navDex) {
+    case 0:
+      patch(ste, Act.INIT_WITNESS, null);
+      break;
+
+    case 1:
+      patch(ste, Act.INIT_LINK, null);
+      break;
+  }
+
   return cpy;
 };
 
@@ -65,6 +100,7 @@ import * as PVT from "../../val/pivot";
 import * as HTML from "../../val/html";
 
 import * as Act from "../shore.action";
+import * as Hke from "../shore.hike";
 
 import * as HkeSfc from "../../hke/surface.hike";
 import * as HrkSfc from "../../hrk/surface.hark";
