@@ -42,7 +42,7 @@ module.exports = "// navIDX, pageIDX\r\n\r\n\r\n<canvas id=\"fce00\"></canvas>\r
 module.exports = "<div class=\"divider text-center\">witness-page</div>";
 
 },{}],11:[function(require,module,exports){
-module.exports = "\r\n<div class=\"form-group\">\r\n    <label class=\"form-radio form-inline\">\r\n        {{=it.radioList}}    \r\n    </label>\r\n    \r\n  </div>";
+module.exports = "\r\n<div class=\"form-group\">\r\n    <label class=\"form-label\" for=\"input-example-1\">Title</label>\r\n  </div>\r\n\r\n<div class=\"form-group\">\r\n\r\n    <label class=\"form-radio form-inline\">\r\n        {{=it.radioList}}    \r\n    </label>\r\n    \r\n  </div>";
 
 },{}],12:[function(require,module,exports){
 module.exports = "<label class=\"form-radio form-inline\">\r\n    <input type=\"radio\" name=\"gender\"><i class=\"form-icon\"></i> {{=it.radioLabel}}\r\n  </label>";

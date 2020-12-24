@@ -924,6 +924,45 @@ var navUnactiveSmall = "btn btn-sm";
 },{"../../00.core/title/title.action":18,"../screen.action":29,"dot":59}],29:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.REMOVE_DRAGABLE = "[Open action] Remove Dragable Listeners";
+class RemoveDragable {
+    constructor() {
+        this.type = exports.REMOVE_DRAGABLE;
+    }
+}
+exports.RemoveDragable = RemoveDragable;
+exports.REMOVE_ALL_LISTENERS = "[Open action] Remove All Listeners";
+class RemoveAllListeners {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.REMOVE_ALL_LISTENERS;
+    }
+}
+exports.RemoveAllListeners = RemoveAllListeners;
+exports.CREATE_LISTENER = "[Open action] Create Listener";
+class CreateListener {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.CREATE_LISTENER;
+    }
+}
+exports.CreateListener = CreateListener;
+exports.CREATE_DRAGABLE = "[Open action] Create Dragable";
+class CreateDragable {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.CREATE_DRAGABLE;
+    }
+}
+exports.CreateDragable = CreateDragable;
+exports.WRITE_DRAG_FILE = "[Open action] Write Drag File";
+class WriteDragFile {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.WRITE_DRAG_FILE;
+    }
+}
+exports.WriteDragFile = WriteDragFile;
 exports.DELETE_HTML = "[Screen action] Delete HTML";
 class DeleteHTML {
     constructor(bale) {
@@ -991,6 +1030,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class ScreenModel {
     constructor() {
         this.navDex = 0;
+        this.listenerList = [];
+        this.draggerList = [];
     }
 }
 exports.ScreenModel = ScreenModel;

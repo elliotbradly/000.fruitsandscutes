@@ -1,6 +1,3 @@
-import Screen from "./fce/Screen.interface";
-import ScreenBit from "./fce/screen.interface";
-
 export class ScreenModel implements Screen {
   //idx:string;
   //screenBitList: ScreenBit[] = [];
@@ -16,4 +13,14 @@ export class ScreenModel implements Screen {
   compile: string;
 
   navDex: number = 0;
+
+  dragFile: FileBit;
+
+  listenerList: ListenerBit[] = [];
+  draggerList: string[] = [];
 }
+
+import Screen from "./fce/Screen.interface";
+import ScreenBit from "./fce/screen.interface";
+import ListenerBit from "./fce/listener.bit";
+import FileBit from "./fce/file.bit";

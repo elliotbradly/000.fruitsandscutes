@@ -1,7 +1,31 @@
-import { Action } from "../00.core/interface/action.interface";
-import ScreenBit from "./fce/screen.bit";
-import PivotBit from "./fce/pivot.bit";
-import NavBit from "./fce/nav.bit";
+export const REMOVE_DRAGABLE = "[Open action] Remove Dragable Listeners";
+export class RemoveDragable implements Action {
+  readonly type = REMOVE_DRAGABLE;
+}
+
+export const REMOVE_ALL_LISTENERS = "[Open action] Remove All Listeners";
+export class RemoveAllListeners implements Action {
+  readonly type = REMOVE_ALL_LISTENERS;
+  constructor(public bale: ListenerBit) {}
+}
+
+export const CREATE_LISTENER = "[Open action] Create Listener";
+export class CreateListener implements Action {
+  readonly type = CREATE_LISTENER;
+  constructor(public bale: ListenerBit) {}
+}
+
+export const CREATE_DRAGABLE = "[Open action] Create Dragable";
+export class CreateDragable implements Action {
+  readonly type = CREATE_DRAGABLE;
+  constructor(public bale: ListenerBit) {}
+}
+
+export const WRITE_DRAG_FILE = "[Open action] Write Drag File";
+export class WriteDragFile implements Action {
+  readonly type = WRITE_DRAG_FILE;
+  constructor(public bale: FileBit) {}
+}
 
 export const DELETE_HTML = "[Screen action] Delete HTML";
 export class DeleteHTML implements Action {
@@ -32,6 +56,13 @@ export class AwakePivot implements Action {
   readonly type = AWAKE_PIVOT;
   constructor(public bale: PivotBit) {}
 }
+
+import { Action } from "../00.core/interface/action.interface";
+import ScreenBit from "./fce/screen.bit";
+import PivotBit from "./fce/pivot.bit";
+import NavBit from "./fce/nav.bit";
+import ListenerBit from "./fce/listener.bit";
+import FileBit from "./fce/file.bit";
 
 export type Actions =
   | DeleteHTML
