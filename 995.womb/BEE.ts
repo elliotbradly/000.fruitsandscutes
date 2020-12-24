@@ -7,20 +7,25 @@ import { TitleModel } from "./00.core/title/title.model";
 import * as reduceFromTitle from "./00.core/title/title.reduce";
 
 import ShoreUnit from "./00.shore.unit/shore.unit";
+import DawnUnit from "./01.dawn.unit/dawn.unit";
 
 
 import Shore from "./00.shore.unit/fce/shore.interface";
 import { ShoreModel } from "./00.shore.unit/shore.model";
+import Dawn from "./01.dawn.unit/fce/dawn.interface";
+import { DawnModel } from "./01.dawn.unit/dawn.model";
 
 
-export const list: Array<any> = [TitleUnit,ShoreUnit];
+export const list: Array<any> = [TitleUnit,ShoreUnit,DawnUnit];
 
 import * as reduceFromShore from "./00.shore.unit/shore.reduce";
+import * as reduceFromDawn from "./01.dawn.unit/dawn.reduce";
 
 
 export const reducer: any = {
  title: reduceFromTitle.reducer,
  shore : reduceFromShore.reducer, 
+dawn : reduceFromDawn.reducer, 
 
 };
 
@@ -32,5 +37,6 @@ export default class UnitData implements Model {
 
  title: Title = new TitleModel();
  shore : Shore = new ShoreModel();
+dawn : Dawn = new DawnModel();
 
 }

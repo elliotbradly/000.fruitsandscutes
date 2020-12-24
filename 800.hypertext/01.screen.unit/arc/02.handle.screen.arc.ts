@@ -6,6 +6,7 @@ import { Inject } from "typescript-ioc";
 import * as Act from "../screen.action";
 import ScreenBit from "../fce/screen.bit";
 import PivotBit from "../fce/pivot.bit";
+import ListenerBit from "../fce/listener.bit";
 
 export default class HandleScreenArc extends Arc {
   @Inject private path: PathProcess;
@@ -14,11 +15,6 @@ export default class HandleScreenArc extends Arc {
     super(state);
   }
 
-  awake = (dat: PivotBit) => this.path.move(this.state, Act.AWAKE_PIVOT, dat);
-
-  update = (dat: PivotBit) => this.path.move(this.state, Act.UPDATE_HTML, dat);
-  push = (dat: PivotBit) => this.path.move(this.state, Act.PUSH_COMP, dat);
-  make = (dat: PivotBit) => this.path.move(this.state, Act.MAKE_NAV, dat);
-
-  delete = (dat: PivotBit) => this.path.move(this.state, Act.DELETE_HTML, dat);
+  create = (dat: ListenerBit) =>
+    this.path.move(this.state, Act.CREATE_DRAGABLE, dat);
 }

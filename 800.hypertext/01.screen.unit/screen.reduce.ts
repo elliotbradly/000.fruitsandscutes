@@ -10,6 +10,18 @@ export function reducer(
   state?: State
 ) {
   switch (act.type) {
+    case Act.CREATE_DRAGABLE:
+      return Buzz.createDragable(clone(model), act.bale, state);
+
+    case Act.MAKE_LISTENER:
+      return Buzz.createDragable(clone(model), act.bale, state);
+
+    case Act.REMOVE_DRAGABLE:
+      return Buzz.removeDragable(clone(model), act.bale, state);
+
+    case Act.WRITE_DRAG_FILE:
+      return Buzz.writeDragFile(clone(model), act.bale, state);
+
     case Act.PUSH_COMP:
       return Buzz.pushCompile(clone(model), act.bale, state);
 

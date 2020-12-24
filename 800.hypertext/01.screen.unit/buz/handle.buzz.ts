@@ -1,4 +1,4 @@
-export const createListener = (
+export const makeListener = (
   cpy: ScreenModel,
   bal: ListenerBit,
   ste: State
@@ -33,7 +33,11 @@ export const removeAllListeners = (
   return cpy;
 };
 
-export const removeDragable = (cpy: ScreenModel) => {
+export const removeDragable = (
+  cpy: ScreenModel,
+  bal: ListenerBit,
+  ste: State
+) => {
   //var holder = document.getElementById(bal.idx);
 
   cpy.draggerList.forEach((a) => {

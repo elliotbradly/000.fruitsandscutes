@@ -32,6 +32,7 @@ sim.wake = (bee: Beeing, hyp: any, can: any, win: any, hex: any) => {
   });
 
   setTimeout(() => {
+    bee.hike(HkeDwn.INDEX, B.INIT);
     bee.hike(HkeShr.INDEX, B.INIT);
 
     var width =
@@ -82,5 +83,9 @@ import * as HrkTtl from "./00.core/title/title.hark";
 import * as ActShr from "./00.shore.unit/shore.action";
 import * as HkeShr from "./00.shore.unit/shore.hike";
 import * as HrkShr from "./00.shore.unit/shore.hark";
+
+import * as ActDwn from "./01.dawn.unit/dawn.action";
+import * as HkeDwn from "./01.dawn.unit/dawn.hike";
+import * as HrkDwn from "./01.dawn.unit/dawn.hark";
 
 module.exports = sim;

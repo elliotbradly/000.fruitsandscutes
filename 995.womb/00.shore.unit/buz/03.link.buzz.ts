@@ -1,4 +1,5 @@
 var pageIDX = "pge0";
+var arteDropIDX = "arteDrop";
 
 export const initLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   var list = ["writing", "unreal level", "image", "character model"];
@@ -20,6 +21,8 @@ export const initLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   });
 
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
+
+  pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, { idx: arteDropIDX });
 
   return cpy;
 };

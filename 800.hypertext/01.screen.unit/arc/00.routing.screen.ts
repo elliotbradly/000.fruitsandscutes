@@ -2,6 +2,7 @@ import Line from "../../00.core/line";
 import State from "../../00.core/state";
 
 import IndexArc from "./01.index.screen.arc";
+import HandleArc from "./02.handle.screen.arc";
 
 export const root: string = "screen";
 
@@ -9,6 +10,11 @@ export const routes = [
   {
     path: "index",
     arcType: IndexArc,
+    arc: null,
+  },
+  {
+    path: "handle",
+    arcType: HandleArc,
     arc: null,
   },
 ];
