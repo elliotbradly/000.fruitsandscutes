@@ -1,6 +1,11 @@
 var pageIDX = "pge0";
 
 export const initWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  patch(ste, Act.OPEN_WITNESS, null);
+  return cpy;
+};
+
+export const openWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
     src: HTML.witnessPage,
     dat: { pageIDX },

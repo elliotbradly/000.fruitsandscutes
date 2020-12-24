@@ -17,4 +17,7 @@ export default class HandleScreenArc extends Arc {
 
   create = (dat: ListenerBit) =>
     this.path.move(this.state, Act.CREATE_DRAGABLE, dat);
+
+  make = (dat: ListenerBit) =>
+    this.path.move(this.state, Act.MAKE_LISTENER, dat);
 }

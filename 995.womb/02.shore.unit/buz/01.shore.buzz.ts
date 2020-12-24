@@ -7,6 +7,12 @@ var pageIDX = "pge0";
 export const initShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   //give the hypertext your womb pivot
 
+  patch(ste, Act.OPEN_SHORE, null);
+
+  return cpy;
+};
+
+export const openShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
     src: HTML.startUp,
     dat: { navIDX, pageIDX },
@@ -30,9 +36,10 @@ export const initShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     mth: B.UPDATE,
   });
 
-  patch(ste, Act.UPDATE_SHORE, null);
+  patch(ste, Act.INIT_LINK, null);
+  patch(ste, Act.INIT_WITNESS, null);
 
-  return cpy;
+  patch(ste, Act.UPDATE_SHORE, null);
 };
 
 export const updateShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
@@ -58,7 +65,7 @@ export const updateShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
       break;
 
     case 1:
-      patch(ste, Act.INIT_LINK, null);
+      patch(ste, Act.OPEN_LINK, null);
       break;
   }
 

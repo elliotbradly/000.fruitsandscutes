@@ -4,9 +4,29 @@ export const makeListener = (
   ste: State
 ) => {
   cpy.listenerList.push(bal);
-  var ele = document.getElementById(bal.target);
-  if (ele == null) return console.log(bal.target + " does not exist");
+  var ele = document.getElementById(bal.idx);
+  if (ele == null)
+    return console.log(bal.idx + " does not exist to make listener");
+  bal.method = () => {
+    if (bal.dat == null) return;
+    var dat = bal.dat;
+    pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
+  };
+
+  var type;
+
+  if (bal.val == null) bal.val = 0;
+
+  for (var key in MOUSE) {
+    var item = MOUSE[key];
+    var val = item.idx;
+    if (bal.val == val) type = item.src;
+  }
+
+  if (bal.type == null) bal.type = type;
+
   ele.addEventListener(bal.type, bal.method);
+
   console.log("adding listener " + JSON.stringify(bal));
 
   return cpy;
@@ -111,8 +131,23 @@ export const writeDragFile = (cpy: ScreenModel, bal: FileBit, ste: State) => {
   return cpy;
 };
 
+var pivot = (ste, pvt, hke, mth, dat?) => {
+  ste.dispatch({
+    type: ActTtl.PULL_PIVOT,
+    bale: {
+      pvt,
+      hke,
+      mth,
+      dat,
+    },
+  });
+};
+
 import { ScreenModel } from "../screen.model";
 import ListenerBit from "../fce/listener.bit";
 import FileBit from "../fce/file.bit";
 import State from "../../00.core/state";
 import * as Act from "../screen.action";
+import * as MOUSE from "../../val/mouse-event";
+
+import * as ActTtl from "../../00.core/title/title.action";

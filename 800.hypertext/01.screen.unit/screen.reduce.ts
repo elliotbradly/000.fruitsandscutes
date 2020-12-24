@@ -14,7 +14,7 @@ export function reducer(
       return Buzz.createDragable(clone(model), act.bale, state);
 
     case Act.MAKE_LISTENER:
-      return Buzz.createDragable(clone(model), act.bale, state);
+      return Buzz.makeListener(clone(model), act.bale, state);
 
     case Act.REMOVE_DRAGABLE:
       return Buzz.removeDragable(clone(model), act.bale, state);

@@ -35,6 +35,10 @@ export const pushCompile = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
 
   cpy.compile = out.join("\n");
 
+  bal.src = cpy.compile;
+
+  if (bal.idx != null) patch(ste, Act.UPDATE_HTML, bal);
+
   return cpy;
 };
 
@@ -93,6 +97,8 @@ export const makeNav = (cpy: ScreenModel, bal: NavBit, ste: State) => {
 
   return cpy;
 };
+
+var patch = (ste, type, bale) => ste.dispatch({ type, bale });
 
 var pivot = (ste, pvt, hke, mth, dat?) => {
   ste.dispatch({

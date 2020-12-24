@@ -6,26 +6,26 @@ import { TitleModel } from "./00.core/title/title.model";
 
 import * as reduceFromTitle from "./00.core/title/title.reduce";
 
-import ShoreUnit from "./00.shore.unit/shore.unit";
 import DawnUnit from "./01.dawn.unit/dawn.unit";
+import ShoreUnit from "./02.shore.unit/shore.unit";
 
 
-import Shore from "./00.shore.unit/fce/shore.interface";
-import { ShoreModel } from "./00.shore.unit/shore.model";
 import Dawn from "./01.dawn.unit/fce/dawn.interface";
 import { DawnModel } from "./01.dawn.unit/dawn.model";
+import Shore from "./02.shore.unit/fce/shore.interface";
+import { ShoreModel } from "./02.shore.unit/shore.model";
 
 
-export const list: Array<any> = [TitleUnit,ShoreUnit,DawnUnit];
+export const list: Array<any> = [TitleUnit,DawnUnit,ShoreUnit];
 
-import * as reduceFromShore from "./00.shore.unit/shore.reduce";
 import * as reduceFromDawn from "./01.dawn.unit/dawn.reduce";
+import * as reduceFromShore from "./02.shore.unit/shore.reduce";
 
 
 export const reducer: any = {
  title: reduceFromTitle.reducer,
- shore : reduceFromShore.reducer, 
-dawn : reduceFromDawn.reducer, 
+ dawn : reduceFromDawn.reducer, 
+shore : reduceFromShore.reducer, 
 
 };
 
@@ -36,7 +36,7 @@ export default class UnitData implements Model {
  localData: string = "./data";
 
  title: Title = new TitleModel();
- shore : Shore = new ShoreModel();
-dawn : Dawn = new DawnModel();
+ dawn : Dawn = new DawnModel();
+shore : Shore = new ShoreModel();
 
 }

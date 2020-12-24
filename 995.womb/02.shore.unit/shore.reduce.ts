@@ -28,6 +28,15 @@ export function reducer(
     case Act.RESIZE_LINK:
       return Buzz.resizeLink(clone(model), act.bale, state);
 
+    case Act.OPEN_SHORE:
+      return Buzz.openShore(clone(model), act.bale, state);
+
+    case Act.OPEN_WITNESS:
+      return Buzz.openWitness(clone(model), act.bale, state);
+
+    case Act.OPEN_LINK:
+      return Buzz.openLink(clone(model), act.bale, state);
+
     case Act.INIT_SHORE:
       return Buzz.initShore(clone(model), act.bale, state);
 

@@ -9,6 +9,12 @@ export class InitShore implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+export const OPEN_SHORE = "[Shore action] Open Shore";
+export class OpenShore implements Action {
+  readonly type = OPEN_SHORE;
+  constructor(public bale: ShoreBit) {}
+}
+
 export const UPDATE_SHORE = "[Shore action] Update Shore";
 export class UpdateShore implements Action {
   readonly type = UPDATE_SHORE;
@@ -21,9 +27,16 @@ export class ResizeShore implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+//witness section
 export const INIT_WITNESS = "[Shore action] Init Witness";
 export class InitWitness implements Action {
   readonly type = INIT_WITNESS;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const OPEN_WITNESS = "[Shore action] Open Witness";
+export class OpenWitness implements Action {
+  readonly type = OPEN_WITNESS;
   constructor(public bale: ShoreBit) {}
 }
 
@@ -39,9 +52,22 @@ export class ResizeWitness implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+//link section
 export const INIT_LINK = "[Shore action] Init Link";
 export class InitLink implements Action {
   readonly type = INIT_LINK;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const OPEN_LINK = "[Shore action] Open Link";
+export class OpenLink implements Action {
+  readonly type = OPEN_LINK;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const CLOSE_LINK = "[Shore action] Close Link";
+export class CloseLink implements Action {
+  readonly type = CLOSE_LINK;
   constructor(public bale: ShoreBit) {}
 }
 
@@ -59,11 +85,15 @@ export class ResizeLink implements Action {
 
 export type Actions =
   | InitShore
+  | OpenShore
   | UpdateShore
   | ResizeShore
   | InitWitness
+  | OpenWitness
   | UpdateWitness
   | ResizeWitness
   | InitLink
+  | OpenLink
   | UpdateLink
-  | ResizeLink;
+  | ResizeLink
+  | CloseLink;

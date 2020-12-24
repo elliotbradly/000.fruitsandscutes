@@ -80,12 +80,12 @@ import * as ActTtl from "./00.core/title/title.action";
 import * as HkeTtl from "./00.core/title/title.hike";
 import * as HrkTtl from "./00.core/title/title.hark";
 
-import * as ActShr from "./00.shore.unit/shore.action";
-import * as HkeShr from "./00.shore.unit/shore.hike";
-import * as HrkShr from "./00.shore.unit/shore.hark";
-
 import * as ActDwn from "./01.dawn.unit/dawn.action";
 import * as HkeDwn from "./01.dawn.unit/dawn.hike";
 import * as HrkDwn from "./01.dawn.unit/dawn.hark";
+
+import * as ActShr from "./02.shore.unit/shore.action";
+import * as HkeShr from "./02.shore.unit/shore.hike";
+import * as HrkShr from "./02.shore.unit/shore.hark";
 
 module.exports = sim;

@@ -6,15 +6,14 @@ import { Inject } from "typescript-ioc";
 import * as Act from "../dawn.action";
 import DawnBit from "../fce/dawn.bit";
 
-
 export default class IndexDawnArc extends Arc {
- @Inject private path: PathProcess;
+  @Inject private path: PathProcess;
 
- constructor(private state: State) {
- super(state);
- }
+  constructor(private state: State) {
+    super(state);
+  }
 
- init = (dat:DawnBit ) => this.path.move(this.state, Act.INIT_DAWN, dat);
- update = (dat:DawnBit ) => this.path.move(this.state, Act.UPDATE_DAWN, dat);
-
+  init = (dat: DawnBit) => this.path.move(this.state, Act.INIT_DAWN, dat);
+  update = (dat: DawnBit) => this.path.move(this.state, Act.UPDATE_DAWN, dat);
+  create = (dat: DawnBit) => this.path.move(this.state, Act.CREATE_LINK, dat);
 }
