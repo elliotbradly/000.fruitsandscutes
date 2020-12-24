@@ -857,7 +857,13 @@ exports.initDawn = (cpy, bal, ste) => {
     });
     for (var key in ARTE) {
         cpy.arteList.push(ARTE[key].nom);
+        var dir = String(ARTE[key].idx).padStart(2, "0") + "." + ARTE[key].nom;
+        FS.ensureDirSync(cpy.arteSrc + dir);
     }
+    return cpy;
+};
+exports.createArteLink = (cpy, bal, ste) => {
+    patch(ste, ActShr.UPDATE_LINK, { val: 0 });
     return cpy;
 };
 exports.extractFileData = (cpy, bal, ste) => {
@@ -879,10 +885,6 @@ exports.extractFileData = (cpy, bal, ste) => {
     cpy.fileName = list.join(".");
     cpy.fileDex = bit.typ.idx;
     patch(ste, ActShr.UPDATE_LINK, { val: 1 });
-    return cpy;
-};
-exports.createArteLink = (cpy, bal, ste) => {
-    debugger;
     return cpy;
 };
 exports.updateDawn = (cpy, bal, ste) => {
@@ -919,8 +921,9 @@ const FILE_TYPE = require("../../val/file-type");
 const ActShr = require("../../02.shore.unit/shore.action");
 const HrkScn = require("../../hrk/screen.hark");
 const ActTtl = require("../../00.core/title/title.action");
+const FS = require("fs-extra");
 
-},{"../../00.core/title/title.action":26,"../../02.shore.unit/shore.action":50,"../../hrk/screen.hark":59,"../../val/arte-type":60,"../../val/file-type":61,"../../val/pivot":63,"../dawn.action":37}],37:[function(require,module,exports){
+},{"../../00.core/title/title.action":26,"../../02.shore.unit/shore.action":50,"../../hrk/screen.hark":59,"../../val/arte-type":60,"../../val/file-type":61,"../../val/pivot":63,"../dawn.action":37,"fs-extra":undefined}],37:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // Dawn actions
@@ -982,6 +985,7 @@ class DawnModel {
         //idx:string;
         //dawnBitList: DawnBit[] = [];
         //dawnBits: any = {};
+        this.arteSrc = "./data/arte/";
         this.arteList = [];
         this.fileName = "";
         this.fileDex = 0;
@@ -1331,6 +1335,7 @@ exports.initLink = (cpy, bal, ste) => {
 exports.openLink = (cpy, bal, ste) => {
     var list = ste.value.dawn.arteList;
     var line = [];
+    //creates radio buttons
     list.forEach((a, b) => {
         pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
             src: HTML.contentRadio,
@@ -1339,22 +1344,28 @@ exports.openLink = (cpy, bal, ste) => {
         var item = query(ste, PVT.HYP, HrkScn.COMPILE);
         line.push(item);
     });
+    //adds radio buttons
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
         src: HTML.linkPage,
+        idx: pageIDX,
         dat: { radioList: line.join("\n"), linkClass: linkDisabled },
     });
-    pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
-    pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
-        idx: linkDisplay,
-        src: HTML.linkButton,
-        dat: { btnIDX: linkBtnIDX, linkClass: linkDisabled },
-    });
+    //create drop area
     pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, { idx: arteDropIDX });
+    patch(ste, Act.UPDATE_LINK, { val: 0 });
 };
 exports.updateLink = (cpy, bal, ste) => {
-    //unable button
     switch (bal.val) {
         case 0:
+            //disables link btn
+            pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+                idx: linkDisplay,
+                src: HTML.linkButton,
+                dat: { btnIDX: linkBtnIDX, linkClass: linkDisabled },
+            });
+            var dex = ste.value.dawn.fileDex;
+            document.getElementById(nameInput)["value"] = "";
+            document.getElementById(radioBtnIdx + dex)["checked"] = false;
             break;
         case 1:
             pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
@@ -1401,12 +1412,13 @@ var pivot = (ste, pvt, hke, mth, dat) => {
 const B = require("../../00.core/constant/BASIC");
 const PVT = require("../../val/pivot");
 const HTML = require("../../val/html");
+const Act = require("../shore.action");
 const HkeDwn = require("../../01.dawn.unit/dawn.hike");
 const HkeScn = require("../../hke/screen.hike");
 const HrkScn = require("../../hrk/screen.hark");
 const ActTtl = require("../../00.core/title/title.action");
 
-},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../01.dawn.unit/dawn.hike":39,"../../hke/screen.hike":57,"../../hrk/screen.hark":59,"../../val/html":62,"../../val/pivot":63}],50:[function(require,module,exports){
+},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../01.dawn.unit/dawn.hike":39,"../../hke/screen.hike":57,"../../hrk/screen.hark":59,"../../val/html":62,"../../val/pivot":63,"../shore.action":50}],50:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // Shore actions

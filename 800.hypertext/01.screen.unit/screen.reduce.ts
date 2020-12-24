@@ -19,6 +19,9 @@ export function reducer(
     case Act.REMOVE_DRAGABLE:
       return Buzz.removeDragable(clone(model), act.bale, state);
 
+    case Act.DELETE_ALL_LISTENERS:
+      return Buzz.deleteAllListeners(clone(model), act.bale, state);
+
     case Act.WRITE_DRAG_FILE:
       return Buzz.writeDragFile(clone(model), act.bale, state);
 

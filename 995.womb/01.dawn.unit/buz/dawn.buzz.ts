@@ -7,7 +7,15 @@ export const initDawn = (cpy: DawnModel, bal: DawnBit, ste: State) => {
 
   for (var key in ARTE) {
     cpy.arteList.push(ARTE[key].nom);
+    var dir = String(ARTE[key].idx).padStart(2, "0") + "." + ARTE[key].nom;
+    FS.ensureDirSync(cpy.arteSrc + dir);
   }
+
+  return cpy;
+};
+
+export const createArteLink = (cpy: DawnModel, bal: DawnBit, ste: State) => {
+  patch(ste, ActShr.UPDATE_LINK, { val: 0 });
 
   return cpy;
 };
@@ -36,11 +44,6 @@ export const extractFileData = (cpy: DawnModel, bal: FileBit, ste: State) => {
 
   patch(ste, ActShr.UPDATE_LINK, { val: 1 });
 
-  return cpy;
-};
-
-export const createArteLink = (cpy: DawnModel, bal: DawnBit, ste: State) => {
-  debugger;
   return cpy;
 };
 
@@ -93,4 +96,5 @@ import { DawnModel } from "../dawn.model";
 import DawnBit from "../fce/dawn.interface";
 import State from "../../00.core/state";
 import * as ActTtl from "../../00.core/title/title.action";
+import * as FS from "fs-extra";
 import FileBit from "../../fce/file.bit";

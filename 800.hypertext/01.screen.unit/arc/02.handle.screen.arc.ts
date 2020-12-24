@@ -20,4 +20,7 @@ export default class HandleScreenArc extends Arc {
 
   make = (dat: ListenerBit) =>
     this.path.move(this.state, Act.MAKE_LISTENER, dat);
+
+  delete = (dat: ListenerBit) =>
+    this.path.move(this.state, Act.DELETE_ALL_LISTENERS, dat);
 }

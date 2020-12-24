@@ -4,9 +4,9 @@ export class RemoveDragable implements Action {
   constructor(public bale: ListenerBit) {}
 }
 
-export const REMOVE_ALL_LISTENERS = "[Open action] Remove All Listeners";
-export class RemoveAllListeners implements Action {
-  readonly type = REMOVE_ALL_LISTENERS;
+export const DELETE_ALL_LISTENERS = "[Open action] Delete All Listeners";
+export class DeleteAllListeners implements Action {
+  readonly type = DELETE_ALL_LISTENERS;
   constructor(public bale: ListenerBit) {}
 }
 
@@ -72,7 +72,7 @@ export type Actions =
   | UpdateHtml
   | AwakePivot
   | RemoveDragable
-  | RemoveAllListeners
+  | DeleteAllListeners
   | MakeListener
   | CreateDragable
   | WriteDragFile;

@@ -15,6 +15,7 @@ export const openLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   var list = ste.value.dawn.arteList;
   var line = [];
 
+  //creates radio buttons
   list.forEach((a, b) => {
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
       src: HTML.contentRadio,
@@ -25,27 +26,33 @@ export const openLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     line.push(item);
   });
 
+  //adds radio buttons
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
     src: HTML.linkPage,
+    idx: pageIDX,
     dat: { radioList: line.join("\n"), linkClass: linkDisabled },
   });
 
-  pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
-
-  pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
-    idx: linkDisplay,
-    src: HTML.linkButton,
-    dat: { btnIDX: linkBtnIDX, linkClass: linkDisabled },
-  });
-
+  //create drop area
   pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, { idx: arteDropIDX });
+  patch(ste, Act.UPDATE_LINK, { val: 0 });
 };
 
 export const updateLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
-  //unable button
-
   switch (bal.val) {
     case 0:
+      //disables link btn
+      pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+        idx: linkDisplay,
+        src: HTML.linkButton,
+        dat: { btnIDX: linkBtnIDX, linkClass: linkDisabled },
+      });
+
+      var dex = ste.value.dawn.fileDex;
+      document.getElementById(nameInput)["value"] = "";
+
+      document.getElementById(radioBtnIdx + dex)["checked"] = false;
+
       break;
 
     case 1:

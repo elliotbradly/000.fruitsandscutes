@@ -100,7 +100,7 @@ function createWindow() {
   mainWindow.setPosition(720, 0);
 
   if (process.env.DEBUG == "true") {
-    mainWindow.webContents.openDevTools();
+    //mainWindow.webContents.openDevTools();
     mainWindow.webContents.loadURL("http://localhost:1100/");
   }
   

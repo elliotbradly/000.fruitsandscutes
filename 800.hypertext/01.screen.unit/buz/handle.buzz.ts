@@ -32,7 +32,7 @@ export const makeListener = (
   return cpy;
 };
 
-export const removeAllListeners = (
+export const deleteAllListeners = (
   cpy: ScreenModel,
   bal: ListenerBit,
   ste: State

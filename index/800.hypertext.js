@@ -826,6 +826,7 @@ class HandleScreenArc extends arc_form_1.default {
         this.state = state;
         this.create = (dat) => this.path.move(this.state, Act.CREATE_DRAGABLE, dat);
         this.make = (dat) => this.path.move(this.state, Act.MAKE_LISTENER, dat);
+        this.delete = (dat) => this.path.move(this.state, Act.DELETE_ALL_LISTENERS, dat);
     }
 }
 __decorate([
@@ -863,7 +864,7 @@ exports.makeListener = (cpy, bal, ste) => {
     console.log("adding listener " + JSON.stringify(bal));
     return cpy;
 };
-exports.removeAllListeners = (cpy, bal, ste) => {
+exports.deleteAllListeners = (cpy, bal, ste) => {
     cpy.listenerList.forEach((a) => {
         if (document.getElementById(a.target) == null)
             return;
@@ -1085,14 +1086,14 @@ class RemoveDragable {
     }
 }
 exports.RemoveDragable = RemoveDragable;
-exports.REMOVE_ALL_LISTENERS = "[Open action] Remove All Listeners";
-class RemoveAllListeners {
+exports.DELETE_ALL_LISTENERS = "[Open action] Delete All Listeners";
+class DeleteAllListeners {
     constructor(bale) {
         this.bale = bale;
-        this.type = exports.REMOVE_ALL_LISTENERS;
+        this.type = exports.DELETE_ALL_LISTENERS;
     }
 }
-exports.RemoveAllListeners = RemoveAllListeners;
+exports.DeleteAllListeners = DeleteAllListeners;
 exports.MAKE_LISTENER = "[Open action] Make Listener";
 class MakeListener {
     constructor(bale) {
@@ -1174,7 +1175,7 @@ exports.deleteHTML = screen_buzz_5.deleteHTML;
 var handle_buzz_1 = require("./buz/handle.buzz");
 exports.makeListener = handle_buzz_1.makeListener;
 var handle_buzz_2 = require("./buz/handle.buzz");
-exports.removeAllListeners = handle_buzz_2.removeAllListeners;
+exports.deleteAllListeners = handle_buzz_2.deleteAllListeners;
 var handle_buzz_3 = require("./buz/handle.buzz");
 exports.removeDragable = handle_buzz_3.removeDragable;
 var handle_buzz_4 = require("./buz/handle.buzz");
@@ -1216,6 +1217,8 @@ function reducer(model = new screen_model_1.ScreenModel(), act, state) {
             return Buzz.makeListener(clone(model), act.bale, state);
         case Act.REMOVE_DRAGABLE:
             return Buzz.removeDragable(clone(model), act.bale, state);
+        case Act.DELETE_ALL_LISTENERS:
+            return Buzz.deleteAllListeners(clone(model), act.bale, state);
         case Act.WRITE_DRAG_FILE:
             return Buzz.writeDragFile(clone(model), act.bale, state);
         case Act.PUSH_COMP:
