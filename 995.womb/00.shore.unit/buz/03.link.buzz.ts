@@ -1,9 +1,22 @@
 var pageIDX = "pge0";
 
 export const initLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  var list = ["writing", "unreal level", "image", "character model"];
+  var line = [];
+
+  list.forEach((a) => {
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+      src: HTML.contentRadio,
+      dat: { radioLabel: a },
+    });
+
+    var item = query(ste, PVT.HYP, HrkScn.COMPILE);
+    line.push(item);
+  });
+
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
     src: HTML.linkPage,
-    dat: { pageIDX },
+    dat: { radioList: line.join("\n") },
   });
 
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });

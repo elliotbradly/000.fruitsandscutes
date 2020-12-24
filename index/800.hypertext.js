@@ -983,6 +983,7 @@ exports.deleteHTML = screen_buzz_5.deleteHTML;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.READY = "screen.ready";
+exports.COMPILE = "screen.compile";
 
 },{}],32:[function(require,module,exports){
 "use strict";

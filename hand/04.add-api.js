@@ -1,3 +1,5 @@
+//adds faces, hikes, and harks to a pivot
+
 var FS = require("fs-extra");
 var S = require("string");
 

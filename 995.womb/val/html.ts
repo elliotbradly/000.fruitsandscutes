@@ -8,3 +8,4 @@ export const clrBtn00: string = require("../../../995.womb/see/006.clr-btn-00.ht
 export const startUp: string = require("../../../995.womb/see/007.start-up.html");
 export const witnessPage: string = require("../../../995.womb/see/008.witness-page.html");
 export const linkPage: string = require("../../../995.womb/see/009.link-page.html");
+export const contentRadio: string = require("../../../995.womb/see/010.content-radio.html");

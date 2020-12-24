@@ -1,6 +1,6 @@
 export default interface TextBit {
   idx: string;
-  txt: string;
+  src: string;
   can?: string;
   x?: number;
   y?: number;

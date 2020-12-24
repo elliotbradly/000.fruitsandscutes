@@ -1,3 +1,8 @@
+//this has got to make you made
+//since you wrote it twice
+//see fashion html
+//would you not like this thirty minutes to an hour back
+
 var FS = require("fs-extra");
 var doT = require("dot");
 var S = require("string");
