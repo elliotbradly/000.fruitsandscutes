@@ -8,9 +8,17 @@ export const makeListener = (
   if (ele == null)
     return console.log(bal.idx + " does not exist to make listener");
   bal.method = () => {
-    if (bal.dat == null) return;
-    var dat = bal.dat;
-    pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
+    if (bal.dat != null) {
+      var dat = bal.dat;
+      pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
+    }
+
+    if (bal.lst != null) {
+      bal.lst.forEach((a) => {
+        var dat = JSON.parse(a);
+        pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
+      });
+    }
   };
 
   var type;

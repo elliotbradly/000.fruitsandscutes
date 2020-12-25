@@ -28,4 +28,15 @@ export class ExtractFileData implements Action {
   constructor(public bale: FileBit) {}
 }
 
-export type Actions = InitDawn | UpdateDawn | ExtractFileData | CreateArtLink;
+export const REPLACE_DATA = "[Dawn action] Replace Data";
+export class ReplaceData implements Action {
+  readonly type = REPLACE_DATA;
+  constructor(public bale: DawnBit) {}
+}
+
+export type Actions =
+  | InitDawn
+  | UpdateDawn
+  | ExtractFileData
+  | CreateArtLink
+  | ReplaceData;

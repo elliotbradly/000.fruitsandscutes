@@ -73,7 +73,10 @@ export const updateLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
       //now activate the link button
       pivot(ste, PVT.HYP, HkeScn.HANDLE, B.MAKE, {
         idx: linkBtnIDX,
-        dat: { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.CREATE },
+        lst: [
+          { pvt: PVT.WMB, hke: Hke.LINK, mth: B.REPLACE },
+          { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.CREATE },
+        ],
       });
 
       break;
@@ -85,6 +88,25 @@ export const updateLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 export const closeLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {};
 
 export const resizeLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  return cpy;
+};
+
+export const replaceData = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  var name = document.getElementById(nameInput)["value"];
+
+  var list = ste.value.dawn.arteList;
+  var line = [];
+
+  var dex = 0;
+
+  //creates radio buttons
+  list.forEach((a, b) => {
+    var id = radioBtnIdx + b;
+    if (document.getElementById(id)["checked"] == true) dex = b;
+  });
+
+  patch(ste, ActDwn.REPLACE_DATA, { src: name, val: dex });
+
   return cpy;
 };
 
@@ -113,8 +135,10 @@ import * as PVT from "../../val/pivot";
 import * as HTML from "../../val/html";
 
 import * as Act from "../shore.action";
+
 import * as Hke from "../shore.hike";
 
+import * as ActDwn from "../../01.dawn.unit/dawn.action";
 import * as HkeDwn from "../../01.dawn.unit/dawn.hike";
 import * as HrkDwn from "../../01.dawn.unit/dawn.hark";
 

@@ -37,6 +37,9 @@ export function reducer(
     case Act.OPEN_LINK:
       return Buzz.openLink(clone(model), act.bale, state);
 
+    case Act.REPLACE_DATA:
+      return Buzz.replaceData(clone(model), act.bale, state);
+
     case Act.INIT_SHORE:
       return Buzz.initShore(clone(model), act.bale, state);
 

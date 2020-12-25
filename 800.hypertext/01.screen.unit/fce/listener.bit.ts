@@ -3,6 +3,7 @@ export default interface ListenerBit {
   src?: string;
   dat?: any;
   val?: number;
+  lst?: any[];
   type?: string;
   target?: string;
   method?: any;

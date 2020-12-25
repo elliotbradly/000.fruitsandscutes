@@ -15,8 +15,15 @@ export const initDawn = (cpy: DawnModel, bal: DawnBit, ste: State) => {
 };
 
 export const createArteLink = (cpy: DawnModel, bal: DawnBit, ste: State) => {
-  //please
+  //where do we put it
+  var lst = FS.readdirSync(cpy.arteSrc);
+  var dir = lst[cpy.fileDex];
+  lst = FS.readdirSync(cpy.arteSrc + dir);
+  var dex = String(lst.length).padStart(3, "0");
+  var fin =
+    cpy.arteSrc + dir + "/" + dex + "." + cpy.fileName + "." + cpy.fileEnd;
 
+  FS.copySync(cpy.file.path, fin);
   patch(ste, ActShr.UPDATE_LINK, { val: 0 });
 
   return cpy;
@@ -27,6 +34,7 @@ export const extractFileData = (cpy: DawnModel, bal: FileBit, ste: State) => {
 
   var list = name.split(".");
   var nom = list[list.length - 1];
+  cpy.fileEnd = nom;
   var bit;
 
   var good = false;
@@ -40,9 +48,10 @@ export const extractFileData = (cpy: DawnModel, bal: FileBit, ste: State) => {
 
   if (good == false) return console.log("not what we need");
 
-  var element = list.pop();
-  cpy.fileName = list.join(".");
+  list.pop();
+  cpy.fileName = S(list.join(".")).slugify().s;
   cpy.fileDex = bit.typ.idx;
+  cpy.file = bal;
 
   patch(ste, ActShr.UPDATE_LINK, { val: 1 });
 
@@ -50,6 +59,12 @@ export const extractFileData = (cpy: DawnModel, bal: FileBit, ste: State) => {
 };
 
 export const updateDawn = (cpy: DawnModel, bal: DawnBit, ste: State) => {
+  return cpy;
+};
+
+export const replaceData = (cpy: DawnModel, bal: DawnBit, ste: State) => {
+  cpy.fileName = S(bal.src).slugify().s;
+  cpy.fileDex = bal.val;
   return cpy;
 };
 
@@ -95,8 +110,9 @@ import * as HkeScn from "../../hke/screen.hike";
 import * as HrkScn from "../../hrk/screen.hark";
 
 import { DawnModel } from "../dawn.model";
-import DawnBit from "../fce/dawn.interface";
+import DawnBit from "../fce/dawn.bit";
 import State from "../../00.core/state";
 import * as ActTtl from "../../00.core/title/title.action";
 import * as FS from "fs-extra";
+import * as S from "string";
 import FileBit from "../../fce/file.bit";

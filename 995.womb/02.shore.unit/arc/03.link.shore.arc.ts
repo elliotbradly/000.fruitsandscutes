@@ -16,4 +16,6 @@ export default class LinkShoreArc extends Arc {
   init = (dat: ShoreBit) => this.path.move(this.state, Act.INIT_LINK, dat);
   update = (dat: ShoreBit) => this.path.move(this.state, Act.UPDATE_LINK, dat);
   resize = (dat: ShoreBit) => this.path.move(this.state, Act.RESIZE_LINK, dat);
+  replace = (dat: ShoreBit) =>
+    this.path.move(this.state, Act.REPLACE_DATA, dat);
 }

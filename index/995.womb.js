@@ -838,6 +838,7 @@ class IndexDawnArc extends arc_form_1.default {
         this.init = (dat) => this.path.move(this.state, Act.INIT_DAWN, dat);
         this.update = (dat) => this.path.move(this.state, Act.UPDATE_DAWN, dat);
         this.create = (dat) => this.path.move(this.state, Act.CREATE_LINK, dat);
+        this.replace = (dat) => this.path.move(this.state, Act.REPLACE_DATA, dat);
     }
 }
 __decorate([
@@ -863,6 +864,13 @@ exports.initDawn = (cpy, bal, ste) => {
     return cpy;
 };
 exports.createArteLink = (cpy, bal, ste) => {
+    //where do we put it
+    var lst = FS.readdirSync(cpy.arteSrc);
+    var dir = lst[cpy.fileDex];
+    lst = FS.readdirSync(cpy.arteSrc + dir);
+    var dex = String(lst.length).padStart(3, "0");
+    var fin = cpy.arteSrc + dir + "/" + dex + "." + cpy.fileName + "." + cpy.fileEnd;
+    FS.copySync(cpy.file.path, fin);
     patch(ste, ActShr.UPDATE_LINK, { val: 0 });
     return cpy;
 };
@@ -870,6 +878,7 @@ exports.extractFileData = (cpy, bal, ste) => {
     var name = bal.name;
     var list = name.split(".");
     var nom = list[list.length - 1];
+    cpy.fileEnd = nom;
     var bit;
     var good = false;
     for (var key in FILE_TYPE) {
@@ -881,13 +890,19 @@ exports.extractFileData = (cpy, bal, ste) => {
     }
     if (good == false)
         return console.log("not what we need");
-    var element = list.pop();
-    cpy.fileName = list.join(".");
+    list.pop();
+    cpy.fileName = S(list.join(".")).slugify().s;
     cpy.fileDex = bit.typ.idx;
+    cpy.file = bal;
     patch(ste, ActShr.UPDATE_LINK, { val: 1 });
     return cpy;
 };
 exports.updateDawn = (cpy, bal, ste) => {
+    return cpy;
+};
+exports.replaceData = (cpy, bal, ste) => {
+    cpy.fileName = S(bal.src).slugify().s;
+    cpy.fileDex = bal.val;
     return cpy;
 };
 var dragFile = (val) => {
@@ -922,8 +937,9 @@ const ActShr = require("../../02.shore.unit/shore.action");
 const HrkScn = require("../../hrk/screen.hark");
 const ActTtl = require("../../00.core/title/title.action");
 const FS = require("fs-extra");
+const S = require("string");
 
-},{"../../00.core/title/title.action":26,"../../02.shore.unit/shore.action":50,"../../hrk/screen.hark":59,"../../val/arte-type":60,"../../val/file-type":61,"../../val/pivot":63,"../dawn.action":37,"fs-extra":undefined}],37:[function(require,module,exports){
+},{"../../00.core/title/title.action":26,"../../02.shore.unit/shore.action":50,"../../hrk/screen.hark":59,"../../val/arte-type":60,"../../val/file-type":61,"../../val/pivot":63,"../dawn.action":37,"fs-extra":undefined,"string":534}],37:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // Dawn actions
@@ -959,6 +975,14 @@ class ExtractFileData {
     }
 }
 exports.ExtractFileData = ExtractFileData;
+exports.REPLACE_DATA = "[Dawn action] Replace Data";
+class ReplaceData {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.REPLACE_DATA;
+    }
+}
+exports.ReplaceData = ReplaceData;
 
 },{}],38:[function(require,module,exports){
 "use strict";
@@ -971,6 +995,8 @@ var dawn_buzz_3 = require("./buz/dawn.buzz");
 exports.extractFileData = dawn_buzz_3.extractFileData;
 var dawn_buzz_4 = require("./buz/dawn.buzz");
 exports.createArteLink = dawn_buzz_4.createArteLink;
+var dawn_buzz_5 = require("./buz/dawn.buzz");
+exports.replaceData = dawn_buzz_5.replaceData;
 
 },{"./buz/dawn.buzz":36}],39:[function(require,module,exports){
 "use strict";
@@ -988,6 +1014,7 @@ class DawnModel {
         this.arteSrc = "./data/arte/";
         this.arteList = [];
         this.fileName = "";
+        this.fileEnd = "";
         this.fileDex = 0;
     }
 }
@@ -1004,6 +1031,8 @@ function reducer(model = new dawn_model_1.DawnModel(), act, state) {
     switch (act.type) {
         case Act.EXTRACT_FILE_DATA:
             return Buzz.extractFileData(clone(model), act.bale, state);
+        case Act.REPLACE_DATA:
+            return Buzz.replaceData(clone(model), act.bale, state);
         case Act.CREATE_LINK:
             return Buzz.createArteLink(clone(model), act.bale, state);
         case Act.UPDATE_DAWN:
@@ -1164,6 +1193,7 @@ class LinkShoreArc extends arc_form_1.default {
         this.init = (dat) => this.path.move(this.state, Act.INIT_LINK, dat);
         this.update = (dat) => this.path.move(this.state, Act.UPDATE_LINK, dat);
         this.resize = (dat) => this.path.move(this.state, Act.RESIZE_LINK, dat);
+        this.replace = (dat) => this.path.move(this.state, Act.REPLACE_DATA, dat);
     }
 }
 __decorate([
@@ -1381,7 +1411,10 @@ exports.updateLink = (cpy, bal, ste) => {
             //now activate the link button
             pivot(ste, PVT.HYP, HkeScn.HANDLE, B.MAKE, {
                 idx: linkBtnIDX,
-                dat: { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.CREATE },
+                lst: [
+                    { pvt: PVT.WMB, hke: Hke.LINK, mth: B.REPLACE },
+                    { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.CREATE },
+                ],
             });
             break;
     }
@@ -1389,6 +1422,20 @@ exports.updateLink = (cpy, bal, ste) => {
 };
 exports.closeLink = (cpy, bal, ste) => { };
 exports.resizeLink = (cpy, bal, ste) => {
+    return cpy;
+};
+exports.replaceData = (cpy, bal, ste) => {
+    var name = document.getElementById(nameInput)["value"];
+    var list = ste.value.dawn.arteList;
+    var line = [];
+    var dex = 0;
+    //creates radio buttons
+    list.forEach((a, b) => {
+        var id = radioBtnIdx + b;
+        if (document.getElementById(id)["checked"] == true)
+            dex = b;
+    });
+    patch(ste, ActDwn.REPLACE_DATA, { src: name, val: dex });
     return cpy;
 };
 var query = (ste, pvt, hrk) => {
@@ -1413,12 +1460,14 @@ const B = require("../../00.core/constant/BASIC");
 const PVT = require("../../val/pivot");
 const HTML = require("../../val/html");
 const Act = require("../shore.action");
+const Hke = require("../shore.hike");
+const ActDwn = require("../../01.dawn.unit/dawn.action");
 const HkeDwn = require("../../01.dawn.unit/dawn.hike");
 const HkeScn = require("../../hke/screen.hike");
 const HrkScn = require("../../hrk/screen.hark");
 const ActTtl = require("../../00.core/title/title.action");
 
-},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../01.dawn.unit/dawn.hike":39,"../../hke/screen.hike":57,"../../hrk/screen.hark":59,"../../val/html":62,"../../val/pivot":63,"../shore.action":50}],50:[function(require,module,exports){
+},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../01.dawn.unit/dawn.action":37,"../../01.dawn.unit/dawn.hike":39,"../../hke/screen.hike":57,"../../hrk/screen.hark":59,"../../val/html":62,"../../val/pivot":63,"../shore.action":50,"../shore.hike":52}],50:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // Shore actions
@@ -1528,6 +1577,14 @@ class ResizeLink {
     }
 }
 exports.ResizeLink = ResizeLink;
+exports.REPLACE_DATA = "[Shore action] Replace Data";
+class ReplaceData {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.REPLACE_DATA;
+    }
+}
+exports.ReplaceData = ReplaceData;
 
 },{}],51:[function(require,module,exports){
 "use strict";
@@ -1556,6 +1613,8 @@ var _03_link_buzz_3 = require("./buz/03.link.buzz");
 exports.updateLink = _03_link_buzz_3.updateLink;
 var _03_link_buzz_4 = require("./buz/03.link.buzz");
 exports.resizeLink = _03_link_buzz_4.resizeLink;
+var _03_link_buzz_5 = require("./buz/03.link.buzz");
+exports.replaceData = _03_link_buzz_5.replaceData;
 
 },{"./buz/01.shore.buzz":47,"./buz/02.witness.buzz":48,"./buz/03.link.buzz":49}],52:[function(require,module,exports){
 "use strict";
@@ -1606,6 +1665,8 @@ function reducer(model = new shore_model_1.ShoreModel(), act, state) {
             return Buzz.openWitness(clone(model), act.bale, state);
         case Act.OPEN_LINK:
             return Buzz.openLink(clone(model), act.bale, state);
+        case Act.REPLACE_DATA:
+            return Buzz.replaceData(clone(model), act.bale, state);
         case Act.INIT_SHORE:
             return Buzz.initShore(clone(model), act.bale, state);
         case Act.INIT_WITNESS:

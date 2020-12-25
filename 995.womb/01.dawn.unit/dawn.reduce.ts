@@ -13,6 +13,9 @@ export function reducer(
     case Act.EXTRACT_FILE_DATA:
       return Buzz.extractFileData(clone(model), act.bale, state);
 
+    case Act.REPLACE_DATA:
+      return Buzz.replaceData(clone(model), act.bale, state);
+
     case Act.CREATE_LINK:
       return Buzz.createArteLink(clone(model), act.bale, state);
 

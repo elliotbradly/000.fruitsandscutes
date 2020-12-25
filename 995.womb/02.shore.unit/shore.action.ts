@@ -83,6 +83,12 @@ export class ResizeLink implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+export const REPLACE_DATA = "[Shore action] Replace Data";
+export class ReplaceData implements Action {
+  readonly type = REPLACE_DATA;
+  constructor(public bale: ShoreBit) {}
+}
+
 export type Actions =
   | InitShore
   | OpenShore
@@ -96,4 +102,5 @@ export type Actions =
   | OpenLink
   | UpdateLink
   | ResizeLink
+  | ReplaceData
   | CloseLink;
