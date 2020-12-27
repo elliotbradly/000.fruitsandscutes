@@ -18,4 +18,6 @@ export default class WitnessShoreArc extends Arc {
     this.path.move(this.state, Act.UPDATE_WITNESS, dat);
   resize = (dat: ShoreBit) =>
     this.path.move(this.state, Act.RESIZE_WITNESS, dat);
+  replace = (dat: ShoreBit) =>
+    this.path.move(this.state, Act.REPLACE_WITNESS_DATA, dat);
 }

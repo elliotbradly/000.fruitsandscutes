@@ -1,3 +1,17 @@
+export const loadText = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
+  fetch(bal.src).then((rsp) => {
+    rsp.text().then((txt) => {
+      //cut up into pieces and then write
+      patch(ste, ActTtl.EXTRACT_DATA, {
+        src: txt,
+        dat: bal.dat,
+      });
+    });
+  });
+
+  return cpy;
+};
+
 export const deleteHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
   var old_element = document.getElementById(bal.idx);
   if (old_element == null) return cpy;

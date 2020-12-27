@@ -9,6 +9,12 @@ export class UpdatePath implements Action {
   constructor(public bale: Link) {}
 }
 
+export const EXTRACT_DATA = "[play action] Extract Data";
+export class ExtractData implements Action {
+  readonly type = EXTRACT_DATA;
+  constructor(public bale: PivotBit) {}
+}
+
 export const PULL_PIVOT = "[play action] Pull Pivot";
 export class PullPivot implements Action {
   readonly type = PULL_PIVOT;
@@ -21,4 +27,4 @@ export class PushPivot implements Action {
   constructor(public bale: Pivot) {}
 }
 
-export type Actions = UpdatePath | PullPivot | PushPivot;
+export type Actions = UpdatePath | PullPivot | PushPivot | ExtractData;

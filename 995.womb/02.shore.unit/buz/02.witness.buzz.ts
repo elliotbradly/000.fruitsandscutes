@@ -5,6 +5,8 @@ var navIDX = "witnessNav";
 var navLst = [];
 var contentIDX = "witnessContent";
 
+var dataSrc = "./dat/arte.txt";
+
 export const initWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   // patch(ste, Act.OPEN_WITNESS, null);
 
@@ -20,6 +22,11 @@ export const initWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 };
 
 export const openWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  pivot(ste, PVT.HYP, HkeScn.INDEX, B.LOAD, {
+    src: dataSrc,
+    dat: { pvt: PVT.WMB, hke: Hke.WITNESS, mth: B.REPLACE },
+  });
+
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
     idx: pageIDX,
     src: HTML.witnessPage,
@@ -64,6 +71,26 @@ export const updateWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     mth: B.UPDATE,
   });
 
+  return cpy;
+};
+
+export const replaceWitnessData = (
+  cpy: ShoreModel,
+  bal: ShoreBit,
+  ste: State
+) => {
+  cpy.arteData = bal.dat;
+
+  patch(ste, Act.LIST_WITNESS_CONTENT, null);
+  return cpy;
+};
+
+export const listWitnessContent = (
+  cpy: ShoreModel,
+  bal: ShoreBit,
+  ste: State
+) => {
+  debugger;
   return cpy;
 };
 

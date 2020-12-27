@@ -40,6 +40,12 @@ export function reducer(
     case Act.REPLACE_DATA:
       return Buzz.replaceData(clone(model), act.bale, state);
 
+    case Act.REPLACE_WITNESS_DATA:
+      return Buzz.replaceWitnessData(clone(model), act.bale, state);
+
+    case Act.LIST_WITNESS_CONTENT:
+      return Buzz.listWitnessContent(clone(model), act.bale, state);
+
     case Act.INIT_SHORE:
       return Buzz.initShore(clone(model), act.bale, state);
 

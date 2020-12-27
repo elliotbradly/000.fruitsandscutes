@@ -3,4 +3,5 @@ export default interface ShoreBit {
   x: number;
   y: number;
   val: number;
+  dat?: any;
 }

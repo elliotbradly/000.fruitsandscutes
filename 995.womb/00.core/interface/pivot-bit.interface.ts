@@ -3,4 +3,5 @@ export default interface PivotBit {
   hke: string;
   mth: string;
   dat: any;
+  src?: string;
 }

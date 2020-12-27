@@ -89,6 +89,18 @@ export class ReplaceData implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+export const REPLACE_WITNESS_DATA = "[Shore action] Replace Witness Data";
+export class ReplaceWitnessData implements Action {
+  readonly type = REPLACE_WITNESS_DATA;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const LIST_WITNESS_CONTENT = "[Shore action] List Witness Content";
+export class ListWitnessContent implements Action {
+  readonly type = LIST_WITNESS_CONTENT;
+  constructor(public bale: ShoreBit) {}
+}
+
 export type Actions =
   | InitShore
   | OpenShore
@@ -98,9 +110,11 @@ export type Actions =
   | OpenWitness
   | UpdateWitness
   | ResizeWitness
+  | ReplaceWitnessData
   | InitLink
   | OpenLink
   | UpdateLink
   | ResizeLink
   | ReplaceData
+  | ListWitnessContent
   | CloseLink;

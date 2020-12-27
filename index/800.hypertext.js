@@ -473,6 +473,38 @@ exports.updatePath = (cpy, bale) => {
     cpy.path = bale;
     return cpy;
 };
+exports.extractData = (cpy, bale, ste) => {
+    var lst = bale.src.split("\n");
+    var check = {};
+    lst.forEach((a) => {
+        if (a.includes("//") == true)
+            return;
+        var sub = a.split(":")[0];
+        var dom = a.split(":")[1];
+        if (sub == null)
+            return console.warn("no sub for " + JSON.stringify(bale.dat));
+        if (dom == null)
+            return console.warn("no dom for " + JSON.stringify(bale.dat));
+        var domList = dom.split(",");
+        var dotLst = sub.split(".");
+        var out = [];
+        dotLst.forEach((c) => {
+            out.push(S(c).slugify().s);
+        });
+        if (out.length >= 2)
+            sub = out.join(".");
+        else
+            sub = S(sub).slugify().s;
+        if (check[sub] == null)
+            check[sub] = [];
+        domList.forEach((a) => {
+            check[sub].push(a);
+        });
+    });
+    if (bale.dat != null)
+        pivot(ste, bale.dat.pvt, bale.dat.hke, bale.dat.mth, { dat: check });
+    return cpy;
+};
 exports.pushPivot = (cpy, bal, ste) => {
     if (bal.idx == null)
         return console.error("no pivot idx for " + bal.idx);
@@ -498,8 +530,22 @@ exports.pullPivot = (cpy, bal, ste) => {
     cpy[bal.pvt].hike(bal.hke, bal.mth, bal.dat);
     return cpy;
 };
+var patch = (ste, type, bale) => ste.dispatch({ type, bale });
+var pivot = (ste, pvt, hke, mth, dat) => {
+    ste.dispatch({
+        type: Act.PULL_PIVOT,
+        bale: {
+            pvt,
+            hke,
+            mth,
+            dat,
+        },
+    });
+};
+const Act = require("../title.action");
+const S = require("string");
 
-},{}],13:[function(require,module,exports){
+},{"../title.action":14,"string":514}],13:[function(require,module,exports){
 (function (process){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -588,6 +634,14 @@ class UpdatePath {
     }
 }
 exports.UpdatePath = UpdatePath;
+exports.EXTRACT_DATA = "[play action] Extract Data";
+class ExtractData {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.EXTRACT_DATA;
+    }
+}
+exports.ExtractData = ExtractData;
 exports.PULL_PIVOT = "[play action] Pull Pivot";
 class PullPivot {
     constructor(bale) {
@@ -614,6 +668,8 @@ var title_buzz_2 = require("./buz/title.buzz");
 exports.pullPivot = title_buzz_2.pullPivot;
 var title_buzz_3 = require("./buz/title.buzz");
 exports.pushPivot = title_buzz_3.pushPivot;
+var title_buzz_4 = require("./buz/title.buzz");
+exports.extractData = title_buzz_4.extractData;
 
 },{"./buz/title.buzz":12}],16:[function(require,module,exports){
 "use strict";
@@ -646,6 +702,8 @@ function reducer(model = new title_model_1.TitleModel(), act, state) {
             return Buzz.pullPivot(clone(model), act.bale, state);
         case Act.PUSH_PIVOT:
             return Buzz.pushPivot(clone(model), act.bale, state);
+        case Act.EXTRACT_DATA:
+            return Buzz.extractData(clone(model), act.bale, state);
         default:
             return model;
     }
@@ -783,6 +841,7 @@ class IndexScreenArc extends arc_form_1.default {
         this.update = (dat) => this.path.move(this.state, Act.UPDATE_HTML, dat);
         this.push = (dat) => this.path.move(this.state, Act.PUSH_COMP, dat);
         this.make = (dat) => this.path.move(this.state, Act.MAKE_NAV, dat);
+        this.load = (dat) => this.path.move(this.state, Act.LOAD_TEXT, dat);
         this.delete = (dat) => this.path.move(this.state, Act.DELETE_HTML, dat);
     }
 }
@@ -945,6 +1004,18 @@ const ActTtl = require("../../00.core/title/title.action");
 },{"../../00.core/title/title.action":14,"../../val/mouse-event":43,"../screen.action":27}],26:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadText = (cpy, bal, ste) => {
+    fetch(bal.src).then((rsp) => {
+        rsp.text().then((txt) => {
+            //cut up into pieces and then write
+            patch(ste, ActTtl.EXTRACT_DATA, {
+                src: txt,
+                dat: bal.dat,
+            });
+        });
+    });
+    return cpy;
+};
 exports.deleteHTML = (cpy, bal, ste) => {
     var old_element = document.getElementById(bal.idx);
     if (old_element == null)
@@ -1150,6 +1221,14 @@ class AwakePivot {
     }
 }
 exports.AwakePivot = AwakePivot;
+exports.LOAD_TEXT = "[Screen action] Load Text";
+class LoadText {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.LOAD_TEXT;
+    }
+}
+exports.LoadText = LoadText;
 
 },{}],28:[function(require,module,exports){
 "use strict";
@@ -1164,6 +1243,8 @@ var screen_buzz_4 = require("./buz/screen.buzz");
 exports.makeNav = screen_buzz_4.makeNav;
 var screen_buzz_5 = require("./buz/screen.buzz");
 exports.deleteHTML = screen_buzz_5.deleteHTML;
+var screen_buzz_6 = require("./buz/screen.buzz");
+exports.loadText = screen_buzz_6.loadText;
 var handle_buzz_1 = require("./buz/handle.buzz");
 exports.makeListener = handle_buzz_1.makeListener;
 var handle_buzz_2 = require("./buz/handle.buzz");
@@ -1203,6 +1284,8 @@ const screen_model_1 = require("./screen.model");
 const Buzz = require("./screen.buzzer");
 function reducer(model = new screen_model_1.ScreenModel(), act, state) {
     switch (act.type) {
+        case Act.LOAD_TEXT:
+            return Buzz.loadText(clone(model), act.bale, state);
         case Act.CREATE_DRAGABLE:
             return Buzz.createDragable(clone(model), act.bale, state);
         case Act.MAKE_LISTENER:

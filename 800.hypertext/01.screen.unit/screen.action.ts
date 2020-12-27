@@ -58,6 +58,12 @@ export class AwakePivot implements Action {
   constructor(public bale: PivotBit) {}
 }
 
+export const LOAD_TEXT = "[Screen action] Load Text";
+export class LoadText implements Action {
+  readonly type = LOAD_TEXT;
+  constructor(public bale: ScreenBit) {}
+}
+
 import { Action } from "../00.core/interface/action.interface";
 import ScreenBit from "./fce/screen.bit";
 import PivotBit from "./fce/pivot.bit";
@@ -75,4 +81,5 @@ export type Actions =
   | DeleteAllListeners
   | MakeListener
   | CreateDragable
-  | WriteDragFile;
+  | WriteDragFile
+  | LoadText;

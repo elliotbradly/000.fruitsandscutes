@@ -6,7 +6,6 @@ var linkDisplay = "linkBtnDisplay";
 var nameInput = "input-example-1";
 var linkBtnIDX = "linkBtn";
 var radioBtnIdx = "rdi";
-var contentIDX = "witnessContent";
 
 export const initLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   return cpy;

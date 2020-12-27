@@ -10,6 +10,9 @@ export function reducer(
   state?: State
 ) {
   switch (act.type) {
+    case Act.LOAD_TEXT:
+      return Buzz.loadText(clone(model), act.bale, state);
+
     case Act.CREATE_DRAGABLE:
       return Buzz.createDragable(clone(model), act.bale, state);
 

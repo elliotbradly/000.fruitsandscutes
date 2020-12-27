@@ -20,5 +20,7 @@ export default class IndexScreenArc extends Arc {
   push = (dat: PivotBit) => this.path.move(this.state, Act.PUSH_COMP, dat);
   make = (dat: PivotBit) => this.path.move(this.state, Act.MAKE_NAV, dat);
 
+  load = (dat: PivotBit) => this.path.move(this.state, Act.LOAD_TEXT, dat);
+
   delete = (dat: PivotBit) => this.path.move(this.state, Act.DELETE_HTML, dat);
 }

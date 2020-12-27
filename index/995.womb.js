@@ -509,6 +509,38 @@ exports.updatePath = (cpy, bale) => {
     cpy.path = bale;
     return cpy;
 };
+exports.extractData = (cpy, bale, ste) => {
+    var lst = bale.src.split("\n");
+    var check = {};
+    lst.forEach((a) => {
+        if (a.includes("//") == true)
+            return;
+        var sub = a.split(":")[0];
+        var dom = a.split(":")[1];
+        if (sub == null)
+            return console.warn("no sub for " + JSON.stringify(bale.dat));
+        if (dom == null)
+            return console.warn("no dom for " + JSON.stringify(bale.dat));
+        var domList = dom.split(",");
+        var dotLst = sub.split(".");
+        var out = [];
+        dotLst.forEach((c) => {
+            out.push(S(c).slugify().s);
+        });
+        if (out.length >= 2)
+            sub = out.join(".");
+        else
+            sub = S(sub).slugify().s;
+        if (check[sub] == null)
+            check[sub] = [];
+        domList.forEach((a) => {
+            check[sub].push(a);
+        });
+    });
+    if (bale.dat != null)
+        pivot(ste, bale.dat.pvt, bale.dat.hke, bale.dat.mth, { dat: check });
+    return cpy;
+};
 exports.pushPivot = (cpy, bal, ste) => {
     if (bal.idx == null)
         return console.error("no pivot idx for " + bal.idx);
@@ -534,8 +566,22 @@ exports.pullPivot = (cpy, bal, ste) => {
     cpy[bal.pvt].hike(bal.hke, bal.mth, bal.dat);
     return cpy;
 };
+var patch = (ste, type, bale) => ste.dispatch({ type, bale });
+var pivot = (ste, pvt, hke, mth, dat) => {
+    ste.dispatch({
+        type: Act.PULL_PIVOT,
+        bale: {
+            pvt,
+            hke,
+            mth,
+            dat,
+        },
+    });
+};
+const Act = require("../title.action");
+const S = require("string");
 
-},{}],25:[function(require,module,exports){
+},{"../title.action":26,"string":534}],25:[function(require,module,exports){
 (function (process){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -624,6 +670,14 @@ class UpdatePath {
     }
 }
 exports.UpdatePath = UpdatePath;
+exports.EXTRACT_DATA = "[play action] Extract Data";
+class ExtractData {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.EXTRACT_DATA;
+    }
+}
+exports.ExtractData = ExtractData;
 exports.PULL_PIVOT = "[play action] Pull Pivot";
 class PullPivot {
     constructor(bale) {
@@ -650,6 +704,8 @@ var title_buzz_2 = require("./buz/title.buzz");
 exports.pullPivot = title_buzz_2.pullPivot;
 var title_buzz_3 = require("./buz/title.buzz");
 exports.pushPivot = title_buzz_3.pushPivot;
+var title_buzz_4 = require("./buz/title.buzz");
+exports.extractData = title_buzz_4.extractData;
 
 },{"./buz/title.buzz":24}],28:[function(require,module,exports){
 "use strict";
@@ -682,6 +738,8 @@ function reducer(model = new title_model_1.TitleModel(), act, state) {
             return Buzz.pullPivot(clone(model), act.bale, state);
         case Act.PUSH_PIVOT:
             return Buzz.pushPivot(clone(model), act.bale, state);
+        case Act.EXTRACT_DATA:
+            return Buzz.extractData(clone(model), act.bale, state);
         default:
             return model;
     }
@@ -1176,6 +1234,7 @@ class WitnessShoreArc extends arc_form_1.default {
         this.init = (dat) => this.path.move(this.state, Act.INIT_WITNESS, dat);
         this.update = (dat) => this.path.move(this.state, Act.UPDATE_WITNESS, dat);
         this.resize = (dat) => this.path.move(this.state, Act.RESIZE_WITNESS, dat);
+        this.replace = (dat) => this.path.move(this.state, Act.REPLACE_WITNESS_DATA, dat);
     }
 }
 __decorate([
@@ -1324,6 +1383,7 @@ var hideBtn = "btn btn-sm bg-error";
 var navIDX = "witnessNav";
 var navLst = [];
 var contentIDX = "witnessContent";
+var dataSrc = "./dat/arte.txt";
 exports.initWitness = (cpy, bal, ste) => {
     // patch(ste, Act.OPEN_WITNESS, null);
     ste.value.dawn.arteList.forEach((a, b) => {
@@ -1335,6 +1395,10 @@ exports.initWitness = (cpy, bal, ste) => {
     return cpy;
 };
 exports.openWitness = (cpy, bal, ste) => {
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.LOAD, {
+        src: dataSrc,
+        dat: { pvt: PVT.WMB, hke: Hke.WITNESS, mth: B.REPLACE },
+    });
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
         idx: pageIDX,
         src: HTML.witnessPage,
@@ -1376,6 +1440,15 @@ exports.updateWitness = (cpy, bal, ste) => {
     });
     return cpy;
 };
+exports.replaceWitnessData = (cpy, bal, ste) => {
+    cpy.arteData = bal.dat;
+    patch(ste, Act.LIST_WITNESS_CONTENT, null);
+    return cpy;
+};
+exports.listWitnessContent = (cpy, bal, ste) => {
+    debugger;
+    return cpy;
+};
 exports.resizeWitness = (cpy, bal, ste) => {
     return cpy;
 };
@@ -1400,11 +1473,12 @@ var pivot = (ste, pvt, hke, mth, dat) => {
 const B = require("../../00.core/constant/BASIC");
 const PVT = require("../../val/pivot");
 const HTML = require("../../val/html");
+const Act = require("../shore.action");
 const Hke = require("../shore.hike");
 const HkeScn = require("../../hke/screen.hike");
 const ActTtl = require("../../00.core/title/title.action");
 
-},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../hke/screen.hike":57,"../../val/html":62,"../../val/pivot":63,"../shore.hike":52}],49:[function(require,module,exports){
+},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../hke/screen.hike":57,"../../val/html":62,"../../val/pivot":63,"../shore.action":50,"../shore.hike":52}],49:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var pageIDX = "pge0";
@@ -1415,7 +1489,6 @@ var linkDisplay = "linkBtnDisplay";
 var nameInput = "input-example-1";
 var linkBtnIDX = "linkBtn";
 var radioBtnIdx = "rdi";
-var contentIDX = "witnessContent";
 exports.initLink = (cpy, bal, ste) => {
     return cpy;
 };
@@ -1642,6 +1715,22 @@ class ReplaceData {
     }
 }
 exports.ReplaceData = ReplaceData;
+exports.REPLACE_WITNESS_DATA = "[Shore action] Replace Witness Data";
+class ReplaceWitnessData {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.REPLACE_WITNESS_DATA;
+    }
+}
+exports.ReplaceWitnessData = ReplaceWitnessData;
+exports.LIST_WITNESS_CONTENT = "[Shore action] List Witness Content";
+class ListWitnessContent {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.LIST_WITNESS_CONTENT;
+    }
+}
+exports.ListWitnessContent = ListWitnessContent;
 
 },{}],51:[function(require,module,exports){
 "use strict";
@@ -1662,6 +1751,10 @@ var _02_witness_buzz_3 = require("./buz/02.witness.buzz");
 exports.updateWitness = _02_witness_buzz_3.updateWitness;
 var _02_witness_buzz_4 = require("./buz/02.witness.buzz");
 exports.resizeWitness = _02_witness_buzz_4.resizeWitness;
+var _02_witness_buzz_5 = require("./buz/02.witness.buzz");
+exports.replaceWitnessData = _02_witness_buzz_5.replaceWitnessData;
+var _02_witness_buzz_6 = require("./buz/02.witness.buzz");
+exports.listWitnessContent = _02_witness_buzz_6.listWitnessContent;
 var _03_link_buzz_1 = require("./buz/03.link.buzz");
 exports.initLink = _03_link_buzz_1.initLink;
 var _03_link_buzz_2 = require("./buz/03.link.buzz");
@@ -1724,6 +1817,10 @@ function reducer(model = new shore_model_1.ShoreModel(), act, state) {
             return Buzz.openLink(clone(model), act.bale, state);
         case Act.REPLACE_DATA:
             return Buzz.replaceData(clone(model), act.bale, state);
+        case Act.REPLACE_WITNESS_DATA:
+            return Buzz.replaceWitnessData(clone(model), act.bale, state);
+        case Act.LIST_WITNESS_CONTENT:
+            return Buzz.listWitnessContent(clone(model), act.bale, state);
         case Act.INIT_SHORE:
             return Buzz.initShore(clone(model), act.bale, state);
         case Act.INIT_WITNESS:

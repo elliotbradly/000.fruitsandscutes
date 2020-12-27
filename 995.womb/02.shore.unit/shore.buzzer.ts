@@ -7,6 +7,8 @@ export { initWitness } from "./buz/02.witness.buzz";
 export { openWitness } from "./buz/02.witness.buzz";
 export { updateWitness } from "./buz/02.witness.buzz";
 export { resizeWitness } from "./buz/02.witness.buzz";
+export { replaceWitnessData } from "./buz/02.witness.buzz";
+export { listWitnessContent } from "./buz/02.witness.buzz";
 
 export { initLink } from "./buz/03.link.buzz";
 export { openLink } from "./buz/03.link.buzz";
