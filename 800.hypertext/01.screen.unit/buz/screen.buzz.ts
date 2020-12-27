@@ -12,7 +12,7 @@ export const updateHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
   if (current == null) current = cpy.compile;
   if (bal.val == null) bal.val = 0;
   var content = document.getElementById(bal.idx);
-  if (content == null) return;
+  if (content == null) return console.warn("no content for " + bal.idx);
   if (bal.val == 0) content.innerHTML = current;
   if (bal.val == 1) content.innerHTML += current;
 
@@ -55,7 +55,11 @@ export const makeNav = (cpy: ScreenModel, bal: NavBit, ste: State) => {
 
   if (bal.btn == null) return console.warn("no btn for nav bar");
 
+  if (bal.lst == null) return console.error("no nav list");
+
   bal.lst.forEach((a, b) => {
+    console.log("popping list " + a);
+
     var idx = bal.nom + String(a).padStart(3, "0");
     var classIDX;
     if (b == bal.dex) classIDX = bal.shw;

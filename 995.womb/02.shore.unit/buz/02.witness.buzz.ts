@@ -1,7 +1,11 @@
 var pageIDX = "pge0";
+var showBtn = "btn active bg-success";
+var hideBtn = "btn bg-error";
+var navLst = ["see", "add"];
+var navIDX = "witnessNav";
 
 export const initWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
-  patch(ste, Act.OPEN_WITNESS, null);
+  // patch(ste, Act.OPEN_WITNESS, null);
   return cpy;
 };
 
@@ -11,12 +15,30 @@ export const openWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     dat: { pageIDX },
   });
 
+  debugger;
+
+  pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
+    idx: navIDX,
+    val: 0,
+    dex: 0,
+    src: HTML.navBar,
+    btn: HTML.navBtn0,
+    lst: ste.value.dawn.arteList,
+    mod: cpy,
+    shw: showBtn,
+    hde: hideBtn,
+    pvt: cpy.pivot,
+    act: Hke.WITNESS,
+    mth: B.UPDATE,
+  });
+
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
 
   return cpy;
 };
 
 export const updateWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  debugger;
   return cpy;
 };
 

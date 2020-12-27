@@ -1,3 +1,5 @@
+var sourceEnd = "./index/dat/arte.txt";
+
 export const initDawn = (cpy: DawnModel, bal: DawnBit, ste: State) => {
   //attach yourself to the file
 
@@ -24,6 +26,24 @@ export const createArteLink = (cpy: DawnModel, bal: DawnBit, ste: State) => {
     cpy.arteSrc + dir + "/" + dex + "." + cpy.fileName + "." + cpy.fileEnd;
 
   FS.copySync(cpy.file.path, fin);
+
+  // now let update the context text file
+
+  var output = [];
+
+  for (var key in ARTE) {
+    var dir = String(ARTE[key].idx).padStart(2, "0") + "." + ARTE[key].nom;
+    var lst = FS.readdirSync(cpy.arteSrc + dir);
+    lst.forEach((a) => {
+      var line = dir + " : " + a;
+      output.push(line);
+    });
+  }
+
+  FS.ensureFileSync(sourceEnd);
+  FS.writeFileSync(sourceEnd, output.join("\n"));
+  console.log("writing " + sourceEnd);
+
   patch(ste, ActShr.UPDATE_LINK, { val: 0 });
 
   return cpy;

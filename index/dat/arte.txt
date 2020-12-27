@@ -1,0 +1,6 @@
+00.text : 000.map.txt
+01.image : 000.rudt.png
+01.image : 001.necklace.png
+01.image : 002.2020-12-20-13-05-01-window.png
+01.image : 003.2020-12-20-13-05-01-window.png
+01.image : 004.2020-12-20-13-05-01-window.png
