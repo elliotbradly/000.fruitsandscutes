@@ -39,7 +39,7 @@ module.exports = "//btnIDX,classIDX,clr,label\n<button id=\"{{=it.btnIDX}}\" cla
 module.exports = "// navIDX, pageIDX\r\n\r\n\r\n<canvas id=\"fce00\"></canvas>\r\n\r\n<div class=\"divider text-center\"></div>\r\n\r\n<div id=\"{{=it.navIDX}}\" class=\"btn-group btn-group-block\"></div>\r\n\r\n<div class=\"divider text-center\"></div>\r\n<div id=\"{{=it.pageIDX}}\" class=\"text-center\"></div>\r\n";
 
 },{}],10:[function(require,module,exports){
-module.exports = "<div id=\"witnessNav\"></div>\r\n<div class=\"divider text-center\">witness-page</div>\r\n";
+module.exports = "<div id=\"{{=it.navIDX}}\" class=\"btn-group btn-group-block\"></div>\r\n<div id=\"{{=it.contentIDX}}\" class=\"divider text-center\">witness-page</div>\r\n";
 
 },{}],11:[function(require,module,exports){
 module.exports = "<div class=\"container\">\r\n  <div class=\"columns\">\r\n    <div class=\"column col-2\"></div>\r\n    <div class=\"column col-8\">\r\n      <button\r\n        id=\"arteDrop\"\r\n        class=\"btn btn-block btn-lg btn-success\"\r\n        style=\"height: 111px\"\r\n      >\r\n        arte drop point\r\n      </button>\r\n\r\n      <div class=\"divider\"></div>\r\n\r\n      <div class=\"form-group\">\r\n        <input\r\n          class=\"form-input\"\r\n          type=\"text\"\r\n          id=\"input-example-1\"\r\n          placeholder=\"Name\"\r\n        />\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n        <label class=\"form-radio form-inline\"> {{=it.radioList}} </label>\r\n      </div>\r\n\r\n      <div id=\"linkBtnDisplay\"></div>\r\n    </div>\r\n\r\n    <div class=\"column col-2\"></div>\r\n  </div>\r\n</div>\r\n";
@@ -1219,8 +1219,8 @@ exports.default = LinkShoreArc;
 },{"../../00.core/form/arc.form":18,"../../00.core/title/prc/path.process":25,"../shore.action":50,"typescript-ioc":542}],47:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var showBtn = "btn active bg-success";
-var hideBtn = "btn bg-error";
+var showBtn = "btn btn-lg active bg-success";
+var hideBtn = "btn btn-lg bg-error";
 var navLst = ["see", "add"];
 var navIDX = "nav0";
 var pageIDX = "pge0";
@@ -1272,7 +1272,7 @@ exports.updateShore = (cpy, bal, ste) => {
     });
     switch (cpy.navDex) {
         case 0:
-            patch(ste, Act.INIT_WITNESS, null);
+            patch(ste, Act.OPEN_WITNESS, null);
             break;
         case 1:
             patch(ste, Act.OPEN_LINK, null);
@@ -1319,27 +1319,35 @@ const ActTtl = require("../../00.core/title/title.action");
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var pageIDX = "pge0";
-var showBtn = "btn active bg-success";
-var hideBtn = "btn bg-error";
-var navLst = ["see", "add"];
+var showBtn = "btn btn-sm active bg-success";
+var hideBtn = "btn btn-sm bg-error";
 var navIDX = "witnessNav";
+var navLst = [];
+var contentIDX = "witnessContent";
 exports.initWitness = (cpy, bal, ste) => {
     // patch(ste, Act.OPEN_WITNESS, null);
+    ste.value.dawn.arteList.forEach((a, b) => {
+        var idx = String(b).padStart(3, "0") + "." + a;
+        navLst.push(idx);
+    });
+    navLst.unshift("all");
+    ste.value.dawn.arteList;
     return cpy;
 };
 exports.openWitness = (cpy, bal, ste) => {
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+        idx: pageIDX,
         src: HTML.witnessPage,
-        dat: { pageIDX },
+        dat: { navIDX, contentIDX },
     });
-    debugger;
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
         idx: navIDX,
+        nom: "witnessNavBtn",
         val: 0,
         dex: 0,
         src: HTML.navBar,
         btn: HTML.navBtn0,
-        lst: ste.value.dawn.arteList,
+        lst: navLst,
         mod: cpy,
         shw: showBtn,
         hde: hideBtn,
@@ -1347,11 +1355,25 @@ exports.openWitness = (cpy, bal, ste) => {
         act: Hke.WITNESS,
         mth: B.UPDATE,
     });
-    pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
+    // pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
     return cpy;
 };
 exports.updateWitness = (cpy, bal, ste) => {
-    debugger;
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
+        idx: navIDX,
+        nom: "witnessNavBtn",
+        val: 0,
+        dex: bal.val,
+        src: HTML.navBar,
+        btn: HTML.navBtn0,
+        lst: navLst,
+        mod: cpy,
+        shw: showBtn,
+        hde: hideBtn,
+        pvt: cpy.pivot,
+        act: Hke.WITNESS,
+        mth: B.UPDATE,
+    });
     return cpy;
 };
 exports.resizeWitness = (cpy, bal, ste) => {
@@ -1393,6 +1415,7 @@ var linkDisplay = "linkBtnDisplay";
 var nameInput = "input-example-1";
 var linkBtnIDX = "linkBtn";
 var radioBtnIdx = "rdi";
+var contentIDX = "witnessContent";
 exports.initLink = (cpy, bal, ste) => {
     return cpy;
 };

@@ -1,5 +1,5 @@
-var showBtn = "btn active bg-success";
-var hideBtn = "btn bg-error";
+var showBtn = "btn btn-lg active bg-success";
+var hideBtn = "btn btn-lg bg-error";
 var navLst = ["see", "add"];
 var navIDX = "nav0";
 var pageIDX = "pge0";
@@ -61,7 +61,7 @@ export const updateShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 
   switch (cpy.navDex) {
     case 0:
-      patch(ste, Act.INIT_WITNESS, null);
+      patch(ste, Act.OPEN_WITNESS, null);
       break;
 
     case 1:

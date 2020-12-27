@@ -48,9 +48,6 @@ export const makeNav = (cpy: ScreenModel, bal: NavBit, ste: State) => {
   //i think we need to bring the template in here
   if (bal.src == null) console.error("no nav source");
 
-  bal.shw = navUnactive;
-  bal.hde = navActive;
-
   var output = [];
 
   if (bal.btn == null) return console.warn("no btn for nav bar");
@@ -85,7 +82,11 @@ export const makeNav = (cpy: ScreenModel, bal: NavBit, ste: State) => {
 
   bal.lst.forEach((a, b) => {
     var btnIDX = bal.nom + String(a).padStart(3, "0");
-    document.getElementById(btnIDX).addEventListener("mouseup", () => {
+    var element = document.getElementById(btnIDX);
+
+    if (element == null) return console.warn("no nav elment for " + btnIDX);
+
+    element.addEventListener("mouseup", () => {
       if (bal.dat == null) bal.dat = {};
       if (bal.dat.val == null) bal.dat.val = 0;
       bal.dat.val = b;
@@ -138,12 +139,3 @@ import * as ActTtl from "../../00.core/title/title.action";
 import * as HkeTtl from "../../00.core/title/title.hike";
 
 import * as doT from "dot";
-
-var navActiveLarge: string = "btn  active btn-lg bg-success bubbly-button ";
-var navUnactiveLarge: string = "btn  btn-lg bg-error";
-
-var navActive: string = "btn  active bg-success";
-var navUnactive: string = "btn bg-error";
-
-var navActiveSmall: string = "btn active btn-sm";
-var navUnactiveSmall: string = "btn btn-sm";

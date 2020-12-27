@@ -992,8 +992,6 @@ exports.makeNav = (cpy, bal, ste) => {
     //i think we need to bring the template in here
     if (bal.src == null)
         console.error("no nav source");
-    bal.shw = navUnactive;
-    bal.hde = navActive;
     var output = [];
     if (bal.btn == null)
         return console.warn("no btn for nav bar");
@@ -1023,7 +1021,10 @@ exports.makeNav = (cpy, bal, ste) => {
     });
     bal.lst.forEach((a, b) => {
         var btnIDX = bal.nom + String(a).padStart(3, "0");
-        document.getElementById(btnIDX).addEventListener("mouseup", () => {
+        var element = document.getElementById(btnIDX);
+        if (element == null)
+            return console.warn("no nav elment for " + btnIDX);
+        element.addEventListener("mouseup", () => {
             if (bal.dat == null)
                 bal.dat = {};
             if (bal.dat.val == null)
@@ -1065,12 +1066,6 @@ exports.awakePivot = (cpy, bal, ste) => {
 const Act = require("../screen.action");
 const ActTtl = require("../../00.core/title/title.action");
 const doT = require("dot");
-var navActiveLarge = "btn  active btn-lg bg-success bubbly-button ";
-var navUnactiveLarge = "btn  btn-lg bg-error";
-var navActive = "btn  active bg-success";
-var navUnactive = "btn bg-error";
-var navActiveSmall = "btn active btn-sm";
-var navUnactiveSmall = "btn btn-sm";
 
 },{"../../00.core/title/title.action":14,"../screen.action":27,"dot":49}],27:[function(require,module,exports){
 "use strict";

@@ -1,29 +1,39 @@
 var pageIDX = "pge0";
-var showBtn = "btn active bg-success";
-var hideBtn = "btn bg-error";
-var navLst = ["see", "add"];
+var showBtn = "btn btn-sm active bg-success";
+var hideBtn = "btn btn-sm bg-error";
 var navIDX = "witnessNav";
+var navLst = [];
+var contentIDX = "witnessContent";
 
 export const initWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   // patch(ste, Act.OPEN_WITNESS, null);
+
+  ste.value.dawn.arteList.forEach((a, b) => {
+    var idx = String(b).padStart(3, "0") + "." + a;
+    navLst.push(idx);
+  });
+
+  navLst.unshift("all");
+
+  ste.value.dawn.arteList;
   return cpy;
 };
 
 export const openWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+    idx: pageIDX,
     src: HTML.witnessPage,
-    dat: { pageIDX },
+    dat: { navIDX, contentIDX },
   });
-
-  debugger;
 
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
     idx: navIDX,
+    nom: "witnessNavBtn",
     val: 0,
     dex: 0,
     src: HTML.navBar,
     btn: HTML.navBtn0,
-    lst: ste.value.dawn.arteList,
+    lst: navLst,
     mod: cpy,
     shw: showBtn,
     hde: hideBtn,
@@ -32,13 +42,28 @@ export const openWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     mth: B.UPDATE,
   });
 
-  pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
+  // pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
 
   return cpy;
 };
 
 export const updateWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
-  debugger;
+  pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
+    idx: navIDX,
+    nom: "witnessNavBtn",
+    val: 0,
+    dex: bal.val,
+    src: HTML.navBar,
+    btn: HTML.navBtn0,
+    lst: navLst,
+    mod: cpy,
+    shw: showBtn,
+    hde: hideBtn,
+    pvt: cpy.pivot,
+    act: Hke.WITNESS,
+    mth: B.UPDATE,
+  });
+
   return cpy;
 };
 
