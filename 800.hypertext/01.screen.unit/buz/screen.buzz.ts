@@ -23,6 +23,7 @@ export const deleteHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
 //import * as ActV from "../../01.view.unit/view.action";
 export const updateHTML = (cpy: ScreenModel, bal: ScreenBit, ste: State) => {
   var current = bal.src;
+
   if (current == null) current = cpy.compile;
   if (bal.val == null) bal.val = 0;
   var content = document.getElementById(bal.idx);

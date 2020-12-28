@@ -7,6 +7,8 @@ export class ShoreModel implements Shore {
   //idx:string;
   //shoreBitList: ShoreBit[] = [];
   //shoreBits: any = {};
+  witnessList: any[];
+  witnessDex: number = 0;
   navDex: number = 0;
   arteData: any;
 }

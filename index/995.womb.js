@@ -1383,6 +1383,7 @@ var hideBtn = "btn btn-sm bg-error";
 var navIDX = "witnessNav";
 var navLst = [];
 var contentIDX = "witnessContent";
+var witnessBtn = "wit";
 var dataSrc = "./dat/arte.txt";
 exports.initWitness = (cpy, bal, ste) => {
     // patch(ste, Act.OPEN_WITNESS, null);
@@ -1420,13 +1421,16 @@ exports.openWitness = (cpy, bal, ste) => {
         mth: B.UPDATE,
     });
     // pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: pageIDX });
+    patch(ste, Act.UPDATE_WITNESS, { val: 0 });
     return cpy;
 };
 exports.updateWitness = (cpy, bal, ste) => {
+    cpy.witnessDex = bal.val;
+    patch(ste, Act.LIST_WITNESS_CONTENT, null);
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
         idx: navIDX,
         nom: "witnessNavBtn",
-        val: 0,
+        val: cpy.witnessDex,
         dex: bal.val,
         src: HTML.navBar,
         btn: HTML.navBtn0,
@@ -1438,6 +1442,23 @@ exports.updateWitness = (cpy, bal, ste) => {
         act: Hke.WITNESS,
         mth: B.UPDATE,
     });
+    var there = [];
+    cpy.witnessList.forEach((a, b) => {
+        var btnIDX = witnessBtn + b;
+        var label = a;
+        var classIDX = "";
+        var clr = "0xFF00FF";
+        pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+            src: HTML.clrBtn00,
+            dat: { btnIDX, label, classIDX, clr },
+        });
+        var ele = query(ste, PVT.HYP, HrkScn.COMPILE);
+        there.push(there);
+    });
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, {
+        idx: contentIDX,
+        src: there.join("\n"),
+    });
     return cpy;
 };
 exports.replaceWitnessData = (cpy, bal, ste) => {
@@ -1446,7 +1467,23 @@ exports.replaceWitnessData = (cpy, bal, ste) => {
     return cpy;
 };
 exports.listWitnessContent = (cpy, bal, ste) => {
-    debugger;
+    var lst = [];
+    for (var key in cpy.arteData) {
+        var itm = cpy.arteData[key];
+        itm.forEach((a) => {
+            lst.push({ idx: key, val: a });
+        });
+    }
+    var actionDex = cpy.witnessDex - 1;
+    if (actionDex != -1) {
+        lst = lst.filter((val) => {
+            var itm = val.idx;
+            var dex = Number(itm.split(".")[0]);
+            if (dex == actionDex)
+                return true;
+        });
+    }
+    cpy.witnessList = lst;
     return cpy;
 };
 exports.resizeWitness = (cpy, bal, ste) => {
@@ -1476,9 +1513,10 @@ const HTML = require("../../val/html");
 const Act = require("../shore.action");
 const Hke = require("../shore.hike");
 const HkeScn = require("../../hke/screen.hike");
+const HrkScn = require("../../hrk/screen.hark");
 const ActTtl = require("../../00.core/title/title.action");
 
-},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../hke/screen.hike":57,"../../val/html":62,"../../val/pivot":63,"../shore.action":50,"../shore.hike":52}],49:[function(require,module,exports){
+},{"../../00.core/constant/BASIC":16,"../../00.core/title/title.action":26,"../../hke/screen.hike":57,"../../hrk/screen.hark":59,"../../val/html":62,"../../val/pivot":63,"../shore.action":50,"../shore.hike":52}],49:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var pageIDX = "pge0";
@@ -1780,9 +1818,7 @@ const PVT = require("../val/pivot");
 class ShoreModel {
     constructor() {
         this.pivot = PVT.WMB;
-        //idx:string;
-        //shoreBitList: ShoreBit[] = [];
-        //shoreBits: any = {};
+        this.witnessDex = 0;
         this.navDex = 0;
     }
 }
