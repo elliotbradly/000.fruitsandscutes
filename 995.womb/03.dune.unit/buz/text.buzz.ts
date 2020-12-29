@@ -1,9 +1,30 @@
-export const initDune = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+export const InitText = (cpy: DuneModel, bal: DuneBit, ste: State) => {
   debugger;
   return cpy;
 };
 
-export const updateDune = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+export const OpenText = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+  debugger;
+  return cpy;
+};
+
+export const UpdateText = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+  debugger;
+  return cpy;
+};
+
+export const ResizeText = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+  debugger;
+  return cpy;
+};
+
+export const ReplaceText = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+  debugger;
+  return cpy;
+};
+
+export const CloseText = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+  debugger;
   return cpy;
 };
 

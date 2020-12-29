@@ -4,16 +4,37 @@ import { DuneModel } from "./dune.model";
 import * as Buzz from "./dune.buzzer";
 import State from "../00.core/state";
 
-export function reducer(model: DuneModel = new DuneModel(), act: Act.Actions,  state?: State ) {
- switch (act.type) {
- 
- case Act.UPDATE_DUNE:
- return Buzz.updateDune(clone(model), act.bale, state);
+export function reducer(
+  model: DuneModel = new DuneModel(),
+  act: Act.Actions,
+  state?: State
+) {
+  switch (act.type) {
+    case Act.INIT_TEXT:
+      return Buzz.InitText(clone(model), act.bale, state);
 
- case Act.INIT_DUNE:
- return Buzz.initDune(clone(model), act.bale, state);
+    case Act.OPEN_TEXT:
+      return Buzz.OpenText(clone(model), act.bale, state);
 
- default:
- return model;
- }
+    case Act.UPDATE_TEXT:
+      return Buzz.UpdateText(clone(model), act.bale, state);
+
+    case Act.RESIZE_TEXT:
+      return Buzz.ResizeText(clone(model), act.bale, state);
+
+    case Act.REPLACE_TEXT:
+      return Buzz.ReplaceText(clone(model), act.bale, state);
+
+    case Act.CLOSE_TEXT:
+      return Buzz.CloseText(clone(model), act.bale, state);
+
+    case Act.UPDATE_DUNE:
+      return Buzz.updateDune(clone(model), act.bale, state);
+
+    case Act.INIT_DUNE:
+      return Buzz.initDune(clone(model), act.bale, state);
+
+    default:
+      return model;
+  }
 }

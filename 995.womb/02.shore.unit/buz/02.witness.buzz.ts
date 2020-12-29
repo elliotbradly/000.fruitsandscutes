@@ -35,7 +35,7 @@ export const readArte = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 
   switch (nom) {
     case FILE.TXT.idx:
-      debugger;
+      patch(ste, ActDun.OPEN_TEXT, null);
       break;
   }
 
@@ -215,6 +215,8 @@ import * as HrkScn from "../../hrk/screen.hark";
 import { ShoreModel } from "../shore.model";
 import ShoreBit from "../fce/shore.bit";
 import State from "../../00.core/state";
+
+import * as ActDun from "../../03.dune.unit/dune.action";
 
 import * as ActTtl from "../../00.core/title/title.action";
 import * as HkeTtl from "../../00.core/title/title.hike";
