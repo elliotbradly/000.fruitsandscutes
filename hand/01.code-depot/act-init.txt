@@ -1,0 +1,5 @@
+export const {{=it.idx}}_{{=it.nom}} = "[{{=it.nom}} action] {{=it.src}} {{=it.name}}";
+export class {{=it.src}}{{=it.name}} implements Action {
+  readonly type = {{=it.idx}}_{{=it.nom}};
+  constructor(public bale: {{=it.nom}}Bit) {}
+}

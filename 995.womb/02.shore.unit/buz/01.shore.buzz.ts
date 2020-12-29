@@ -4,6 +4,8 @@ var navLst = ["see", "add"];
 var navIDX = "nav0";
 var pageIDX = "pge0";
 
+var pub = false;
+
 export const initShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   //give the hypertext your womb pivot
 
@@ -21,20 +23,22 @@ export const openShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, { idx: "body" });
   pivot(ste, PVT.CVS, HkeSfc.INDEX, B.CREATE, { idx: "fce00", clr: "FF00FF" });
 
-  pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
-    idx: navIDX,
-    val: 0,
-    dex: 0,
-    src: HTML.navBar,
-    btn: HTML.navBtn0,
-    lst: navLst,
-    mod: cpy,
-    shw: showBtn,
-    hde: hideBtn,
-    pvt: cpy.pivot,
-    act: Hke.INDEX,
-    mth: B.UPDATE,
-  });
+  if (!pub) {
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
+      idx: navIDX,
+      val: 0,
+      dex: 0,
+      src: HTML.navBar,
+      btn: HTML.navBtn0,
+      lst: navLst,
+      mod: cpy,
+      shw: showBtn,
+      hde: hideBtn,
+      pvt: cpy.pivot,
+      act: Hke.INDEX,
+      mth: B.UPDATE,
+    });
+  }
 
   patch(ste, Act.INIT_LINK, null);
   patch(ste, Act.INIT_WITNESS, null);
@@ -45,19 +49,21 @@ export const openShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 export const updateShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   if (bal != null) cpy.navDex = Number(bal.val);
 
-  pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
-    idx: navIDX,
-    dex: cpy.navDex,
-    src: HTML.navBar,
-    btn: HTML.navBtn0,
-    lst: navLst,
-    mod: cpy,
-    shw: showBtn,
-    hde: hideBtn,
-    pvt: cpy.pivot,
-    act: Hke.INDEX,
-    mth: B.UPDATE,
-  });
+  if (!pub) {
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.MAKE, {
+      idx: navIDX,
+      dex: cpy.navDex,
+      src: HTML.navBar,
+      btn: HTML.navBtn0,
+      lst: navLst,
+      mod: cpy,
+      shw: showBtn,
+      hde: hideBtn,
+      pvt: cpy.pivot,
+      act: Hke.INDEX,
+      mth: B.UPDATE,
+    });
+  }
 
   switch (cpy.navDex) {
     case 0:

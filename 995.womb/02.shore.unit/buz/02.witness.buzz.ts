@@ -27,9 +27,22 @@ export const readArte = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 
   var item = cpy.witnessList[val];
 
+  var own = item;
+  var idx = item.val;
+
+  var list = idx.split(".");
+  var nom = list[list.length - 1];
+
+  switch (nom) {
+    case FILE.TXT.idx:
+      debugger;
+      break;
+  }
+
+  //send to daw
+
   //now open
 
-  debugger;
   return cpy;
 };
 
@@ -188,6 +201,7 @@ var pivot = (ste, pvt, hke, mth, dat?) => {
 import * as B from "../../00.core/constant/BASIC";
 import * as PVT from "../../val/pivot";
 import * as HTML from "../../val/html";
+import * as FILE from "../../val/file-type";
 
 import * as Act from "../shore.action";
 import * as Hke from "../shore.hike";

@@ -3,6 +3,8 @@ var arteDropIDX = "arteDrop";
 var linkAbled = "btn btn-block btn-lg";
 var linkDisabled = "btn btn-block btn-lg disabled";
 var linkDisplay = "linkBtnDisplay";
+var streamDisplay = "streamBtnDisplay";
+
 var nameInput = "input-example-1";
 var linkBtnIDX = "linkBtn";
 var radioBtnIdx = "rdi";
@@ -45,7 +47,21 @@ export const updateLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
       pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
         idx: linkDisplay,
         src: HTML.linkButton,
-        dat: { btnIDX: linkBtnIDX, linkClass: linkDisabled },
+        dat: {
+          btnIDX: linkBtnIDX,
+          linkClass: linkDisabled,
+          label: "activate link",
+        },
+      });
+
+      pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+        idx: streamDisplay,
+        src: HTML.linkButton,
+        dat: {
+          btnIDX: linkBtnIDX,
+          linkClass: linkDisabled,
+          label: "stream data",
+        },
       });
 
       var dex = ste.value.dawn.fileDex;

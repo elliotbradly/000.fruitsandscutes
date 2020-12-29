@@ -1,9 +1,9 @@
-export const init{{=it.title}} = (cpy: {{=it.title}}Model, bal:{{=it.bitTitle}}, ste: State) => {
-  debugger
+export const initDune = (cpy: DuneModel, bal: DuneBit, ste: State) => {
+  debugger;
   return cpy;
 };
 
-export const update{{=it.title}} = (cpy: {{=it.title}}Model, bal:{{=it.bitTitle}}, ste: State) => {
+export const updateDune = (cpy: DuneModel, bal: DuneBit, ste: State) => {
   return cpy;
 };
 
@@ -27,8 +27,7 @@ var pivot = (ste, pvt, hke, mth, dat?) => {
   });
 };
 
-import { {{=it.title}}Model } from "../{{=it.nom}}.model";
-import {{=it.title}}Bit from "../fce/{{=it.nom}}.bit";
+import { DuneModel } from "../dune.model";
+import DuneBit from "../fce/dune.bit";
 import State from "../../00.core/state";
 import * as ActTtl from "../../00.core/title/title.action";
-
