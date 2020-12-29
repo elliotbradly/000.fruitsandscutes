@@ -14,10 +14,14 @@ export const makeListener = (
     }
 
     if (bal.lst != null) {
-      bal.lst.forEach((a) => {
-        var dat = JSON.parse(a);
+      if (bal.lst.forEach == null) {
+        var dat: any = bal.lst;
         pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
-      });
+      } else
+        bal.lst.forEach((a) => {
+          var dat = JSON.parse(a);
+          pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
+        });
     }
   };
 

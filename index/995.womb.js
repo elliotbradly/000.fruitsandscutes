@@ -1235,6 +1235,7 @@ class WitnessShoreArc extends arc_form_1.default {
         this.update = (dat) => this.path.move(this.state, Act.UPDATE_WITNESS, dat);
         this.resize = (dat) => this.path.move(this.state, Act.RESIZE_WITNESS, dat);
         this.replace = (dat) => this.path.move(this.state, Act.REPLACE_WITNESS_DATA, dat);
+        this.read = (dat) => this.path.move(this.state, Act.READ_ARTE, dat);
     }
 }
 __decorate([
@@ -1395,6 +1396,12 @@ exports.initWitness = (cpy, bal, ste) => {
     ste.value.dawn.arteList;
     return cpy;
 };
+exports.readArte = (cpy, bal, ste) => {
+    var val = Number(bal.val);
+    var item = cpy.witnessList[val];
+    debugger;
+    return cpy;
+};
 exports.openWitness = (cpy, bal, ste) => {
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.LOAD, {
         src: dataSrc,
@@ -1445,19 +1452,26 @@ exports.updateWitness = (cpy, bal, ste) => {
     var there = [];
     cpy.witnessList.forEach((a, b) => {
         var btnIDX = witnessBtn + b;
-        var label = a;
-        var classIDX = "";
-        var clr = "0xFF00FF";
+        var label = a.val;
+        var classIDX = "btn btn-block";
+        var clr = "FF00FF";
         pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
             src: HTML.clrBtn00,
             dat: { btnIDX, label, classIDX, clr },
         });
         var ele = query(ste, PVT.HYP, HrkScn.COMPILE);
-        there.push(there);
+        there.push(ele);
     });
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, {
         idx: contentIDX,
         src: there.join("\n"),
+    });
+    cpy.witnessList.forEach((a, b) => {
+        var btnIDX = witnessBtn + b;
+        pivot(ste, PVT.HYP, HkeScn.HANDLE, B.MAKE, {
+            idx: btnIDX,
+            lst: [{ pvt: PVT.WMB, hke: Hke.WITNESS, mth: B.READ, dat: { val: b } }],
+        });
     });
     return cpy;
 };
@@ -1647,6 +1661,14 @@ class InitShore {
     }
 }
 exports.InitShore = InitShore;
+exports.READ_ARTE = "[Shore action] Read Arte";
+class ReadArte {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.READ_ARTE;
+    }
+}
+exports.ReadArte = ReadArte;
 exports.OPEN_SHORE = "[Shore action] Open Shore";
 class OpenShore {
     constructor(bale) {
@@ -1793,6 +1815,8 @@ var _02_witness_buzz_5 = require("./buz/02.witness.buzz");
 exports.replaceWitnessData = _02_witness_buzz_5.replaceWitnessData;
 var _02_witness_buzz_6 = require("./buz/02.witness.buzz");
 exports.listWitnessContent = _02_witness_buzz_6.listWitnessContent;
+var _02_witness_buzz_7 = require("./buz/02.witness.buzz");
+exports.readArte = _02_witness_buzz_7.readArte;
 var _03_link_buzz_1 = require("./buz/03.link.buzz");
 exports.initLink = _03_link_buzz_1.initLink;
 var _03_link_buzz_2 = require("./buz/03.link.buzz");
@@ -1853,6 +1877,8 @@ function reducer(model = new shore_model_1.ShoreModel(), act, state) {
             return Buzz.openLink(clone(model), act.bale, state);
         case Act.REPLACE_DATA:
             return Buzz.replaceData(clone(model), act.bale, state);
+        case Act.READ_ARTE:
+            return Buzz.readArte(clone(model), act.bale, state);
         case Act.REPLACE_WITNESS_DATA:
             return Buzz.replaceWitnessData(clone(model), act.bale, state);
         case Act.LIST_WITNESS_CONTENT:

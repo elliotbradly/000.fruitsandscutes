@@ -9,6 +9,12 @@ export class InitShore implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+export const READ_ARTE = "[Shore action] Read Arte";
+export class ReadArte implements Action {
+  readonly type = READ_ARTE;
+  constructor(public bale: ShoreBit) {}
+}
+
 export const OPEN_SHORE = "[Shore action] Open Shore";
 export class OpenShore implements Action {
   readonly type = OPEN_SHORE;
@@ -102,6 +108,7 @@ export class ListWitnessContent implements Action {
 }
 
 export type Actions =
+  | ReadArte
   | InitShore
   | OpenShore
   | UpdateShore

@@ -896,10 +896,15 @@ exports.makeListener = (cpy, bal, ste) => {
             pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
         }
         if (bal.lst != null) {
-            bal.lst.forEach((a) => {
-                var dat = JSON.parse(a);
+            if (bal.lst.forEach == null) {
+                var dat = bal.lst;
                 pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
-            });
+            }
+            else
+                bal.lst.forEach((a) => {
+                    var dat = JSON.parse(a);
+                    pivot(ste, dat.pvt, dat.hke, dat.mth, dat.dat);
+                });
         }
     };
     var type;
@@ -1027,7 +1032,6 @@ exports.deleteHTML = (cpy, bal, ste) => {
 //import * as ActV from "../../01.view.unit/view.action";
 exports.updateHTML = (cpy, bal, ste) => {
     var current = bal.src;
-    debugger;
     if (current == null)
         current = cpy.compile;
     if (bal.val == null)

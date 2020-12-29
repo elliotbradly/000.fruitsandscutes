@@ -40,6 +40,9 @@ export function reducer(
     case Act.REPLACE_DATA:
       return Buzz.replaceData(clone(model), act.bale, state);
 
+    case Act.READ_ARTE:
+      return Buzz.readArte(clone(model), act.bale, state);
+
     case Act.REPLACE_WITNESS_DATA:
       return Buzz.replaceWitnessData(clone(model), act.bale, state);
 

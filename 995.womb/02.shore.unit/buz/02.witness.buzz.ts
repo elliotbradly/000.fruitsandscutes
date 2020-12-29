@@ -22,6 +22,17 @@ export const initWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   return cpy;
 };
 
+export const readArte = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  var val = Number(bal.val);
+
+  var item = cpy.witnessList[val];
+
+  //now open
+
+  debugger;
+  return cpy;
+};
+
 export const openWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.LOAD, {
     src: dataSrc,
@@ -81,9 +92,9 @@ export const updateWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   var there = [];
   cpy.witnessList.forEach((a, b) => {
     var btnIDX = witnessBtn + b;
-    var label = a;
-    var classIDX = "";
-    var clr = "0xFF00FF";
+    var label = a.val;
+    var classIDX = "btn btn-block";
+    var clr = "FF00FF";
 
     pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
       src: HTML.clrBtn00,
@@ -91,12 +102,21 @@ export const updateWitness = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     });
 
     var ele = query(ste, PVT.HYP, HrkScn.COMPILE);
-    there.push(there);
+    there.push(ele);
   });
 
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.UPDATE, {
     idx: contentIDX,
     src: there.join("\n"),
+  });
+
+  cpy.witnessList.forEach((a, b) => {
+    var btnIDX = witnessBtn + b;
+
+    pivot(ste, PVT.HYP, HkeScn.HANDLE, B.MAKE, {
+      idx: btnIDX,
+      lst: [{ pvt: PVT.WMB, hke: Hke.WITNESS, mth: B.READ, dat: { val: b } }],
+    });
   });
 
   return cpy;
