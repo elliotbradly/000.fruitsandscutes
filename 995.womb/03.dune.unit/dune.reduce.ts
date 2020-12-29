@@ -10,6 +10,24 @@ export function reducer(
   state?: State
 ) {
   switch (act.type) {
+    case Act.INIT_IMAGE:
+      return Buzz.InitImage(clone(model), act.bale, state);
+
+    case Act.OPEN_IMAGE:
+      return Buzz.OpenImage(clone(model), act.bale, state);
+
+    case Act.UPDATE_IMAGE:
+      return Buzz.UpdateImage(clone(model), act.bale, state);
+
+    case Act.RESIZE_IMAGE:
+      return Buzz.ResizeImage(clone(model), act.bale, state);
+
+    case Act.REPLACE_IMAGE:
+      return Buzz.ReplaceImage(clone(model), act.bale, state);
+
+    case Act.CLOSE_IMAGE:
+      return Buzz.CloseImage(clone(model), act.bale, state);
+
     case Act.INIT_TEXT:
       return Buzz.InitText(clone(model), act.bale, state);
 

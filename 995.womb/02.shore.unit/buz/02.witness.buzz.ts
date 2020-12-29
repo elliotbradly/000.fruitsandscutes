@@ -35,7 +35,11 @@ export const readArte = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 
   switch (nom) {
     case FILE.TXT.idx:
-      patch(ste, ActDun.OPEN_TEXT, null);
+      patch(ste, ActDun.OPEN_TEXT, item);
+      break;
+
+    case FILE.PNG.idx:
+      patch(ste, ActDun.OPEN_IMAGE, item);
       break;
   }
 

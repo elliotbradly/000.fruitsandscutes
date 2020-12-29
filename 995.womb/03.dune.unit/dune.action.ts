@@ -4,6 +4,42 @@ import DuneBit from "./fce/dune.bit";
 // Dune actions
 //Treachous host
 
+export const INIT_IMAGE = "[Image action] Init Image";
+export class InitImage implements Action {
+  readonly type = INIT_IMAGE;
+  constructor(public bale: DuneBit) {}
+}
+
+export const OPEN_IMAGE = "[Image action] Open Image";
+export class OpenImage implements Action {
+  readonly type = OPEN_IMAGE;
+  constructor(public bale: DuneBit) {}
+}
+
+export const UPDATE_IMAGE = "[Image action] Update Image";
+export class UpdateImage implements Action {
+  readonly type = UPDATE_IMAGE;
+  constructor(public bale: DuneBit) {}
+}
+
+export const RESIZE_IMAGE = "[Image action] Resize Image";
+export class ResizeImage implements Action {
+  readonly type = RESIZE_IMAGE;
+  constructor(public bale: DuneBit) {}
+}
+
+export const REPLACE_IMAGE = "[Image action] Replace Image";
+export class ReplaceImage implements Action {
+  readonly type = REPLACE_IMAGE;
+  constructor(public bale: DuneBit) {}
+}
+
+export const CLOSE_IMAGE = "[Image action] Close Image";
+export class CloseImage implements Action {
+  readonly type = CLOSE_IMAGE;
+  constructor(public bale: DuneBit) {}
+}
+
 export const INIT_TEXT = "[Text action] Init Text";
 export class InitText implements Action {
   readonly type = INIT_TEXT;
@@ -60,4 +96,10 @@ export type Actions =
   | UpdateText
   | ResizeText
   | ReplaceText
-  | CloseText;
+  | CloseText
+  | InitImage
+  | OpenImage
+  | UpdateImage
+  | ResizeImage
+  | ReplaceImage
+  | CloseImage;
