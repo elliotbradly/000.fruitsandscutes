@@ -4,3 +4,5 @@
 01.image : 002.2020-12-20-13-05-01-window.png
 01.image : 003.2020-12-20-13-05-01-window.png
 01.image : 004.2020-12-20-13-05-01-window.png
+02.axis : 000.00001okeenokee-swamp.json
+02.ambit : 000.georgia.json

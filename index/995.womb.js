@@ -1399,6 +1399,7 @@ exports.initWitness = (cpy, bal, ste) => {
 exports.readArte = (cpy, bal, ste) => {
     var val = Number(bal.val);
     var item = cpy.witnessList[val];
+    //now open
     debugger;
     return cpy;
 };
@@ -1978,6 +1979,11 @@ exports.DRAGFILE = "screen.dragFile";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TEXT = { idx: 0, nom: "text" };
 exports.IMAGE = { idx: 1, nom: "image" };
+exports.AXIS = { idx: 2, nom: "axis" };
+exports.AMBIT = { idx: 2, nom: "ambit" };
+exports.LOT = { idx: 2, nom: "lot" };
+exports.SLOT = { idx: 2, nom: "slot" };
+exports.SPACE = { idx: 2, nom: "space" };
 
 },{}],61:[function(require,module,exports){
 "use strict";
@@ -1985,6 +1991,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const ARTE = require("./arte-type");
 exports.PNG = { idx: "png", typ: ARTE.IMAGE };
 exports.TXT = { idx: "txt", typ: ARTE.TEXT };
+exports.GSJSN = { idx: "json", typ: ARTE.AMBIT };
 
 },{"./arte-type":60}],62:[function(require,module,exports){
 "use strict";
