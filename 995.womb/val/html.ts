@@ -10,3 +10,4 @@ export const witnessPage: string = require("../../../995.womb/see/008.witness-pa
 export const linkPage: string = require("../../../995.womb/see/009.link-page.html");
 export const contentRadio: string = require("../../../995.womb/see/010.content-radio.html");
 export const linkButton: string = require("../../../995.womb/see/011.link-button.html");
+export const linkErrorPage: string = require("../../../995.womb/see/012.link-error-page.html");

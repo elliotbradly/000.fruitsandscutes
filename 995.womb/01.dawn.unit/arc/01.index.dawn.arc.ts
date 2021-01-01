@@ -17,4 +17,6 @@ export default class IndexDawnArc extends Arc {
   update = (dat: DawnBit) => this.path.move(this.state, Act.UPDATE_DAWN, dat);
   create = (dat: DawnBit) => this.path.move(this.state, Act.CREATE_LINK, dat);
   replace = (dat: DawnBit) => this.path.move(this.state, Act.REPLACE_DATA, dat);
+  extract = (dat: DawnBit) =>
+    this.path.move(this.state, Act.EXTRACT_FILE_DATA, dat);
 }

@@ -7,6 +7,7 @@ export const CLOSE = "close";
 export const DELETE = "delete";
 export const DROP = "drop";
 export const EXTRACT = "extract";
+export const ERROR = "error";
 export const FETCH = "fetch";
 export const INIT = "init";
 export const LIST = "list";

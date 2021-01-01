@@ -206,6 +206,7 @@ exports.CLOSE = "close";
 exports.DELETE = "delete";
 exports.DROP = "drop";
 exports.EXTRACT = "extract";
+exports.ERROR = "error";
 exports.FETCH = "fetch";
 exports.INIT = "init";
 exports.LIST = "list";

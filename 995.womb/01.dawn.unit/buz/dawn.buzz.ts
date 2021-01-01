@@ -1,11 +1,10 @@
 var sourceEnd = "./index/dat/arte.txt";
 
 export const initDawn = (cpy: DawnModel, bal: DawnBit, ste: State) => {
-  //attach yourself to the file
-
-  hark(ste, PVT.HYP, HrkScn.DRAGFILE, (val) => {
-    if (val != null) patch(ste, Act.EXTRACT_FILE_DATA, val);
-  });
+  //attach yourself to the  drop file
+  //hark(ste, PVT.HYP, HrkScn.DRAGFILE, (val) => {
+  //  if (val != null) patch(ste, Act.EXTRACT_FILE_DATA, val);
+  //});
 
   for (var key in ARTE) {
     cpy.arteList.push(ARTE[key].nom);
@@ -66,7 +65,8 @@ export const extractFileData = (cpy: DawnModel, bal: FileBit, ste: State) => {
     }
   }
 
-  if (good == false) return console.log("not what we need");
+  if (good == false)
+    return patch(ste, ActShr.ERROR_LINK, { val: 0, idx: cpy.fileEnd });
 
   list.pop();
   cpy.fileName = S(list.join(".")).slugify().s;

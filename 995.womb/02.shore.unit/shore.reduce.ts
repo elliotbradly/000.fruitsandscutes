@@ -25,6 +25,11 @@ export function reducer(
     case Act.RESIZE_WITNESS:
       return Buzz.resizeWitness(clone(model), act.bale, state);
 
+    //link
+
+    case Act.ERROR_LINK:
+      return Buzz.errorLink(clone(model), act.bale, state);
+
     case Act.RESIZE_LINK:
       return Buzz.resizeLink(clone(model), act.bale, state);
 

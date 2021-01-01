@@ -16,3 +16,4 @@ export { openLink } from "./buz/03.link.buzz";
 export { updateLink } from "./buz/03.link.buzz";
 export { resizeLink } from "./buz/03.link.buzz";
 export { replaceData } from "./buz/03.link.buzz";
+export { errorLink } from "./buz/03.link.buzz";

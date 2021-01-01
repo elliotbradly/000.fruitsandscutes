@@ -123,9 +123,13 @@ export const createDragable = (
     var fileBit: FileBit = { path, name };
     ste.dispatch({ type: Act.WRITE_DRAG_FILE, bale: fileBit });
 
-    if (bal.src == null) return;
-
-    ste.dispatch({ type: bal.src, bale: bal.dat });
+    if (bal.src != null) {
+      ste.dispatch({ type: bal.src, bale: bal.dat });
+      return false;
+    } else if (bal.dat != null) {
+      pivot(ste, bal.dat.pvt, bal.dat.hke, bal.dat.mth, fileBit);
+      return false;
+    }
 
     //console.log("show me path " + path);
 

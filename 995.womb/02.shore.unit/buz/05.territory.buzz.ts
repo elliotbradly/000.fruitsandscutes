@@ -14,34 +14,86 @@ export const initLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
 };
 
 export const openLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
-  //create page
+  var list = ste.value.dawn.arteList;
+  var line = [];
+
+  //creates radio buttons
+  list.forEach((a, b) => {
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+      src: HTML.contentRadio,
+      dat: { radioLabel: a, radioIDX: radioBtnIdx + b },
+    });
+
+    var item = query(ste, PVT.HYP, HrkScn.COMPILE);
+    line.push(item);
+  });
+
+  //adds radio buttons
   pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
     src: HTML.linkPage,
     idx: pageIDX,
+    dat: { radioList: line.join("\n"), linkClass: linkDisabled },
   });
 
   //create drop area
-  pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, {
-    idx: arteDropIDX,
-    dat: { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.EXTRACT },
-  });
+  pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, { idx: arteDropIDX });
+  patch(ste, Act.UPDATE_LINK, { val: 0 });
 };
 
 export const updateLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
-  debugger;
-  return cpy;
-};
-
-export const errorLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
   switch (bal.val) {
     case 0:
+      //disables link btn
       pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
-        src: HTML.linkErrorPage,
-        idx: pageIDX,
-        dat: { label: bal.idx + " not supported" },
+        idx: linkDisplay,
+        src: HTML.linkButton,
+        dat: {
+          btnIDX: linkBtnIDX,
+          linkClass: linkDisabled,
+          label: "activate link",
+        },
       });
 
-      setTimeout(() => patch(ste, Act.OPEN_LINK, null), 1333);
+      pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+        idx: streamDisplay,
+        src: HTML.linkButton,
+        dat: {
+          btnIDX: linkBtnIDX,
+          linkClass: linkDisabled,
+          label: "stream data",
+        },
+      });
+
+      var dex = ste.value.dawn.fileDex;
+      document.getElementById(nameInput)["value"] = "";
+
+      document.getElementById(radioBtnIdx + dex)["checked"] = false;
+
+      break;
+
+    case 1:
+      pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+        idx: linkDisplay,
+        src: HTML.linkButton,
+        dat: { btnIDX: linkBtnIDX, linkClass: linkAbled },
+      });
+
+      var name = ste.value.dawn.fileName;
+      var dex = ste.value.dawn.fileDex;
+
+      document.getElementById(nameInput)["value"] = name;
+
+      document.getElementById(radioBtnIdx + dex)["checked"] = true;
+      document.getElementById(radioBtnIdx + dex).focus();
+
+      //now activate the link button
+      pivot(ste, PVT.HYP, HkeScn.HANDLE, B.MAKE, {
+        idx: linkBtnIDX,
+        lst: [
+          { pvt: PVT.WMB, hke: Hke.LINK, mth: B.REPLACE },
+          { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.CREATE },
+        ],
+      });
 
       break;
   }

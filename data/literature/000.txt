@@ -1,2 +1,23 @@
+  //creates radio buttons
+  list.forEach((a, b) => {
+    pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+      src: HTML.contentRadio,
+      dat: { radioLabel: a, radioIDX: radioBtnIdx + b },
+    });
+
+    var item = query(ste, PVT.HYP, HrkScn.COMPILE);
+    line.push(item);
+  });
+
+  //adds radio buttons
+  pivot(ste, PVT.HYP, HkeScn.INDEX, B.PUSH, {
+    src: HTML.linkPage,
+    idx: pageIDX,
+    dat: { radioList: line.join("\n"), linkClass: linkDisabled },
+  });
+
+  //create drop area
+  pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, { idx: arteDropIDX });
+  patch(ste, Act.UPDATE_LINK, { val: 0 });
 
 

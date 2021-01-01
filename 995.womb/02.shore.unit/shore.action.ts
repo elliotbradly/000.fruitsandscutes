@@ -89,6 +89,12 @@ export class ResizeLink implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+export const ERROR_LINK = "[Shore action] Error Link";
+export class ErrorLink implements Action {
+  readonly type = ERROR_LINK;
+  constructor(public bale: ShoreBit) {}
+}
+
 export const REPLACE_DATA = "[Shore action] Replace Data";
 export class ReplaceData implements Action {
   readonly type = REPLACE_DATA;
@@ -124,4 +130,5 @@ export type Actions =
   | ResizeLink
   | ReplaceData
   | ListWitnessContent
-  | CloseLink;
+  | CloseLink
+  | ErrorLink;

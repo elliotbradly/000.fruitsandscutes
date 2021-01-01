@@ -19,6 +19,9 @@ export function reducer(
     case Act.PUSH_PIVOT:
       return Buzz.pushPivot(clone(model), act.bale, state);
 
+    case Act.EXTRACT_DATA:
+      return Buzz.extractData(clone(model), act.bale, state);
+
     default:
       return model;
   }
