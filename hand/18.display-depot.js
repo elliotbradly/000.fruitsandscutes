@@ -9,20 +9,18 @@ export class {{=it.src}}{{=it.nom}} implements Action {
   constructor(public bale: {{=it.dat}}Bit) {}
 }`
 
-var tmp0 =`export const {{=it.src}}{{=it.nom}} = (cpy: {{=it.dat}}Model, bal:{{=it.dat}}Bit, ste: State) => {
+var tmp0 =`export const {{=it.pew}}{{=it.nom}} = (cpy: {{=it.dat}}Model, bal:{{=it.dat}}Bit, ste: State) => {
   debugger
   return cpy;
  };
  `
 
- var tmp1 = `export { {{=it.src}}{{=it.nom}}  } from "./buz/{{=it.title}}.buzz";`
+ var tmp1 = `export { {{=it.pew}}{{=it.nom}}  } from "./buz/{{=it.title}}.buzz";`
 
  var tmp2 = `
  case Act.{{=it.idx}}_{{=it.name}}:
-  return Buzz.{{=it.src}}{{=it.nom}}(clone(model), act.bale, state);
+  return Buzz.{{=it.pew}}{{=it.nom}}(clone(model), act.bale, state);
   `
-
-
 
 var doT = require("dot");
 var FS = require("fs-extra");
@@ -44,7 +42,9 @@ if ( parm.length != 2 ) return console.log("no length on param")
 
 var idx = parm[0].toUpperCase();
 var src = S(parm[0]).titleCase().s;
- 
+var root = parm[0].toLowerCase();
+var Root = S(parm[0]).titleCase().s 
+
 var dat = src;
 var da = dat.toLowerCase()
 var data = S(src).titleCase().s;
@@ -64,9 +64,10 @@ var fin = ['', ]
 act.forEach( (a)=>{
 
 idx = a.toUpperCase();
-src = S(a).titleCase().s 
+src = S(a).titleCase().s
+pew = a.toLowerCase(); 
 
-var gel = {idx, src, name, nom, dat, data, title}
+var gel = {idx, src, name, nom, dat, data, title, pew}
 
 fin.push( src + nom)
 
@@ -108,7 +109,30 @@ var crapmostank = buzLst.join('\n')
 var tingTow = ducLst.join('\n'); 
 //a pocket full of poke balls
 
-var way = [ringy, '\n', mappleDacks, '\n',  newtbox, '\n', crapmostank, '\n', tingTow ]
+var way = [ '//' + title, ringy, '\n', '//' + title, mappleDacks, '\n', '//' + title,  '\n', crapmostank, '//' + title, '\n', tingTow ]
+
+var master = FS.readFileSync('./hand/01.code-depot/display-buz-init.txt').toString().split('\n')
+
+var gel = {
+  functions:newtbox,
+  dat,
+  code: way.join('\n'),
+  root,
+  title,
+  Root,
+  name
+}
+
+var finLine = [];
+master.forEach((a)=>{
+  var doTCompiled = doT.template(a);
+  var outLine = doTCompiled(gel);
+  finLine.push( outLine)  
+})
+
+
+FS.writeFileSync( './data/redux/' + title + '.buzz.ts', finLine.join('\n'))
 
 clipboardy.writeSync( way.join('\n') )
+
 

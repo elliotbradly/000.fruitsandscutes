@@ -1,3 +1,4 @@
+0367_13192:15209:0638:0794_10:05:54 January 1st Friday am 2021 ~ time-to-open-an-artefact
 0366_13394:15437:0639:0795_08:37:09 January 1st Friday am 2021 ~ can-display-an-error-message
 0365_13079:15087:0636:0793_06:00:58 December 29th Tuesday pm 2020 ~ open-image
 0364_12953:14961:0636:0792_05:39:11 December 29th Tuesday pm 2020 ~ open-text

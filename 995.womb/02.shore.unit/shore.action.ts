@@ -113,6 +113,44 @@ export class ListWitnessContent implements Action {
   constructor(public bale: ShoreBit) {}
 }
 
+//artefacte
+
+export const INIT_ARTEFACTE = "[Artefacte action] Init Artefacte";
+export class InitArtefacte implements Action {
+  readonly type = INIT_ARTEFACTE;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const OPEN_ARTEFACTE = "[Artefacte action] Open Artefacte";
+export class OpenArtefacte implements Action {
+  readonly type = OPEN_ARTEFACTE;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const UPDATE_ARTEFACTE = "[Artefacte action] Update Artefacte";
+export class UpdateArtefacte implements Action {
+  readonly type = UPDATE_ARTEFACTE;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const RESIZE_ARTEFACTE = "[Artefacte action] Resize Artefacte";
+export class ResizeArtefacte implements Action {
+  readonly type = RESIZE_ARTEFACTE;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const REPLACE_ARTEFACTE = "[Artefacte action] Replace Artefacte";
+export class ReplaceArtefacte implements Action {
+  readonly type = REPLACE_ARTEFACTE;
+  constructor(public bale: ShoreBit) {}
+}
+
+export const CLOSE_ARTEFACTE = "[Artefacte action] Close Artefacte";
+export class CloseArtefacte implements Action {
+  readonly type = CLOSE_ARTEFACTE;
+  constructor(public bale: ShoreBit) {}
+}
+
 export type Actions =
   | ReadArte
   | InitShore
@@ -131,4 +169,11 @@ export type Actions =
   | ReplaceData
   | ListWitnessContent
   | CloseLink
-  | ErrorLink;
+  | ErrorLink
+  //artefacte
+  | InitArtefacte
+  | OpenArtefacte
+  | UpdateArtefacte
+  | ResizeArtefacte
+  | ReplaceArtefacte
+  | CloseArtefacte;

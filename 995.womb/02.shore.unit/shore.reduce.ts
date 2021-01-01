@@ -25,7 +25,25 @@ export function reducer(
     case Act.RESIZE_WITNESS:
       return Buzz.resizeWitness(clone(model), act.bale, state);
 
-    //link
+    //artefacte
+
+    case Act.INIT_ARTEFACTE:
+      return Buzz.initArtefacte(clone(model), act.bale, state);
+
+    case Act.OPEN_ARTEFACTE:
+      return Buzz.openArtefacte(clone(model), act.bale, state);
+
+    case Act.UPDATE_ARTEFACTE:
+      return Buzz.updateArtefacte(clone(model), act.bale, state);
+
+    case Act.RESIZE_ARTEFACTE:
+      return Buzz.resizeArtefacte(clone(model), act.bale, state);
+
+    case Act.REPLACE_ARTEFACTE:
+      return Buzz.replaceArtefacte(clone(model), act.bale, state);
+
+    case Act.CLOSE_ARTEFACTE:
+      return Buzz.closeArtefacte(clone(model), act.bale, state);
 
     case Act.ERROR_LINK:
       return Buzz.errorLink(clone(model), act.bale, state);

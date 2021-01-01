@@ -1,0 +1,42 @@
+var contentIDX = "{{=it.title}}Page";
+
+{{=it.functions}}
+
+var query = (ste, pvt, hrk) => {
+  var val = ste.value.title[pvt].query(hrk);
+  if (val == null) return console.error("no val for " + pvt + " : " + hrk);
+  return val;
+};
+
+var patch = (ste, type, bale) => ste.dispatch({ type, bale });
+
+var pivot = (ste, pvt, hke, mth, dat?) => {
+  ste.dispatch({
+    type: ActTtl.PULL_PIVOT,
+    bale: {
+      pvt,
+      hke,
+      mth,
+      dat,
+    },
+  });
+};
+
+import * as B from "../../00.core/constant/BASIC";
+import * as PVT from "../../val/pivot";
+import * as HTML from "../../val/html";
+
+import * as Act from "../{{=it.dat}}.action";
+import * as Hke from "../{{=it.dat}}.hike";
+
+import { {{=it.Root}}Model } from "../{{=it.root}}.model";
+import {{=it.Root}}Bit from "../fce/{{=it.root}}.bit";
+import State from "../../00.core/state";
+
+import * as ActTtl from "../../00.core/title/title.action";
+import * as HkeTtl from "../../00.core/title/title.hike";
+
+///code below here
+
+
+{{=it.code}}

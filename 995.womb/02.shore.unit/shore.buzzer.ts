@@ -17,3 +17,10 @@ export { updateLink } from "./buz/03.link.buzz";
 export { resizeLink } from "./buz/03.link.buzz";
 export { replaceData } from "./buz/03.link.buzz";
 export { errorLink } from "./buz/03.link.buzz";
+
+export { initArtefacte } from "./buz/04.artefacte.buzz";
+export { openArtefacte } from "./buz/04.artefacte.buzz";
+export { updateArtefacte } from "./buz/04.artefacte.buzz";
+export { resizeArtefacte } from "./buz/04.artefacte.buzz";
+export { replaceArtefacte } from "./buz/04.artefacte.buzz";
+export { closeArtefacte } from "./buz/04.artefacte.buzz";

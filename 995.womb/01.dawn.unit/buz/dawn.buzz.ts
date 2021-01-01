@@ -73,7 +73,7 @@ export const extractFileData = (cpy: DawnModel, bal: FileBit, ste: State) => {
   cpy.fileDex = bit.typ.idx;
   cpy.file = bal;
 
-  patch(ste, ActShr.UPDATE_LINK, { val: 1 });
+  patch(ste, ActShr.OPEN_ARTEFACTE, { val: 1 });
 
   return cpy;
 };
