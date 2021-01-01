@@ -25,6 +25,26 @@ export function reducer(
     case Act.INIT_DAWN:
       return Buzz.initDawn(clone(model), act.bale, state);
 
+    //geojson
+
+    case Act.INIT_GEOJSON:
+      return Buzz.initGeojson(clone(model), act.bale, state);
+
+    case Act.OPEN_GEOJSON:
+      return Buzz.openGeojson(clone(model), act.bale, state);
+
+    case Act.UPDATE_GEOJSON:
+      return Buzz.updateGeojson(clone(model), act.bale, state);
+
+    case Act.RESIZE_GEOJSON:
+      return Buzz.resizeGeojson(clone(model), act.bale, state);
+
+    case Act.REPLACE_GEOJSON:
+      return Buzz.replaceGeojson(clone(model), act.bale, state);
+
+    case Act.CLOSE_GEOJSON:
+      return Buzz.closeGeojson(clone(model), act.bale, state);
+
     default:
       return model;
   }

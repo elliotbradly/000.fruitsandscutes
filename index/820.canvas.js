@@ -213,6 +213,7 @@ exports.CLOSE = "close";
 exports.DELETE = "delete";
 exports.DROP = "drop";
 exports.EXTRACT = "extract";
+exports.ERROR = "error";
 exports.FETCH = "fetch";
 exports.INIT = "init";
 exports.LIST = "list";
@@ -3187,6 +3188,8 @@ exports.resizeSurface = (cpy, bal, ste) => {
         var parent = cnv.parentElement;
         item.width = parent.clientWidth;
         item.height = parent.clientHeight;
+        if (bal.height != null)
+            item.height = bal.height;
         //surf.renderer.view.style.width = item.width + "px";
         //surf.renderer.view.style.height = item.height + "px";
     }

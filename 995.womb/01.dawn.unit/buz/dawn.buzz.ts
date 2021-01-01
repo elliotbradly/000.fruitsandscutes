@@ -73,7 +73,18 @@ export const extractFileData = (cpy: DawnModel, bal: FileBit, ste: State) => {
   cpy.fileDex = bit.typ.idx;
   cpy.file = bal;
 
-  patch(ste, ActShr.OPEN_ARTEFACTE, { val: 1 });
+  switch (cpy.fileEnd) {
+    case FILE_TYPE.JSON.idx:
+      var item = FS.readJsonSync(bal.path);
+      if (item.type != null) {
+        if (item.type == "FeatureCollection") {
+          patch(ste, Act.OPEN_GEOJSON, { dat: item });
+          patch(ste, ActShr.OPEN_ARTEFACTE, { val: 1 });
+        }
+      }
+
+      break;
+  }
 
   return cpy;
 };

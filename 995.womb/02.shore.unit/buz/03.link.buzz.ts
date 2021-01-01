@@ -1,5 +1,5 @@
 var pageIDX = "pge0";
-var arteDropIDX = "arteDrop";
+var arteDropIDX = "fce00";
 var linkAbled = "btn btn-block btn-lg";
 var linkDisabled = "btn btn-block btn-lg disabled";
 var linkDisplay = "linkBtnDisplay";
@@ -10,6 +10,12 @@ var linkBtnIDX = "linkBtn";
 var radioBtnIdx = "rdi";
 
 export const initLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
+  //create drop area
+  pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, {
+    idx: arteDropIDX,
+    dat: { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.EXTRACT },
+  });
+
   return cpy;
 };
 
@@ -19,16 +25,9 @@ export const openLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     src: HTML.linkPage,
     idx: pageIDX,
   });
-
-  //create drop area
-  pivot(ste, PVT.HYP, HkeScn.HANDLE, B.CREATE, {
-    idx: arteDropIDX,
-    dat: { pvt: PVT.WMB, hke: HkeDwn.INDEX, mth: B.EXTRACT },
-  });
 };
 
 export const updateLink = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
-  debugger;
   return cpy;
 };
 

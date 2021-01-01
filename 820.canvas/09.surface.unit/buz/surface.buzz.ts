@@ -54,6 +54,8 @@ export const resizeSurface = (
     var parent = cnv.parentElement;
     item.width = parent.clientWidth;
     item.height = parent.clientHeight;
+
+    if (bal.height != null) item.height = bal.height;
     //surf.renderer.view.style.width = item.width + "px";
     //surf.renderer.view.style.height = item.height + "px";
   } else {

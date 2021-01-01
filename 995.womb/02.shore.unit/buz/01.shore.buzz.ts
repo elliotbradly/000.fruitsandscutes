@@ -85,6 +85,8 @@ export const resizeShore = (cpy: ShoreModel, bal: ShoreBit, ste: State) => {
     width: bal.x,
   });
 
+  patch(ste, Act.RESIZE_ARTEFACTE, bal);
+
   return cpy;
 };
 
