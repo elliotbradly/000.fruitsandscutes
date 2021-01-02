@@ -1,3 +1,5 @@
+export const FTE: string = "fate";
+export const CLR: string = "color";
 export const HYP: string = "hyper";
 export const CVS: string = "canvas";
 export const HEX: string = "hexmap";

@@ -1,17 +1,20 @@
 //goes through and updates all pivot ids in a project
+//needs a source pivot to win
 var FS = require("fs-extra");
 var clipboardy = require("clipboardy");
 var S = require('string');
 //remember to figure out how to disable apple keypad entry
 var title = "733.portal";
 var srcPivot = "/val/pivot.ts";
-var srcItm = './' + title + srcPivot;
 
 var program = require("commander");
 program.option("-t, --title <type>", "title of message");
 program.parse(process.argv);
 
 if (program.title) title = program.title;
+
+var srcItm = './' + title + srcPivot;
+
 
 var list = FS.readdirSync("../");
 

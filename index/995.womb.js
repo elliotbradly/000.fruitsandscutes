@@ -1047,7 +1047,6 @@ exports.resizeGeojson = (cpy, bal, ste) => {
     return cpy;
 };
 exports.replaceGeojson = (cpy, bal, ste) => {
-    debugger;
     return cpy;
 };
 exports.closeGeojson = (cpy, bal, ste) => {
@@ -2716,6 +2715,8 @@ exports.hexProcess = require("../../../995.womb/see/013.hex-process.html");
 },{"../../../995.womb/see/000.testCase.html":2,"../../../995.womb/see/001.page.html":3,"../../../995.womb/see/002.navBar.html":4,"../../../995.womb/see/003.nav-btn-0.html":5,"../../../995.womb/see/004.drop-file-page.html":6,"../../../995.womb/see/005.pub-with-sub-nav.html":7,"../../../995.womb/see/006.clr-btn-00.html":8,"../../../995.womb/see/007.start-up.html":9,"../../../995.womb/see/008.witness-page.html":10,"../../../995.womb/see/009.link-page.html":11,"../../../995.womb/see/010.content-radio.html":12,"../../../995.womb/see/011.link-button.html":13,"../../../995.womb/see/012.link-error-page.html":14,"../../../995.womb/see/013.hex-process.html":15}],78:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FTE = "fate";
+exports.CLR = "color";
 exports.HYP = "hyper";
 exports.CVS = "canvas";
 exports.HEX = "hexmap";
