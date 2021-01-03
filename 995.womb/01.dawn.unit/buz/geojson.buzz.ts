@@ -6,7 +6,8 @@ export const initGeojson = (cpy: DawnModel, bal: DawnBit, ste: State) => {
 };
 
 export const openGeojson = (cpy: DawnModel, bal: DawnBit, ste: State) => {
-  debugger;
+  pivot(ste, PVT.HEX, HkeHex.INDEX, B.OPEN, bal);
+
   return cpy;
 };
 
@@ -61,3 +62,6 @@ import State from "../../00.core/state";
 
 import * as ActTtl from "../../00.core/title/title.action";
 import * as HkeTtl from "../../00.core/title/title.hike";
+
+import * as HkeHex from "../../hke/hexmap.hike";
+import * as HrkHex from "../../hrk/hexmap.hark";

@@ -823,6 +823,7 @@ class IndexHexmapArc extends arc_form_1.default {
         this.init = (dat) => this.path.move(this.state, Act.INIT_HEXMAP, dat);
         this.update = (dat) => this.path.move(this.state, Act.UPDATE_HEXMAP, dat);
         this.add = (dat) => this.path.move(this.state, Act.ADD_HEXMAP, dat);
+        this.open = (dat) => this.path.move(this.state, Act.OPEN_HEXDATA, dat);
     }
 }
 __decorate([
@@ -917,6 +918,14 @@ class UpdateHexmap {
     }
 }
 exports.UpdateHexmap = UpdateHexmap;
+exports.OPEN_HEXDATA = "[Hexmap action] Open Hexdata";
+class OpenHexdata {
+    constructor(bale) {
+        this.bale = bale;
+        this.type = exports.OPEN_HEXDATA;
+    }
+}
+exports.OpenHexdata = OpenHexdata;
 exports.ADD_HEXMAP = "[Hexmap action] Add Hexmap";
 class AddHexmap {
     constructor(bale) {

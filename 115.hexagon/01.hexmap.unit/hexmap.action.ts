@@ -14,10 +14,16 @@ export class UpdateHexmap implements Action {
   constructor(public bale: HexmapBit) {}
 }
 
+export const OPEN_HEXDATA = "[Hexmap action] Open Hexdata";
+export class OpenHexdata implements Action {
+  readonly type = OPEN_HEXDATA;
+  constructor(public bale: HexmapBit) {}
+}
+
 export const ADD_HEXMAP = "[Hexmap action] Add Hexmap";
 export class AddHexmap implements Action {
   readonly type = ADD_HEXMAP;
   constructor(public bale: HexmapBit) {}
 }
 
-export type Actions = InitHexmap | UpdateHexmap | AddHexmap;
+export type Actions = InitHexmap | UpdateHexmap | AddHexmap | OpenHexdata;

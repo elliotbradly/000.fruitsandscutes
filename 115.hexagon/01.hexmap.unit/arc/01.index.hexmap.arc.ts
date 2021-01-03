@@ -17,4 +17,6 @@ export default class IndexHexmapArc extends Arc {
   update = (dat: HexmapBit) =>
     this.path.move(this.state, Act.UPDATE_HEXMAP, dat);
   add = (dat: HexmapBit) => this.path.move(this.state, Act.ADD_HEXMAP, dat);
+
+  open = (dat: HexmapBit) => this.path.move(this.state, Act.OPEN_HEXDATA, dat);
 }

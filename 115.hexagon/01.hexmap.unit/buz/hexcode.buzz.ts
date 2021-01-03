@@ -6,12 +6,14 @@ export const updateHexmap = (cpy: HexmapModel, bal: HexmapBit, ste: State) => {
   return cpy;
 };
 
-export const addHexMap = (cpy: HexmapModel, bal: HexmapBit, ste: State) => {
+export const openHexdata = (cpy: HexmapModel, bal: HexmapBit, ste: State) => {
   var scale = 2;
   var hex = [];
   var map = [];
 
   var data = bal.dat;
+
+  debugger;
 
   while (hex.length < 3) {
     scale += 1;
@@ -250,10 +252,10 @@ export const addHexMap = (cpy: HexmapModel, bal: HexmapBit, ste: State) => {
       endMap[a.hex] = a;
     });
 
-    var entrance = this.fate.pick(map);
+    //var entrance = this.fate.pick(map);
 
     pivot(ste, PVT.FTE, HkeFtr.INDEX, B.MATCH, { idx: data.name });
-    entrance = query(ste, PVT.FTE, HrkFtr.VALUE);
+    var entrance = query(ste, PVT.FTE, HrkFtr.VALUE);
 
     var size = [1, 2, 3, 3, 3, 4, 5];
 
@@ -490,5 +492,3 @@ import * as HkeFtr from "../../hke/future.hike";
 import * as HrkFtr from "../../hrk/future.hark";
 
 import * as clone from "clone-deep";
-
-import { VALUE } from "../hexmap.hark";
